@@ -1,21 +1,26 @@
 <html>
-<head>
-	<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
+<head>
+<meta charset="UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-	<script>
+<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
 
 
-	var test  = $('h1');
 
+<script>
+ $(function() {
+$( ".card" ).draggable();
+});
 
-	</script>
+ </script>
 
-	<style>
-	body {
+<style>
+body {
 		font-family: Ubuntu;
 		margin:0;
 		padding: 0;
@@ -33,13 +38,86 @@
 			padding: 5px 10px;
 			margin: 0;
 		}
-		
-	</style>
+
+body {
+margin: 0;
+padding: 0;
+font-family: 'Just Another Hand';
+font-size: 40px;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+
+.card {
+	border: 1px solid gray;
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	padding: 10px;
+	color: black;
+  	text-overflow: ellipsis;
+    background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 0.05em, rgba(0,0,0,0) 0.05em);
+ 	background-color: white;
+	background-size: 100% 12px;
+}
+.card:hover {
+	cursor: pointer;
+}
+
+
+.card.yellow {
+	background-color: yellow;
+}
+.card.pink{
+	background-color: pink;
+}
+.card.blue{
+	background-color: lightblue;
+}
+
+
+</style>
 
 </head>
-<body>
 
-	<header><h1>scrībō</h1></header>
+<body>
+<header><h1>scrībō</h1></header>
+
+<div class="board">
+	<div class="card yellow">
+		<p>text here</p>
+	</div>
+	<div class="card pink">
+		<p>text here</p>
+	</div>
+	<div class="card blue">
+		<p>text herfdg dgdf dfg dg sdg dfgdfgh ;kldfklj dsfgjkl	e</p>
+	</div>
+
+</div>
+
 
 </body>
+
+
 </html>
+
+
+<!-- 
+user account
+=facebok
+
+-each user has "cards"
+
+
+
+api
+
+GET /cards/
+GET /cards/12
+PUT /cards {sdfd}
+DELETE /cards -->
