@@ -10,101 +10,82 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 
-
-
-
-
-
 	<script>
-	var app = app || {};
+		var app = app || {};
 
-	$(function() {
-	
+		$(function() {
 
-	// Model
-	app.CardModel = Backbone.Model.extend({});
+			// Model
+			app.CardModel = Backbone.Model.extend({});
 
-	// Collection
-	app.CardCollection = Backbone.Collection.extend({
-	  	model: app.CardModel,
-	  	url: '/cards.json'
-	});
+			// Collection
+			app.CardCollection = Backbone.Collection.extend({
+			  	model: app.CardModel,
+			  	url: '/cards.json'
+			});
 
-	// Create new collectino
- 	app.cards = new app.CardCollection();
+			// Create new collectino
+		 	app.cards = new app.CardCollection();
 
- 	// get cards collection
-	app.cards.fetch();
-
+		 	// get cards collection
+			app.cards.fetch();
 
 
 
-  app.AppView = Backbone.View.extend({
-     el: $('#cards'),
+		  app.AppView = Backbone.View.extend({
+		     el: $('#cards'),
+
+		     initialize: function() {
+				this.listenTo(app.cards, 'reset', this.addAll);
+	     		app.cards.fetch({reset: true});
+	        },
+
+			addOne: function (card) {
+				var view = new app.CardView({ model: card });
+				this.$el.append(view.render().el);
+			},
+
+			// Add all items in the **Todos** collection at once.
+			addAll: function () {
+				app.cards.each(this.addOne, this);
+				_makeDraggable();
+			}
+		});
 
 
-     initialize: function() {
+		  app.CardView = Backbone.View.extend({
 
-			this.listenTo(app.cards, 'reset', this.addAll);
-			
-     		app.cards.fetch({reset: true});
+		     template: _.template( $('#card-template').html() ),
+
+		     render: function () {
+
+		     		this.$el.html(this.template(this.model.toJSON()));
+		     		return this;
+		     	}
+
+		  });
+
+		 new app.AppView();
 
 
-        },
+		var _makeDraggable= function() {
+			var cards = $('.card');
 
+			var zIndex = cards.length;
 
-		addOne: function (card) {
-			var view = new app.CardView({ model: card });
-			this.$el.append(view.render().el);
-		},
+			var _dragStart = function(event, ui) {
+				$(this).addClass('dragging');
+				$(this).css({"zIndex": ++zIndex});
+			};
+			var _dragStop = function(event, ui) {
+				$(this).removeClass('dragging');
+			};
 
-		// Add all items in the **Todos** collection at once.
-		addAll: function () {
-
-		
-			app.cards.each(this.addOne, this);
-			_makeDraggable();
+			cards.draggable(); 
+			cards.on("mousedown", _dragStart);
+			cards.on("mouseup", _dragStop);
 		}
-});
-
-
-  app.CardView = Backbone.View.extend({
-
-     template: _.template( $('#card-template').html() ),
-
-     render: function () {
-
-     				this.$el.html(this.template(this.model.toJSON()));
-     				return this;
-     			}
-
-  });
-
-
- new app.AppView();
-
-
-
-
-var _makeDraggable= function() {
-		var cards = $('.card');
-
-		var zIndex = cards.length;
-
-		var _dragStart = function(event, ui) {
-			$(this).addClass('dragging');
-			$(this).css({"zIndex": ++zIndex});
-		};
-		var _dragStop = function(event, ui) {
-			$(this).removeClass('dragging');
-		};
-
-		cards.draggable(); 
-		cards.on("mousedown", _dragStart);
-		cards.on("mouseup", _dragStop);
-
-}
-		
+			
 	});
 	</script>
 
