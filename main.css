@@ -108,7 +108,6 @@ ul#cards li .card {
 	.classic ul#cards li .card {
 		padding: 20px 10px 10px;
 	  	text-overflow: ellipsis;
-	    /*background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 1px, rgba(0,0,0,0) 1px);*/
 	    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
 		background-size: 100% 16px;
 	}
