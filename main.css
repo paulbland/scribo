@@ -1,0 +1,188 @@
+
+html {
+	height: 100%;
+}
+body {
+	background: #464646;
+	margin: 0;
+
+	padding:  10px;
+	font-family: 'Helvetica Neue';
+	font-weight: 200;
+	font-size: 18px;
+	line-height: 23px;
+	height: 100%;
+}
+
+h1 {
+	position: absolute;
+	bottom: 0;
+	right: 50px;
+	font-size: 200px;
+	color: #424242; /*this should darken bg */
+	letter-spacing: -5px;
+}	
+
+nav {
+	position: fixed;
+	background: #292929;
+	top: 0;
+	height: 100%;
+	right: 0;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
+	color: white;
+	z-index: 1;
+	transition: width 150ms linear;
+	width: 40px;
+}
+
+nav:before {
+	content: '_ _ _';
+	font-size: 40px;
+	font-weight: bold;
+	color: white;
+	line-height: 6px;
+	width: 30px;
+	margin: 0 0 0 10px;
+	display: inline-block;
+	cursor: pointer;
+
+}
+
+body.nav-open nav:before {
+	content: '->';
+	font-size: 30px;
+	line-height: 44px;
+		font-weight: 200;
+
+}
+
+.nav-open nav {
+	width: 300px;
+}
+nav .settings {
+	display: none;
+}
+body.nav-open nav .settings {
+	display: block;
+}
+
+main {
+	position: absolute;
+	right: 40px;
+	height: 100%;
+	left: 0;
+	transition: all 100ms linear;
+}
+.nav-open main {
+	right: 300px;
+}
+
+ul#cards {
+	list-style: none;
+}
+ul#cards  li {
+	float: left;
+}
+ul#cards li .card {
+	
+	width: 280px;
+	height: 140px;
+	margin: 12px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+}
+	.modern .card {
+		border-top-width:10px;
+		border-top-style: solid;
+		border-radius: 3px 3px 0 0 ;
+		background: #ebebeb;
+	}
+
+	.classic .card {
+		padding: 31px 10px 10px;
+		color: black;
+	  	text-overflow: ellipsis;
+	    background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 0.05em, rgba(0,0,0,0) 0.05em);
+		background-size: 100% 20px;
+		cursor: pointer;
+		box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+		transition: margin 150ms ease-out;
+	}
+
+main .card textarea {
+	background: transparent;
+	border: 0;
+	width: 100%;
+	height: 100%;
+	resize: none;
+	box-sizing: border-box;
+}
+
+
+.modern main .card textarea {
+	
+	margin: 0 0 5px;
+	padding: 10px 13px;
+	outline: 0;
+	
+	max-height: 100%;
+	max-width: 100%;
+	transition: background 100ms ease-in-out;
+	
+}
+
+
+.modern main .card textarea:focus { background: white; }
+
+
+.classic main .card textarea {
+				padding: 5px;
+				font-family: 'Just Another Hand';
+				font-size: 40px;
+				
+				outline: none;
+				line-height: 40px;
+				letter-spacing: 0.5px;
+				
+			}
+			.classic  main .card textarea:focus {
+				outline: 2px dotted rgba(0,255,0,0.85);
+			}
+
+
+
+.modern .card.style-1 textarea:focus { outline-color: #3cb878; }
+.modern .card.style-2 textarea:focus { outline-color: #448ccb; }
+.modern .card.style-3 textarea:focus { outline-color: #f68e56; }
+.modern .card.style-4 textarea:focus { outline-color: #eb4c4c; }
+
+.modern .card.style-1 { border-color: #3cb878; }
+.modern .card.style-2 { border-color: #448ccb; }
+.modern .card.style-3 { border-color: #f68e56; }
+.modern .card.style-4 { border-color: #eb4c4c; }
+
+
+			.classic main .card.style-1 { background-color: #fded64; }
+			.classic main .card.style-2 { background-color: #9ec8e1; }
+			.classic main .card.style-3 { background-color: #f5ccdc; }
+			.classic main .card.style-4 { background-color: #a9daad; }
+			.classic main .card.style-5 { background-color: #f17e61; }
+
+
+
+status {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background: yellow;
+	padding: 5px 10px;
+	border-radius: 3px 0 0;
+	z-index: 2;
+}
+
+fieldset {
+	border: 0;
+}
