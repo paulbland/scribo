@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Scrībō</title>
+	<title>Scrībō | The index card app for screenwriters</title>
 	<link rel="stylesheet" type="text/css" href="normalize.css">
  	<link rel="stylesheet" type="text/css" href="main.css">
 
@@ -60,7 +60,6 @@
 			// Add all items in the **Todos** collection at once.
 			addAll: function () {
 				app.cards.each(this.addOne, this);
-				//_makeDraggable();
 
 				$( "#cards" ).sortable();
     			$( "#cards" ).disableSelection();
@@ -71,6 +70,10 @@
 		  app.CardView = Backbone.View.extend({
 
 		  	tagName: 'li',
+
+		  	className: function() {
+		  		return 'card style-' + this.model.get('color');
+		  	},
 
 		     template: _.template( $('#card-template').html() ),
 
@@ -85,23 +88,6 @@
 		 new app.AppView();
 
 
-		var _makeDraggable= function() {
-			var cards = $('.card');
-
-			var zIndex = cards.length;
-
-			var _dragStart = function(event, ui) {
-				$(this).addClass('dragging');
-				$(this).css({"zIndex": ++zIndex});
-			};
-			var _dragStop = function(event, ui) {
-				$(this).removeClass('dragging');
-			};
-
-			cards.draggable(); 
-			cards.on("mousedown", _dragStart);
-			cards.on("mouseup", _dragStop);
-		}
 			
 	});
 	</script>
@@ -131,9 +117,9 @@
 	<div class="status">O Saving...</div>
 
 	<script type="text/template" id="card-template">
-		<div class="card style-<%= color %>">
+		<!-- <div class="card style-<%= color %>"> -->
 		 	<textarea placeholder="Type here..."><%= text %></textarea>
-		</div>
+		<!-- </div> -->
 	</script>
 
 </body>
