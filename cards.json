@@ -1,7 +1,7 @@
 [
-	{"id":1,"top":45,"left":15,"z-index":1,"color":1,"text":"Welcome to Scribo, the index card app"},
-	{"id":2,"top":45,"left":360,"z-index":2,"color":2,"text":"Index cards are automatically saved"},
-	{"id":3,"top":45,"left":705,"z-index":3,"color":3,"text":"Click on the \"+\" icon to create a new one"},
-	{"id":4,"top":45,"left":1050,"z-index":4,"color":4,"text":"Click on the \"Trash\" icon to trash one"},
-	{"id":5,"top":260,"left":15,"z-index":5,"color":5,"text":"Click on the gear to edit one"}
+	{"id":1,"color":1,"text":"Welcome to Scribo, the index card app"},
+	{"id":2,"color":2,"text":"Index cards are automatically saved"},
+	{"id":3,"color":3,"text":"Click on the \"+\" icon to create a new one"},
+	{"id":4,"color":4,"text":"Click on the \"Trash\" icon to trash one"},
+	{"id":5,"color":5,"text":"Click on the gear to edit one"}
 ]

@@ -1,11 +1,15 @@
 
+ul, li {
+	margin:0;
+	padding:0;
+}
+
 html {
 	height: 100%;
 }
 body {
 	background: #464646;
 	margin: 0;
-
 	padding:  10px;
 	font-family: 'Helvetica Neue';
 	font-weight: 200;
@@ -85,7 +89,6 @@ ul#cards  li {
 	float: left;
 }
 ul#cards li .card {
-	
 	width: 280px;
 	height: 140px;
 	margin: 12px;
@@ -93,26 +96,24 @@ ul#cards li .card {
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
+	box-sizing: border-box;
 }
-	.modern .card {
+	.modern ul#cards li .card {
 		border-top-width:10px;
 		border-top-style: solid;
 		border-radius: 3px 3px 0 0 ;
 		background: #ebebeb;
 	}
 
-	.classic .card {
-		padding: 31px 10px 10px;
-		color: black;
+	.classic ul#cards li .card {
+		padding: 20px 10px 10px;
 	  	text-overflow: ellipsis;
-	    background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 0.05em, rgba(0,0,0,0) 0.05em);
-		background-size: 100% 20px;
-		cursor: pointer;
-		box-shadow: 0 2px 3px rgba(0,0,0,0.4);
-		transition: margin 150ms ease-out;
+	    /*background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 0.05em, rgba(0,0,0,0) 0.05em);*/
+	    background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 1px, rgba(0,0,0,0) 1px);
+		background-size: 100% 16px;
 	}
 
-main .card textarea {
+ul#cards li .card textarea {
 	background: transparent;
 	border: 0;
 	width: 100%;
@@ -121,48 +122,40 @@ main .card textarea {
 	box-sizing: border-box;
 }
 
-
-.modern main .card textarea {
-	
-	margin: 0 0 5px;
+.modern ul#cards li .card textarea {
 	padding: 10px 13px;
 	outline: 0;
-	
 	max-height: 100%;
 	max-width: 100%;
 	transition: background 100ms ease-in-out;
-	
 }
+.modern ul#cards li .card textarea:focus { background: white; }
 
 
-.modern main .card textarea:focus { background: white; }
-
-
-.classic main .card textarea {
-				padding: 5px;
-				font-family: 'Just Another Hand';
-				font-size: 40px;
-				
-				outline: none;
-				line-height: 40px;
-				letter-spacing: 0.5px;
-				
-			}
-			.classic  main .card textarea:focus {
-				outline: 2px dotted rgba(0,255,0,0.85);
-			}
+.classic ul#cards li .card textarea {
+	padding: 5px;
+	font-family: 'Just Another Hand';
+	font-size: 32px;
+	font-weight: 100;
+	outline: none;
+	line-height: 32px;
+	letter-spacing: 0.5px;
+}
+.classic ul#cards li .card textarea:focus { outline: 2px dotted rgba(0,255,0,0.85); }
 
 
 
-.modern .card.style-1 textarea:focus { outline-color: #3cb878; }
-.modern .card.style-2 textarea:focus { outline-color: #448ccb; }
-.modern .card.style-3 textarea:focus { outline-color: #f68e56; }
-.modern .card.style-4 textarea:focus { outline-color: #eb4c4c; }
+.modern ul#cards li .card.style-1 textarea:focus { outline-color: #3cb878; }
+.modern ul#cards li .card.style-2 textarea:focus { outline-color: #448ccb; }
+.modern ul#cards li .card.style-3 textarea:focus { outline-color: #f68e56; }
+.modern ul#cards li .card.style-4 textarea:focus { outline-color: #eb4c4c; }
+.modern ul#cards li .card.style-5 textarea:focus { outline-color: #fff568; }
 
-.modern .card.style-1 { border-color: #3cb878; }
-.modern .card.style-2 { border-color: #448ccb; }
-.modern .card.style-3 { border-color: #f68e56; }
-.modern .card.style-4 { border-color: #eb4c4c; }
+.modern ul#cards li .card.style-1 { border-color: #3cb878; }
+.modern ul#cards li .card.style-2 { border-color: #448ccb; }
+.modern ul#cards li .card.style-3 { border-color: #f68e56; }
+.modern ul#cards li .card.style-4 { border-color: #eb4c4c; }
+.modern ul#cards li .card.style-5 { border-color: #f3e961; }
 
 
 			.classic main .card.style-1 { background-color: #fded64; }
