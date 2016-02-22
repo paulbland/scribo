@@ -17,6 +17,9 @@ body {
 	line-height: 23px;
 	height: 100%;
 }
+body.classic {
+	background: #bbb;
+}
 
 h1 {
 	position: fixed;
@@ -26,6 +29,9 @@ h1 {
 	color: #424242; /*this should darken bg */
 	letter-spacing: -5px;
 }	
+body.classic h1 {
+	color: #b1b1b1;
+}
 
 nav {
 	position: fixed;
@@ -101,7 +107,7 @@ ul#cards li.card {
 	transition:  all 100ms linear;
 }
 	.modern ul#cards li.card {
-		border-top-width:10px;
+		border-top-width:8px;
 		border-top-style: solid;
 		border-radius: 3px 3px 0 0 ;
 		background: #ebebeb;
