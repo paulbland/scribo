@@ -5,31 +5,60 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
 
-    // uglify: {
-    //   options: {
-    //     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-    //   },
-    //   build: {
-    //     src: 'src/<%= pkg.name %>.js',
-    //     dest: 'build/<%= pkg.name %>.min.js'
-    //   }
-    // }
 
     nodemon: {
       dev: {
         script: 'server.js'
       }
+    },
+
+
+    sass: {                              // Task
+      dist: {                            // Target
+        options: {                       // Target options
+          style: 'expanded'
+        },
+        files: {                         // Dictionary of files
+          'public/css/main.css': 'public/css/main.scss'       // 'destination': 'source'
+        }
+      }
+    },
+
+
+
+    watch: {
+      scripts: {
+        files: ['public/css/*.scss'],
+        tasks: ['sass']
+      }
+    },
+
+
+    concurrent: {
+      dev: {
+        tasks: ['nodemon', 'watch'],
+        options: {
+            logConcurrentOutput: true
+        }
+      } 
     }
+
+
 
 
   });
 
   // Load the plugin that provides the "uglify" task.
-  //grunt.loadNpmTasks('grunt-contrib-uglify');
+  
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
 
   // Default task(s).
-  //grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('default', ['nodemon']);
+  grunt.registerTask('default', ['concurrent']);
+
+
 
 };

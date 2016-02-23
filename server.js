@@ -136,7 +136,7 @@ router.route('/cards/:card_id')
         Card.findById(req.params.card_id, function(err, card) {
 
             if (err)
-                res.send(err);
+                res.send(err); 
 
             //card.name = req.body.name;  // update the cards info
             card.color = req.body.color;  // update the cards info
