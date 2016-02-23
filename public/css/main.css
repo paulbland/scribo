@@ -104,7 +104,7 @@ ul#cards li.card {
 	cursor: pointer;
 	box-sizing: border-box;
 
-	transition:  all 100ms linear;
+	xtransition:  all 100ms linear;
 }
 	.modern ul#cards li.card {
 		border-top-width:8px;

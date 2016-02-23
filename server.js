@@ -150,7 +150,7 @@ router.route('/cards/:card_id')
                 res.json({ message: 'Card updated!' });
             });
 
-        });
+        }); 
     })
 
      .delete(function(req, res) {

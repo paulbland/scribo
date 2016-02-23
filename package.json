@@ -15,5 +15,9 @@
     "basic-auth": "^1.0.3",
     "mongoose": "~4.4.4",
     "body-parser": "~1.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-nodemon": "^0.4.1"
   }
 }
