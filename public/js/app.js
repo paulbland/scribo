@@ -8,7 +8,7 @@ var app = app || {};
 		// Collection
 		app.CardCollection = Backbone.Collection.extend({
 		  	model: app.CardModel,
-		  	url: '/data/cards.json'
+		  	url: '/api/cards'
 		});
 
 		// Create new collectino
