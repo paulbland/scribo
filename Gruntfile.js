@@ -27,10 +27,14 @@ module.exports = function(grunt) {
 
 
     watch: {
-      scripts: {
+      css: {
         files: ['public/css/*.scss'],
         tasks: ['sass']
-      }
+      },
+      js: {
+        files: ['Gruntfile.js', 'public/js/*.js', 'app/**/*.js'],
+        tasks: ['jshint']
+      } 
     },
 
 
@@ -41,6 +45,12 @@ module.exports = function(grunt) {
             logConcurrentOutput: true
         }
       } 
+    },
+
+
+
+    jshint: {
+      all: ['Gruntfile.js', 'public/js/*.js', 'app/**/*.js']
     }
 
 
@@ -48,12 +58,12 @@ module.exports = function(grunt) {
 
   });
 
-  // Load the plugin that provides the "uglify" task.
   
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
   // Default task(s).

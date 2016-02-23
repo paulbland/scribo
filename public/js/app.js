@@ -39,7 +39,7 @@ var app = app || {};
 			$( "#cards" ).sortable();
 			$( "#cards" ).disableSelection();
 		}
-	});
+	}); 
 
 
 	  app.CardView = Backbone.View.extend({
