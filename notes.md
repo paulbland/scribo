@@ -251,18 +251,7 @@ GET /api/cards?userID=1 ..... ?get a all user id cards?
 
 
 
-nEXT
 
--grunt 
-structue with grunt/back/frone/herkou
-
-public and app?
-
-src and dist??
-
-
-src -> dist (front)
-app (backend)
 
 http://backbone.undojs.com/
 

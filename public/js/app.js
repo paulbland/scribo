@@ -19,49 +19,48 @@ $(function() {
 
 
 
-  scribo.AppView = Backbone.View.extend({
-     el: $('#cards'),
+	scribo.AppView = Backbone.View.extend({
+	    el: $('#cards'),
 
-     initialize: function() {
-		this.listenTo(scribo.cards, 'reset', this.addAll);
- 		scribo.cards.fetch({reset: true});
-    },
+	    initialize: function() {
+			this.listenTo(scribo.cards, 'reset', this.addAll);
+	 		scribo.cards.fetch({reset: true});
+	    },
 
-	addOne: function (card) {
-		var view = new scribo.CardView({ model: card });
-		this.$el.append(view.render().el);
-	},
+		addOne: function (card) {
+			var view = new scribo.CardView({ model: card });
+			this.$el.append(view.render().el);
+		},
 
-	// Add all items in the **Todos** collection at once.
-	addAll: function () {
-		scribo.cards.each(this.addOne, this);
+		// Add all items in the **Todos** collection at once.
+		addAll: function () {
+			scribo.cards.each(this.addOne, this);
 
-		$( "#cards" ).sortable();
-		$( "#cards" ).disableSelection();
-	}
-}); 
-
-
-  scribo.CardView = Backbone.View.extend({
-
-  	tagName: 'li',
-
-  	className: function() {
-  		return 'card style-' + this.model.get('color');
-  	},
-
-     template: _.template( $('#card-template').html() ),
-
-     render: function () {
-
-     	this.$el.html(this.template(this.model.toJSON()));
-     	return this;
-     }
-
-  });
-
- new scribo.AppView();
+			$( "#cards" ).sortable();
+			$( "#cards" ).disableSelection();
+		}
+	}); 
 
 
-		
+	scribo.CardView = Backbone.View.extend({
+
+		tagName: 'li',
+
+		className: function() {
+			return 'card style-' + this.model.get('color');
+		},
+
+		template: _.template( $('#card-template').html() ),
+
+		render: function () {
+
+	 		this.$el.html(this.template(this.model.toJSON()));
+	 		return this;
+		}
+
+	});
+
+	new scribo.AppView();
+
+	
 });
