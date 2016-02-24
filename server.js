@@ -15,25 +15,25 @@ mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); /
 
 
 
-var auth     = require('./api/auth');
+// var auth     = require('./api/auth');
 
-// var basicAuth = require('basic-auth');
+var basicAuth = require('basic-auth');
 
-// var auth = function (req, res, next) {
-//   var user = basicAuth(req);
-//   if (!user || !user.name || !user.pass) {
-//     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-//     res.sendStatus(401);
-//     return;
-//   }
-//   if (user.name === 'paul' && user.pass === 'scribo825') {
-//     next();
-//   } else {
-//     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-//     res.sendStatus(401);
-//     return;
-//   }
-// };
+var auth = function (req, res, next) {
+  var user = basicAuth(req);
+  if (!user || !user.name || !user.pass) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    res.sendStatus(401);
+    return;
+  }
+  if (user.name === 'paul' && user.pass === 'scribo825') {
+    next();
+  } else {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    res.sendStatus(401);
+    return;
+  }
+};
 
 
 // set the port of our application
