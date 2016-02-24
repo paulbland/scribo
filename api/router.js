@@ -36,7 +36,10 @@ router.route('/cards')
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Card created!' });
+            // paul did this. this sused to return a message. now returns 
+            // card - so bcakboen knows the id, and can update it
+            //res.json({ message: 'Card created!' });
+            res.json(card);
         });
         
     })

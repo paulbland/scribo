@@ -12,7 +12,7 @@ $(function() {
 		// yes! this line allows  PUT instad of post - to update
 		idAttribute: '_id',
 		
-		// urlRoot: '/api/cards'
+		 // urlRoot: '/api/cards'
 	});
 
 	// Collection
@@ -45,11 +45,10 @@ $(function() {
 
 
 
-	    // NEW --- try to add a new item --- adds too many!
 	    events: {
-	    	'click .add' : 'addItem'
+	    	'click .add-card' : 'addCard'
 	    },
-	    addItem: function() {
+	    addCard: function() {
 			scribo.cards.create();
 	    },
 
@@ -79,7 +78,7 @@ $(function() {
 
 		template: _.template( $('#card-template').html() ),
 
-		render: function () {
+		render: function() {
 
 	 		this.$el.html(this.template(this.model.toJSON()));
 
@@ -89,22 +88,26 @@ $(function() {
 		},
 
 		initialize: function(){
-			 this.listenTo(this.model, 'destroy', this.remove);  
+
+			 this.listenTo(this.model, 'destroy', this.remove);
+			
+  
 		},
 
 		events: {
 			'keyup textarea' : 'textareaKeyup',
-			'click a.delete' : 'deleteItem'
+			'click a.delete-card' : 'deleteCard'
 		},
 
 		textareaKeyup : function(e) {
+			
 			var val = this.$input.val();
 			if (val) {
 				this.model.save({'text': val});
 			}
 		},
 
-		deleteItem: function(e) {
+		deleteCard: function(e) {
 			e.preventDefault();
 			this.model.destroy();
 		}
