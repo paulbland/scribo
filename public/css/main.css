@@ -101,12 +101,10 @@ ul#cards li.card {
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
-  width: 280px;
-  height: 140px;
 }
 ul#cards li.card .wrapper {
-  width: 100%;
-  height: 100%;
+  width: 280px;
+  height: 140px;
   box-sizing: border-box;
   /* THEME: MODERN */
   /* THEME: CLASSIC */

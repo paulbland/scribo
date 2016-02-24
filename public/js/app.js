@@ -94,30 +94,30 @@ $(function() {
 	 		// style now moved to wrapper class
 	 		// this.$el.attr('class', _.result(this, 'className'));
 
-
 	 		return this;
 		},
 
-		initialize: function(){
-
+		initialize: function() {
 			 this.listenTo(this.model, 'destroy', this.remove);
-			 this.listenTo(this.model, 'change', this.render);
-			
-  
+			 this.listenTo(this.model, 'change:color', this.render);
+			 this.listenTo(this.model, 'change:text', this.throttledSave);
 		},
 
 		events: {
-			'keyup textarea' : 'textareaKeyup',
-			'click a.delete-card' : 'deleteCard',
-			'click a.set-card-style' : 'setCardStyle'
+			'keyup textarea' 			: 'updateCardText',
+			'click a.delete-card' 		: 'deleteCard',
+			'click a.set-card-style' 	: 'setCardStyle'
 		},
 
-		textareaKeyup : function(e) {
-			
-			var val = this.$input.val();
-			if (val) {
-				this.model.save({'text': val});
-			}
+		/**
+		 * updates model but does not save - 
+		 * the model set() will trigger change:text event
+		 * which triggers throttledSave()  fn
+		 */
+		updateCardText : function() {
+			// Want to save empty string if it exists
+			var val = (this.$input.val()) ? this.$input.val() : '';
+			this.model.set({'text': val});
 		},
 
 		deleteCard: function(e) {
@@ -125,14 +125,14 @@ $(function() {
 			this.model.destroy();
 		},
 
-
 		setCardStyle: function(e) {
 			e.preventDefault();
-			// could also do set here - then save elsewere?
-			// or throttle saves somehow?
 			this.model.save('color', $(e.target).attr('href'));
+		},
 
-		}
+		throttledSave: _.throttle(function() {
+			this.model.save();
+		}, 10000)
 
 	});
 
