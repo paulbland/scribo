@@ -1,4 +1,10 @@
 var scribo = scribo || {};
+scribo.config = scribo.config || {};
+
+
+scribo.config.autosave_ms = 5000;
+
+
 
 $(function() {
 
@@ -132,9 +138,12 @@ $(function() {
 
 		throttledSave: _.throttle(function() {
 			this.model.save();
-		}, 10000)
+		}, scribo.config.autosave_ms)
 
 	});
+
+
+
 
 	new scribo.AppView();
 
