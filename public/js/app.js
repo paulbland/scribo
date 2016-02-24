@@ -46,9 +46,10 @@ $(function() {
 
 
 	    events: {
-	    	'click .add-card' : 'addCard'
+	    	'click a.add-card' : 'addCard'
 	    },
-	    addCard: function() {
+	    addCard: function(e) {
+	    	e.preventDefault();
 			scribo.cards.create();
 	    },
 
