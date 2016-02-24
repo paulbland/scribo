@@ -3,12 +3,15 @@ ul, li {
   padding: 0;
 }
 
+fieldset {
+  border: 0;
+}
+
 html {
   height: 100%;
 }
 
 body {
-  background: #464646;
   margin: 0;
   padding: 10px;
   font-family: 'Helvetica Neue';
@@ -19,6 +22,9 @@ body {
 }
 body.classic {
   background: #777;
+}
+body.modern {
+  background: #464646;
 }
 
 h1 {
@@ -106,11 +112,41 @@ body.modern ul#cards li.card {
   border-radius: 3px 3px 0 0;
   background: #ebebeb;
 }
+body.modern ul#cards li.card.style-1 {
+  border-color: #3cb878;
+}
+body.modern ul#cards li.card.style-2 {
+  border-color: #448ccb;
+}
+body.modern ul#cards li.card.style-3 {
+  border-color: #f68e56;
+}
+body.modern ul#cards li.card.style-4 {
+  border-color: #eb4c4c;
+}
+body.modern ul#cards li.card.style-5 {
+  border-color: #ebdd1a;
+}
 body.classic ul#cards li.card {
   padding: 20px 10px 10px;
   text-overflow: ellipsis;
   background-image: linear-gradient(0deg, rgba(64, 128, 255, 0.25) 1px, transparent 1px);
   background-size: 100% 16px;
+}
+body.classic ul#cards li.card.style-1 {
+  background-color: #f6cdd5;
+}
+body.classic ul#cards li.card.style-2 {
+  background-color: #feef70;
+}
+body.classic ul#cards li.card.style-3 {
+  background-color: #f17e61;
+}
+body.classic ul#cards li.card.style-4 {
+  background-color: #b1dab8;
+}
+body.classic ul#cards li.card.style-5 {
+  background-color: #a6c9dd;
 }
 ul#cards li.card textarea {
   background: transparent;
@@ -120,6 +156,7 @@ ul#cards li.card textarea {
   resize: none;
   box-sizing: border-box;
   /* THEME: MODERN */
+  /* THEME: CLASSIC */
 }
 ul#cards li.card textarea::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
@@ -147,66 +184,6 @@ body.classic ul#cards li.card textarea:focus {
   outline: 2px dotted rgba(0, 255, 0, 0.85);
 }
 
-.modern ul#cards li.card.style-1 textarea:focus {
-  outline-color: #3cb878;
-}
-
-.modern ul#cards li.card.style-2 textarea:focus {
-  outline-color: #448ccb;
-}
-
-.modern ul#cards li.card.style-3 textarea:focus {
-  outline-color: #f68e56;
-}
-
-.modern ul#cards li.card.style-4 textarea:focus {
-  outline-color: #eb4c4c;
-}
-
-.modern ul#cards li.card.style-5 textarea:focus {
-  outline-color: #ebdd1a;
-}
-
-.modern ul#cards li.card.style-1 {
-  border-color: #3cb878;
-}
-
-.modern ul#cards li.card.style-2 {
-  border-color: #448ccb;
-}
-
-.modern ul#cards li.card.style-3 {
-  border-color: #f68e56;
-}
-
-.modern ul#cards li.card.style-4 {
-  border-color: #eb4c4c;
-}
-
-.modern ul#cards li.card.style-5 {
-  border-color: #ebdd1a;
-}
-
-.classic ul#cards li.card.style-1 {
-  background-color: #f6cdd5;
-}
-
-.classic ul#cards li.card.style-2 {
-  background-color: #feef70;
-}
-
-.classic ul#cards li.card.style-3 {
-  background-color: #f17e61;
-}
-
-.classic ul#cards li.card.style-4 {
-  background-color: #b1dab8;
-}
-
-.classic ul#cards li.card.style-5 {
-  background-color: #a6c9dd;
-}
-
 .status {
   position: fixed;
   bottom: 0;
@@ -215,10 +192,6 @@ body.classic ul#cards li.card textarea:focus {
   padding: 5px 10px;
   border-radius: 3px 0 0;
   z-index: 2;
-}
-
-fieldset {
-  border: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

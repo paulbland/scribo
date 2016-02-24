@@ -4,11 +4,16 @@ ul, li {
 	padding:0;
 }
 
+fieldset {
+	border: 0;
+}
+
+
 html {
 	height: 100%;
 }
+
 body {
-	background: #464646; 
 	margin: 0;
 	padding:  10px;
 	font-family: 'Helvetica Neue';
@@ -19,6 +24,9 @@ body {
 
 	&.classic {
 		background: #777;  
+	}
+	&.modern {
+		background: #464646;  
 	}
 }
 
@@ -116,6 +124,14 @@ ul#cards {
 			border-top-style: solid;
 			border-radius: 3px 3px 0 0 ;
 			background: #ebebeb;
+
+			&.style-1 { border-color: #3cb878; }
+			&.style-2 { border-color: #448ccb; }
+			&.style-3 { border-color: #f68e56; }
+			&.style-4 { border-color: #eb4c4c; }
+			&.style-5 { border-color: #ebdd1a; }
+
+			
 		}
 
 		/* THEME: CLASSIC */
@@ -124,7 +140,16 @@ ul#cards {
 		  	text-overflow: ellipsis;
 		    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
 			background-size: 100% 16px;
+
+			&.style-1 { background-color: #f6cdd5; }
+			&.style-2 { background-color: #feef70; }
+			&.style-3 { background-color: #f17e61; }
+			&.style-4 { background-color: #b1dab8; }
+			&.style-5 { background-color: #a6c9dd; }
+
 		}
+
+		
 
 		textarea {
 			background: transparent;
@@ -149,6 +174,7 @@ ul#cards {
 				&:focus { background: white; }
 			}
 
+			/* THEME: CLASSIC */
 			body.classic & {
 				padding: 5px;
 				font-family: 'Just Another Hand';
@@ -168,24 +194,9 @@ ul#cards {
 
 
 
-.modern ul#cards li.card.style-1 textarea:focus { outline-color: #3cb878; }
-.modern ul#cards li.card.style-2 textarea:focus { outline-color: #448ccb; }
-.modern ul#cards li.card.style-3 textarea:focus { outline-color: #f68e56; }
-.modern ul#cards li.card.style-4 textarea:focus { outline-color: #eb4c4c; }
-.modern ul#cards li.card.style-5 textarea:focus { outline-color: #ebdd1a; }
-
-.modern ul#cards li.card.style-1 { border-color: #3cb878; }
-.modern ul#cards li.card.style-2 { border-color: #448ccb; }
-.modern ul#cards li.card.style-3 { border-color: #f68e56; }
-.modern ul#cards li.card.style-4 { border-color: #eb4c4c; }
-.modern ul#cards li.card.style-5 { border-color: #ebdd1a; }
 
 
-.classic ul#cards li.card.style-1 { background-color: #f6cdd5; }
-.classic ul#cards li.card.style-2 { background-color: #feef70; }
-.classic ul#cards li.card.style-3 { background-color: #f17e61; }
-.classic ul#cards li.card.style-4 { background-color: #b1dab8; }
-.classic ul#cards li.card.style-5 { background-color: #a6c9dd; }
+
 
 
 
@@ -199,6 +210,3 @@ ul#cards {
 	z-index: 2;
 }
 
-fieldset {
-	border: 0;
-}
