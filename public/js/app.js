@@ -21,8 +21,7 @@ $(function() {
 	  	url: '/api/cards'
 	});
 
-	// Create new collectino
- 	scribo.cards = new scribo.CardCollection();
+	
 
 
 
@@ -32,6 +31,10 @@ $(function() {
 	    el: $('main'),
 
 	    initialize: function() {
+
+	    	// Create new collectino
+		 	scribo.cards = new scribo.CardCollection();
+		 	
 	    	this.listenTo(scribo.cards, 'add', this.addOne);
 			this.listenTo(scribo.cards, 'reset', this.addAll);
 
