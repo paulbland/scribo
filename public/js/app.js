@@ -43,6 +43,18 @@ $(function() {
 			this.$cards.disableSelection();
 	    },
 
+
+
+	    // NEW --- try to add a new item --- adds too many!
+	    events: {
+	    	'click .add' : 'addItem'
+	    },
+	    addItem: function() {
+			scribo.cards.create();
+	    },
+
+
+
 		addOne: function (card) {
 			var view = new scribo.CardItemView({ model: card });
 			this.$cards.append(view.render().el);
@@ -70,13 +82,19 @@ $(function() {
 		render: function () {
 
 	 		this.$el.html(this.template(this.model.toJSON()));
+
 	 		this.$input = this.$el.find('textarea');
 
 	 		return this;
 		},
 
+		initialize: function(){
+			 this.listenTo(this.model, 'destroy', this.remove);  
+		},
+
 		events: {
-			'keyup textarea' : 'textareaKeyup'
+			'keyup textarea' : 'textareaKeyup',
+			'click a.delete' : 'deleteItem'
 		},
 
 		textareaKeyup : function(e) {
@@ -84,6 +102,11 @@ $(function() {
 			if (val) {
 				this.model.save({'text': val});
 			}
+		},
+
+		deleteItem: function(e) {
+			e.preventDefault();
+			this.model.destroy();
 		}
 
 	});
