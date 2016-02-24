@@ -46,7 +46,9 @@ nav {
   transition: width 150ms linear;
   width: 40px;
 }
-
+body.nav-open nav {
+  width: 300px;
+}
 nav:before {
   content: '_ _ _';
   font-size: 40px;
@@ -58,22 +60,15 @@ nav:before {
   display: inline-block;
   cursor: pointer;
 }
-
 body.nav-open nav:before {
   content: '->';
   font-size: 30px;
   line-height: 44px;
   font-weight: 200;
 }
-
-.nav-open nav {
-  width: 300px;
-}
-
 nav .settings {
   display: none;
 }
-
 body.nav-open nav .settings {
   display: block;
 }
@@ -85,8 +80,7 @@ main {
   left: 0;
   transition: all 100ms linear;
 }
-
-.nav-open main {
+body.nav-open main {
   right: 300px;
 }
 
@@ -103,22 +97,21 @@ ul#cards li.card {
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
+  /* THEME: MODERN */
+  /* THEME: CLASSIC */
 }
-
-.modern ul#cards li.card {
+body.modern ul#cards li.card {
   border-top-width: 8px;
   border-top-style: solid;
   border-radius: 3px 3px 0 0;
   background: #ebebeb;
 }
-
-.classic ul#cards li.card {
+body.classic ul#cards li.card {
   padding: 20px 10px 10px;
   text-overflow: ellipsis;
   background-image: linear-gradient(0deg, rgba(64, 128, 255, 0.25) 1px, transparent 1px);
   background-size: 100% 16px;
 }
-
 ul#cards li.card textarea {
   background: transparent;
   border: 0;
@@ -126,25 +119,22 @@ ul#cards li.card textarea {
   height: 100%;
   resize: none;
   box-sizing: border-box;
+  /* THEME: MODERN */
 }
-
 ul#cards li.card textarea::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
 }
-
-.modern ul#cards li.card textarea {
+body.modern ul#cards li.card textarea {
   padding: 10px 13px;
   outline: 0;
   max-height: 100%;
   max-width: 100%;
   transition: background 100ms ease-in-out;
 }
-
-.modern ul#cards li.card textarea:focus {
+body.modern ul#cards li.card textarea:focus {
   background: white;
 }
-
-.classic ul#cards li.card textarea {
+body.classic ul#cards li.card textarea {
   padding: 5px;
   font-family: 'Just Another Hand';
   font-size: 32px;
@@ -153,8 +143,7 @@ ul#cards li.card textarea::-webkit-input-placeholder {
   line-height: 32px;
   letter-spacing: 0.5px;
 }
-
-.classic ul#cards li.card textarea:focus {
+body.classic ul#cards li.card textarea:focus {
   outline: 2px dotted rgba(0, 255, 0, 0.85);
 }
 
