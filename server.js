@@ -15,33 +15,25 @@ mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); /
 
 
 
-/// i added this
-// from here http://www.codexpedia.com/node-js/node-js-basic-auth-in-express-js/
-// and also npom install basic-autth
-// woo
-var basicAuth = require('basic-auth');
+var auth     = require('./api/auth');
 
-var auth = function (req, res, next) {
-  var user = basicAuth(req);
-  if (!user || !user.name || !user.pass) {
-    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-    res.sendStatus(401);
-    return;
-  }
-  if (user.name === 'paul' && user.pass === 'scribo825') {
-    next();
-  } else {
-    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-    res.sendStatus(401);
-    return;
-  }
-}
+// var basicAuth = require('basic-auth');
 
-
-
-
-
-
+// var auth = function (req, res, next) {
+//   var user = basicAuth(req);
+//   if (!user || !user.name || !user.pass) {
+//     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+//     res.sendStatus(401);
+//     return;
+//   }
+//   if (user.name === 'paul' && user.pass === 'scribo825') {
+//     next();
+//   } else {
+//     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+//     res.sendStatus(401);
+//     return;
+//   }
+// };
 
 
 // set the port of our application
