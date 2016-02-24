@@ -1,7 +1,7 @@
 {
   "name": "Scribo",
   "version": "1.0.0",
-  "description": "Our sample Node to Heroku app",
+  "description": "The index card app for screenwriters",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

@@ -19,7 +19,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         // Dictionary of files
-          'public/css/main.css': 'public/css/main.scss'       // 'destination': 'source'
+          'public/css/main.css': 'src/scss/main.scss'       // 'destination': 'source'
         }
       }
     },
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: ['public/css/*.scss'],
+        files: ['src/scss/*.scss'],
         tasks: ['sass']
       },
       js: {

@@ -63,7 +63,7 @@ app.get('/', auth, function(req, res) {
 
     // ejs render automatically looks in the views folder
     //res.render('index');
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 
