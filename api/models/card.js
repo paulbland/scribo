@@ -1,4 +1,4 @@
-// app/models/card.js
+// api/models/card.js
 
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;

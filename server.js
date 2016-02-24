@@ -14,7 +14,7 @@ mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); /
 
 
 // new cards
-var Card     = require('./app/models/card');
+var Card     = require('./api/models/card');
 
 
 

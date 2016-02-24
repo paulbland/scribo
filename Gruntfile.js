@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       js: {
-        files: ['Gruntfile.js', 'public/js/*.js', 'app/**/*.js'],
+        files: ['Gruntfile.js', 'public/js/*.js', 'api/**/*.js'],
         tasks: ['jshint']
       } 
     },
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
 
     jshint: {
-      all: ['Gruntfile.js', 'public/js/*.js', 'app/**/*.js']
+      all: ['Gruntfile.js', 'public/js/*.js', 'api/**/*.js']
     }
 
 

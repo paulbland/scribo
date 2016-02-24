@@ -1,40 +1,40 @@
-var app = app || {};
+var scribo = scribo || {};
 
 	$(function() {
 
 		// Model
-		app.CardModel = Backbone.Model.extend({});
+		scribo.CardModel = Backbone.Model.extend({});
 
 		// Collection
-		app.CardCollection = Backbone.Collection.extend({
-		  	model: app.CardModel,
+		scribo.CardCollection = Backbone.Collection.extend({
+		  	model: scribo.CardModel,
 		  	url: '/api/cards'
 		});
 
 		// Create new collectino
-	 	app.cards = new app.CardCollection();
+	 	scribo.cards = new scribo.CardCollection();
 
 	 	// get cards collection
-		app.cards.fetch();
+		scribo.cards.fetch();
 
 
 
-	  app.AppView = Backbone.View.extend({
+	  scribo.AppView = Backbone.View.extend({
 	     el: $('#cards'),
 
 	     initialize: function() {
-			this.listenTo(app.cards, 'reset', this.addAll);
-     		app.cards.fetch({reset: true});
+			this.listenTo(scribo.cards, 'reset', this.addAll);
+     		scribo.cards.fetch({reset: true});
         },
 
 		addOne: function (card) {
-			var view = new app.CardView({ model: card });
+			var view = new scribo.CardView({ model: card });
 			this.$el.append(view.render().el);
 		},
 
 		// Add all items in the **Todos** collection at once.
 		addAll: function () {
-			app.cards.each(this.addOne, this);
+			scribo.cards.each(this.addOne, this);
 
 			$( "#cards" ).sortable();
 			$( "#cards" ).disableSelection();
@@ -42,7 +42,7 @@ var app = app || {};
 	}); 
 
 
-	  app.CardView = Backbone.View.extend({
+	  scribo.CardView = Backbone.View.extend({
 
 	  	tagName: 'li',
 
@@ -60,7 +60,7 @@ var app = app || {};
 
 	  });
 
-	 new app.AppView();
+	 new scribo.AppView();
 
 
 		
