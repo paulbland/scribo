@@ -37,6 +37,30 @@ h1 {
 	}
 }	
 
+a.add-card {
+	position: fixed; 
+	top: 12px;
+	right: 50px;
+	text-decoration: none;
+	color: white;
+	display: block;
+	transition: 100ms all linear;
+	text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+
+	&:hover {
+		color: $modern-color-1;
+	}
+
+	&:before {
+		content:'+'; 
+		font-size: 60px;
+		font-weight: bold;
+		display: block;
+		cursor: pointer;
+		text-align: center;
+	}
+}
+
 nav {
 	position: fixed;
 	top: 0;
@@ -52,34 +76,41 @@ nav {
 		width: 300px;
 	}
 	
-	.toggle {
+	a.toggle {
+		display: block;
+		text-decoration: none;
 
-	}
+		&:before {
+			content:'\2630'; 
+			font-size: 28px;
+			color: white;
+			margin: 15px 0;
+			display: block;
+			cursor: pointer;
+			text-align: center;
 
-	&:before {
-		content: '_ _ _';
-		font-size: 40px;
-		font-weight: bold;
-		color: white;
-		line-height: 6px;
-		width: 30px;
-		margin: 0 0 0 10px;
-		display: inline-block;
-		cursor: pointer;
+			body.nav-open & {
+				content: '\2192';
+				margin: 10px 0 0 10px;
+				text-align: left;
 
-		body.nav-open & {
-			content: '->';
-			font-size: 30px;
-			line-height: 44px;
-			font-weight: 200;
+			}
 		}
+
 	}
+
+	
 
 	form {
 		display: none;
+		padding: 10px;
 
 		body.nav-open & {
 			display: block;
+		}
+
+		label {
+			cursor: pointer;
 		}
 	}
 
@@ -93,8 +124,8 @@ nav {
 ul#cards {
 	list-style: none; 
 	overflow: hidden;
-	margin-right: 40px; /* nav width */
- 
+	margin-right: 80px; /* nav width + add card */
+ 	padding: 8px;
 
 	body.nav-open & {
 		margin-right: 300px;
@@ -102,7 +133,7 @@ ul#cards {
 
 	li.card {
 		float: left;
-		margin: 12px;
+		margin: 10px;
 		box-shadow: 0 0 10px rgba(0,0,0,0.3);
 		overflow: hidden;
 		position: relative;
@@ -121,7 +152,7 @@ ul#cards {
 				border-radius: 3px 3px 0 0 ;
 				background: #ebebeb;
 
-				&.style-1 { border-color: #fac123;  }
+				&.style-1 { border-color: $modern-color-1;  }
 				&.style-2 { border-color: #448ccb; }
 				&.style-3 { border-color: #3cb878;  }
 				&.style-4 { border-color: #eb4c4c; }

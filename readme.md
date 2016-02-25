@@ -257,4 +257,31 @@ http://backbone.undojs.com/
 
 
 
+-how to use ejs with handlebars
+
+-user auth and collections
+
+-what is heroku specific here? anything?
+
+-undo?
+	-for every change, save the cards json as revison
+	-undo steps back one
+	
+	
+	
+TO DO
+---loading state for cards (takes too long)
+
+
+NEXT
+----
+if the app hasnt got the reponse back from POST --- it doesnt know id, so it sends another post when the user hits the ketys
+
+
+
+
+tempkating?
+
+
+
 	
