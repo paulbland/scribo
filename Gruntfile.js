@@ -24,12 +24,25 @@ module.exports = function(grunt) {
       }
     },
 
+cssmin: {
+  options: {
+    shorthandCompacting: false,
+    roundingPrecision: -1,
+    sourceMap: true
+  },
+  target: {
+    files: {
+      'public/css/main.min.css': ['public/css/main.css']
+    }
+  }
+},
+
 
 
     watch: {
       css: {
         files: ['src/scss/*.scss'],
-        tasks: ['sass']
+        tasks: ['sass', 'cssmin']
       },
       js: {
         files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js'],
@@ -77,6 +90,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 
   grunt.registerTask('default', ['concurrent']);
