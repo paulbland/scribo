@@ -47,7 +47,7 @@ $(function() {
 	 		scribo.cards.fetch({reset: true});
 
 	 		this.$cards = this.$el.find('#cards');
-	 		this.$nav = this.$el.find('#nav');
+	 		this.$nav = this.$el.find('nav');
 
 	 		this.makeSortable();
 

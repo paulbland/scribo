@@ -17,17 +17,16 @@
 
 <body class="modern">
 
-	<h1>Scrībō</h1>
-
 	<main>
+		<h1>Scrībō</h1>
 		<a href="#" class="add-card">add</a>
 		<ul id="cards"></ul>
-		<nav id="nav"></nav>
+		<nav></nav>
 		<div class="status">O Saving...</div>
 	</main>
 
 	<script type="text/template" id="card-template">
-		<div class="wrapper style-<%= color %>">
+		<div class="content style-<%= color %>">
 			<textarea placeholder="Type here..."><%= text %></textarea>
 
 			 <div style="margin-top:-30px;display:block">
@@ -43,13 +42,13 @@
 
 	<script type="text/template" id="nav-template">
 		<a href="#" class="toggle">toggle</a>
-		<div class="settings">
+		<form>
 			<fieldset>
 				<legend>Theme</legend>
 				<label><input type="radio" name="theme" value="classic"> Classic</label>
 				<label><input type="radio" name="theme" value="modern" checked> Modern</label>
 			</fieldset>
-		</div>
+		</form>
 	</script>
 
 </body>
