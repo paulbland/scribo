@@ -47,18 +47,14 @@ nav {
   transition: width 150ms linear;
   width: 40px;
   height: 100%;
-}
-body.nav-open nav {
-  width: 300px;
-}
-nav .content {
-  height: 100%;
-  width: 100%;
   background: #292929;
   color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
 }
-nav .content:before {
+body.nav-open nav {
+  width: 300px;
+}
+nav:before {
   content: '_ _ _';
   font-size: 40px;
   font-weight: bold;
@@ -69,16 +65,16 @@ nav .content:before {
   display: inline-block;
   cursor: pointer;
 }
-body.nav-open nav .content:before {
+body.nav-open nav:before {
   content: '->';
   font-size: 30px;
   line-height: 44px;
   font-weight: 200;
 }
-nav .content form {
+nav form {
   display: none;
 }
-body.nav-open nav .content form {
+body.nav-open nav form {
   display: block;
 }
 

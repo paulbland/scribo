@@ -23,7 +23,6 @@ $(function() {
 	 		scribo.cards.fetch({reset: true});
 
 	 		this.$cards = this.$el.find('#cards');
-	 		this.$nav = this.$el.find('nav');
 
 	 		this.makeSortable();
 
@@ -72,7 +71,7 @@ $(function() {
 			// takes  a model
 			// var nav = new scribo.NavView({ model: card });
 			var nav = new scribo.NavView();
-			this.$nav.append(nav.render().el);
+			this.$el.append(nav.render().el);
 	
 
 		}
@@ -153,9 +152,7 @@ $(function() {
 
 	scribo.NavView = Backbone.View.extend({
 
-		// /tagName: 'nav',
-
-		className: 'content',
+		tagName: 'nav',
 
 		template: _.template( $('#nav-template').html() ),
 

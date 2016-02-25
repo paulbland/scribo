@@ -57,51 +57,46 @@ nav {
 	right: 0;
 	transition: width 150ms linear;
 	width: 40px;
-	height: 100%;
+	height: 100%; 
+	background: #292929;
+	color: white;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
 
 	body.nav-open & {
 		width: 300px;
 	}
 	
-	.content {
-		height: 100%;
-		width: 100%;
-		background: #292929;
-		color: white;
-		box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
-
-		.toggle {
-
-		}
-
-		&:before {
-			content: '_ _ _';
-			font-size: 40px;
-			font-weight: bold;
-			color: white;
-			line-height: 6px;
-			width: 30px;
-			margin: 0 0 0 10px;
-			display: inline-block;
-			cursor: pointer;
-
-			body.nav-open & {
-				content: '->';
-				font-size: 30px;
-				line-height: 44px;
-				font-weight: 200;
-			}
-		}
-
-		form {
-			display: none;
-
-			body.nav-open & {
-				display: block;
-			}
-		}
+	.toggle {
 
 	}
+
+	&:before {
+		content: '_ _ _';
+		font-size: 40px;
+		font-weight: bold;
+		color: white;
+		line-height: 6px;
+		width: 30px;
+		margin: 0 0 0 10px;
+		display: inline-block;
+		cursor: pointer;
+
+		body.nav-open & {
+			content: '->';
+			font-size: 30px;
+			line-height: 44px;
+			font-weight: 200;
+		}
+	}
+
+	form {
+		display: none;
+
+		body.nav-open & {
+			display: block;
+		}
+	}
+
 
 	
 }
