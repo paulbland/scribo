@@ -18,19 +18,25 @@
 	</main>
 
 	<script type="text/template" id="card-template">
-		<div class="content style-<%= color %>">
-			<textarea placeholder="Type here..."><%= text %></textarea>
 
-			 <div style="margin-top:-30px;display:block">
-				 <a href="#" class="delete-card">🗑✘</a>
-				 <a href="1" class="set-card-style">1</a>
-				 <a href="2" class="set-card-style">2</a>
-				 <a href="3" class="set-card-style">3</a>
-				 <a href="4" class="set-card-style">4</a>
-				 <a href="5" class="set-card-style">5</a>
-				 ↺<span style="display:inline-block;transform:rotate(-70deg)">⤿<span>
-			 </div>
-		 </div>
+		<div class="wrapper style-<%= color %>">
+			<div class="front">
+				<textarea placeholder="Type here..."><%= text %></textarea>
+				<a class="flip-card"></a>
+			</div>
+			<div class="back">
+				<div>
+				 	<a href="#" class="delete-card">delete card🗑✘</a><br />
+				 	select color: <br />
+				 	<a href="1" class="set-card-style">1</a>
+					<a href="2" class="set-card-style">2</a>
+					<a href="3" class="set-card-style">3</a>
+					<a href="4" class="set-card-style">4</a>
+					<a href="5" class="set-card-style">5</a>
+				</div>
+			</div>
+		</div>	
+
 	</script>
 
 	<script type="text/template" id="nav-template">

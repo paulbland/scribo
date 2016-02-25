@@ -37,7 +37,8 @@ scribo.CardItemView = Backbone.View.extend({
 	events: {
 		'keyup textarea' 			: 'updateCardText',
 		'click a.delete-card' 		: 'deleteCard',
-		'click a.set-card-style' 	: 'setCardStyle'
+		'click a.set-card-style' 	: 'setCardStyle',
+		'click a.flip-card'			: 'flipCard'
 	},
 
 	/**
@@ -59,6 +60,10 @@ scribo.CardItemView = Backbone.View.extend({
 	setCardStyle: function(e) {
 		e.preventDefault();
 		this.model.save('color', $(e.target).attr('href'));
+	},
+
+	flipCard: function(e) {
+		$(e.target).closest('.wrapper').toggleClass('flipped');
 	},
 
 	throttledSave: _.throttle(function() {

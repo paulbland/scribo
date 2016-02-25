@@ -27,7 +27,6 @@ scribo.NavView = Backbone.View.extend({
 			$('body').toggleClass('modern', $(e.target).val() === "modern");
 			$('body').toggleClass('classic', $(e.target).val() === "classic");
 		}
-
 	}
 
 });

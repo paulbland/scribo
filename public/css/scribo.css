@@ -163,61 +163,95 @@ ul#cards li.card {
   float: left;
   margin: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
-}
-ul#cards li.card .content {
   width: 280px;
   height: 140px;
-  box-sizing: border-box;
+  perspective: 800px;
+}
+ul#cards li.card .wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 500ms;
+  transform-style: preserve-3d;
+}
+ul#cards li.card .wrapper.flipped {
+  transform: rotateY(180deg);
+}
+ul#cards li.card .wrapper .front,
+ul#cards li.card .wrapper .back {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+ul#cards li.card .wrapper .front {
+  xbackground: red;
+}
+ul#cards li.card .wrapper .back {
+  background: white;
+  transform: rotateY(180deg);
+}
+body.modern ul#cards li.card .wrapper.style-1 .front {
+  border-color: #fac123;
+}
+body.modern ul#cards li.card .wrapper.style-2 .front {
+  border-color: #448ccb;
+}
+body.modern ul#cards li.card .wrapper.style-3 .front {
+  border-color: #3cb878;
+}
+body.modern ul#cards li.card .wrapper.style-4 .front {
+  border-color: #eb4c4c;
+}
+body.modern ul#cards li.card .wrapper.style-5 .front {
+  border-color: #f68e56;
+}
+body.classic ul#cards li.card .wrapper.style-1 .front {
+  background-color: #feef70;
+}
+body.classic ul#cards li.card .wrapper.style-2 .front {
+  background-color: #a6c9dd;
+}
+body.classic ul#cards li.card .wrapper.style-3 .front {
+  background-color: #b1dab8;
+}
+body.classic ul#cards li.card .wrapper.style-4 .front {
+  background-color: #f6cdd5;
+}
+body.classic ul#cards li.card .wrapper.style-5 .front {
+  background-color: #f17e61;
+}
+ul#cards li.card .wrapper .front {
   /* THEME: MODERN */
   /* THEME: CLASSIC */
 }
-body.modern ul#cards li.card .content {
+ul#cards li.card .wrapper .front a.flip-card {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+}
+ul#cards li.card .wrapper .front a.flip-card:before {
+  content: '\293F';
+  transform: rotate(-70deg);
+  display: inline-block;
+}
+body.modern ul#cards li.card .wrapper .front {
   border-top-width: 8px;
   border-top-style: solid;
   border-radius: 3px 3px 0 0;
   background: #ebebeb;
 }
-body.modern ul#cards li.card .content.style-1 {
-  border-color: #fac123;
-}
-body.modern ul#cards li.card .content.style-2 {
-  border-color: #448ccb;
-}
-body.modern ul#cards li.card .content.style-3 {
-  border-color: #3cb878;
-}
-body.modern ul#cards li.card .content.style-4 {
-  border-color: #eb4c4c;
-}
-body.modern ul#cards li.card .content.style-5 {
-  border-color: #f68e56;
-}
-body.classic ul#cards li.card .content {
+body.classic ul#cards li.card .wrapper .front {
   padding: 20px 10px 10px;
   text-overflow: ellipsis;
   background-image: linear-gradient(0deg, rgba(64, 128, 255, 0.25) 1px, transparent 1px);
   background-size: 100% 16px;
 }
-body.classic ul#cards li.card .content.style-1 {
-  background-color: #feef70;
-}
-body.classic ul#cards li.card .content.style-2 {
-  background-color: #a6c9dd;
-}
-body.classic ul#cards li.card .content.style-3 {
-  background-color: #b1dab8;
-}
-body.classic ul#cards li.card .content.style-4 {
-  background-color: #f6cdd5;
-}
-body.classic ul#cards li.card .content.style-5 {
-  background-color: #f17e61;
-}
-ul#cards li.card .content textarea {
+ul#cards li.card .wrapper .front textarea {
   background: transparent;
   border: 0;
   width: 100%;
@@ -228,20 +262,20 @@ ul#cards li.card .content textarea {
   /* THEME: MODERN */
   /* THEME: CLASSIC */
 }
-ul#cards li.card .content textarea::-webkit-input-placeholder {
+ul#cards li.card .wrapper .front textarea::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
 }
-body.modern ul#cards li.card .content textarea {
+body.modern ul#cards li.card .wrapper .front textarea {
   padding: 10px 13px;
   outline: 0;
   max-height: 100%;
   max-width: 100%;
   transition: background 100ms ease-in-out;
 }
-body.modern ul#cards li.card .content textarea:focus {
+body.modern ul#cards li.card .wrapper .front textarea:focus {
   background: white;
 }
-body.classic ul#cards li.card .content textarea {
+body.classic ul#cards li.card .wrapper .front textarea {
   padding: 5px;
   font-family: 'Just Another Hand';
   font-size: 36px;
@@ -250,7 +284,7 @@ body.classic ul#cards li.card .content textarea {
   line-height: 32px;
   letter-spacing: 0.5px;
 }
-body.classic ul#cards li.card .content textarea:focus {
+body.classic ul#cards li.card .wrapper .front textarea:focus {
   outline: 2px dotted rgba(0, 255, 0, 0.85);
 }
 

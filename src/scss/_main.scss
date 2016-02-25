@@ -135,83 +135,129 @@ ul#cards {
 		float: left;
 		margin: 10px;
 		box-shadow: 0 0 10px rgba(0,0,0,0.3);
-		overflow: hidden;
 		position: relative;
 		cursor: pointer;
 		box-sizing: border-box;
-		
-		.content {
-			width: 280px;
-			height: 140px;
-			box-sizing: border-box;
+		width: 280px;
+		height: 140px;
+		perspective: 800px;
 
-			/* THEME: MODERN */
-			body.modern & {
-				border-top-width: 8px;
-				border-top-style: solid;
-				border-radius: 3px 3px 0 0 ;
-				background: #ebebeb;
+		.wrapper {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transition: transform 500ms;
+			transform-style: preserve-3d;
 
-				&.style-1 { border-color: $modern-color-1;  }
-				&.style-2 { border-color: #448ccb; }
-				&.style-3 { border-color: #3cb878;  }
-				&.style-4 { border-color: #eb4c4c; }
-				&.style-5 { border-color: #f68e56; }
+			&.flipped {
+				transform: rotateY( 180deg );
 			}
+			.front,
+			.back, {
+		      display: block;
+		      height: 100%;
+		      width: 100%;   
+		      position: absolute;
+		      backface-visibility: hidden;
+		    }
+		    .front {
+      			xbackground: red;
+    		}
+     		.back {
+      			background: white; 
+      			transform: rotateY( 180deg );
+    		}
 
-			/* THEME: CLASSIC */
-			body.classic & {
-				padding: 20px 10px 10px;
-			  	text-overflow: ellipsis;
-			    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
-				background-size: 100% 16px;
+			body.modern &.style-1 .front { border-color: $modern-color-1; }
+			body.modern &.style-2 .front { border-color: #448ccb; }
+			body.modern &.style-3 .front { border-color: #3cb878; }
+			body.modern	&.style-4 .front { border-color: #eb4c4c; }
+			body.modern	&.style-5 .front { border-color: #f68e56; }
 
-				&.style-1 { background-color: #feef70; }
-				&.style-2 { background-color: #a6c9dd; }
-				&.style-3 {  background-color: #b1dab8;}
-				&.style-4 { background-color: #f6cdd5;   }
-				&.style-5 {background-color: #f17e61;}
-			}
+			body.classic &.style-1 .front { background-color: #feef70; }
+			body.classic &.style-2 .front { background-color: #a6c9dd; }
+			body.classic &.style-3 .front { background-color: #b1dab8; }
+			body.classic &.style-4 .front { background-color: #f6cdd5; }
+			body.classic &.style-5 .front { background-color: #f17e61; }
 
-			textarea {
-				background: transparent;
-				border: 0;
-				width: 100%;
-				height: 100%;
-				resize: none;
-				box-sizing: border-box;
-				cursor: default;
 
-				&::-webkit-input-placeholder {
-					color: rgba(0,0,0,0.2);
+			.front {
+
+				a.flip-card {
+					position: absolute;
+					right: 5px;
+					bottom: 2px;
+					
+					&:before {
+						content: '\293F';
+						transform: rotate(-70deg);
+						display: inline-block;
+					}
 				}
 
 				/* THEME: MODERN */
 				body.modern & {
-					padding: 10px 13px;
-					outline: 0;
-					max-height: 100%;
-					max-width: 100%;
-					transition: background 100ms ease-in-out;
-
-					&:focus { background: white; }
+					border-top-width: 8px;
+					border-top-style: solid;
+					border-radius: 3px 3px 0 0 ;
+					background: #ebebeb;
 				}
 
 				/* THEME: CLASSIC */
 				body.classic & {
-					padding: 5px;
-					font-family: 'Just Another Hand';
-					font-size: 36px;
-					font-weight: 100;
-					outline: none;
-					line-height: 32px;
-					letter-spacing: 0.5px;
-
-					&:focus { outline: 2px dotted rgba(0,255,0,0.85); }
+					padding: 20px 10px 10px;
+				  	text-overflow: ellipsis;
+				    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
+					background-size: 100% 16px;
 				}
-			
+
+				textarea {
+					background: transparent;
+					border: 0;
+					width: 100%;
+					height: 100%;
+					resize: none;
+					box-sizing: border-box;
+					cursor: default;
+
+					&::-webkit-input-placeholder {
+						color: rgba(0,0,0,0.2);
+					}
+
+					/* THEME: MODERN */
+					body.modern & {
+						padding: 10px 13px;
+						outline: 0;
+						max-height: 100%;
+						max-width: 100%;
+						transition: background 100ms ease-in-out;
+
+						&:focus { background: white; }
+					}
+
+					/* THEME: CLASSIC */
+					body.classic & {
+						padding: 5px;
+						font-family: 'Just Another Hand';
+						font-size: 36px;
+						font-weight: 100;
+						outline: none;
+						line-height: 32px;
+						letter-spacing: 0.5px;
+
+						&:focus { outline: 2px dotted rgba(0,255,0,0.85); }
+					}
+				
+				}
 			}
+
+
 		}
+
+   
+
+		
+		
 
 	}
 }
@@ -227,4 +273,5 @@ ul#cards {
 	border-radius: 3px 0 0;
 	z-index: 2;
 }
+
 
