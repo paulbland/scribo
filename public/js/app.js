@@ -49,15 +49,20 @@ $(function() {
 	 		this.$cards = this.$el.find('#cards');
 
 	 		this.makeSortable();
-
 	    },
 
 	    makeSortable: function() {
-	    	
+
 	    	this.$cards.sortable({
 	 			cancel: '',
 	 		}).on('click', function(e) {
 	 			$(e.target).focus();
+
+	 			// doesnt out cursor in correct position...
+
+	 			// e.target.setSelectionRange(4, 4);
+	 			// console.log(e.target.selectionEnd);
+	 			// console.log(e.target.selectionStart);
 	 		});
 	    },
 
