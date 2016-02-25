@@ -1,0 +1,26 @@
+{
+  "name": "Scribo",
+  "description": "The index card app for screenwriters",
+  "main": "server.js",
+  "authors": [
+    "Paul Bland <paul.bland@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "jquery-ui": "^1.11.4",
+    "underscore": "^1.8.3",
+    "backbone": "^1.2.3",
+    "normalize-css": "^3.0.3"
+  }
+}

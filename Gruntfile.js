@@ -6,51 +6,9 @@ module.exports = function(grunt) {
 
 
 
-    nodemon: {
-      dev: {
-        script: 'server.js'
-      }
-    },
-
-
-    sass: {                              // Task
-      dist: {                            // Target
-        options: {                       // Target options
-          style: 'expanded'
-        },
-        files: {                         // Dictionary of files
-          'public/css/main.css': 'src/scss/main.scss'       // 'destination': 'source'
-        }
-      }
-    },
-
-cssmin: {
-  options: {
-    shorthandCompacting: false,
-    roundingPrecision: -1,
-    sourceMap: true
-  },
-  target: {
-    files: {
-      'public/css/main.min.css': ['public/css/main.css']
-    }
-  }
-},
-
-
-
-    watch: {
-      css: {
-        files: ['src/scss/*.scss'],
-        tasks: ['sass', 'cssmin']
-      },
-      js: {
-        files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js'],
-        tasks: ['jshint', 'uglify']
-      } 
-    },
-
-
+    /** 
+     * TOP LEVEL TASK 
+     */
     concurrent: {
       dev: {
         tasks: ['nodemon', 'watch'],
@@ -62,24 +20,101 @@ cssmin: {
 
 
 
+    /** 
+     * SECOND-LEVEL TASK 
+     */
+    nodemon: {
+      dev: {
+        script: 'server.js'
+      }
+    },
+
+    watch: {
+      css: {
+        files: ['src/scss/*.scss'],
+        tasks: ['sass', 'concat:css', 'cssmin']
+      },
+      js: {
+        files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js'],
+        tasks: ['jshint', 'concat:js', 'uglify']
+      } 
+    },
+
+
+
+    /** 
+     * CSS TASKS
+     */
+    sass: {                              
+      dist: {                            
+        options: {  
+          style: 'expanded'
+        },
+        files: {                         
+          'public/css/scribo.css': 'src/scss/main.scss'       // 'destination': 'source'
+        }
+      } 
+    },
+
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1,
+        sourceMap: true
+      },
+      target: {
+        files: {
+          'public/css/scribo.min.css': ['public/css/scribo.concat.css']
+        }
+      }
+    },
+
+   
+
+
+
+    /** 
+     * JS TASKS
+     */
     jshint: {
       all: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js']
     },
 
-
     uglify: {
-      dist: {
+      dist: { 
         files: {
-          'public/js/scribo.min.js': ['src/js/**/*.js']
+          'public/js/scribo.min.js': ['public/js/scribo.js']
         },
         options: {
-          sourceMap : true
+          sourceMap : true 
         }
       }
+    },
+
+
+    /** 
+     * COMMON JS AND CSS TASKS
+     */
+    concat: {
+      options: {
+        separator: ';',
+      },
+      js: {
+        src: [
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/jquery-ui/jquery-ui.js',
+          'bower_components/underscore/underscore.js',
+          'bower_components/backbone/backbone.js',
+          'src/js/**/*.js'],
+        dest: 'public/js/scribo.js',
+      },
+      css: {
+        src: [
+          'bower_components/normalize-css/normalize.css',
+          'public/css/scribo.css'],
+        dest: 'public/css/scribo.concat.css',
+      }
     }
-
-
-
 
   });
 
@@ -90,11 +125,9 @@ cssmin: {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-cssmin');
-
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default', ['concurrent']);
-
-
 
 };
