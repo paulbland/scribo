@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       js: {
-        files: ['Gruntfile.js', 'src/js/*.js', 'api/**/*.js'],
+        files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js'],
         tasks: ['jshint', 'uglify']
       } 
     },
@@ -50,14 +50,14 @@ module.exports = function(grunt) {
 
 
     jshint: {
-      all: ['Gruntfile.js', 'src/js/*.js', 'api/**/*.js']
+      all: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js']
     },
 
 
     uglify: {
       dist: {
         files: {
-          'public/js/scribo.min.js': ['src/js/*.js']
+          'public/js/scribo.min.js': ['src/js/**/*.js']
         },
         options: {
           sourceMap : true

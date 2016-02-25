@@ -2,34 +2,10 @@ var scribo = scribo || {};
 scribo.config = scribo.config || {};
 
 
-scribo.config.autosave_ms = 5000;
-
-
 
 $(function() { 
 
-	// Model
-	scribo.CardModel = Backbone.Model.extend({
-		defaults : {
-			color: 1,
-			text: ''
-		},
-
-		// yes! this line allows  PUT instad of post - to update
-		idAttribute: '_id',
-		
-		 // urlRoot: '/api/cards'
-	});
-
-	// Collection
-	scribo.CardCollection = Backbone.Collection.extend({
-	  	model: scribo.CardModel,
-	  	url: '/api/cards'
-	});
-
 	
-
-
 
 
 	scribo.AppView = Backbone.View.extend({
