@@ -1,0 +1,2 @@
+var scribo = scribo || {};
+
