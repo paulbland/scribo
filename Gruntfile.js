@@ -51,7 +51,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         
-          'public/css/scribo.css': 'src/scss/main.scss'       // 'destination': 'source'
+          'public/css/scribo.css': 'src/scss/base.scss'       // 'destination': 'source'
         }
       } 
     },
@@ -109,6 +109,9 @@ module.exports = function(grunt) {
         dest: 'public/js/scribo.js',
       },
       css: {
+         options: {
+                    separator: ''
+                },
         src: [
           'bower_components/normalize-css/normalize.css',
           'public/css/scribo.css'],
