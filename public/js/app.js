@@ -48,10 +48,18 @@ $(function() {
 
 	 		this.$cards = this.$el.find('#cards');
 
-	 		this.$cards.sortable();
-			this.$cards.disableSelection();
+	 		this.makeSortable();
+
 	    },
 
+	    makeSortable: function() {
+	    	
+	    	this.$cards.sortable({
+	 			cancel: '',
+	 		}).on('click', function(e) {
+	 			$(e.target).focus();
+	 		});
+	    },
 
 
 	    events: {

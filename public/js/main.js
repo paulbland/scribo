@@ -10,7 +10,4 @@ $(function() {
 		$('body').toggleClass('classic', $(e.target).val() === "classic");
 	});
 
-
-
-
 });
