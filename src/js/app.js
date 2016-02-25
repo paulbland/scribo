@@ -6,7 +6,7 @@ scribo.config.autosave_ms = 5000;
 
 
 
-$(function() {
+$(function() { 
 
 	// Model
 	scribo.CardModel = Backbone.Model.extend({

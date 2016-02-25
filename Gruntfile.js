@@ -32,8 +32,8 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       js: {
-        files: ['Gruntfile.js', 'public/js/*.js', 'api/**/*.js'],
-        tasks: ['jshint']
+        files: ['Gruntfile.js', 'src/js/*.js', 'api/**/*.js'],
+        tasks: ['jshint', 'uglify']
       } 
     },
 
@@ -50,7 +50,19 @@ module.exports = function(grunt) {
 
 
     jshint: {
-      all: ['Gruntfile.js', 'public/js/*.js', 'api/**/*.js']
+      all: ['Gruntfile.js', 'src/js/*.js', 'api/**/*.js']
+    },
+
+
+    uglify: {
+      dist: {
+        files: {
+          'public/js/scribo.min.js': ['src/js/*.js']
+        },
+        options: {
+          sourceMap : true
+        }
+      }
     }
 
 
@@ -64,6 +76,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
 
   grunt.registerTask('default', ['concurrent']);
