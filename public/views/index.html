@@ -19,22 +19,12 @@
 
 	<h1>Scrībō</h1>
 
-	<nav>
-		<div class="settings">
-			<fieldset>
-				<legend>Theme</legend>
-				<label><input type="radio" name="theme" value="classic"> Classic</label>
-				<label><input type="radio" name="theme" value="modern" checked> Modern</label>
-			</fieldset>
-		</div>
-	</nav>
-
 	<main>
 		<a href="#" class="add-card">add</a>
 		<ul id="cards"></ul>
+		<nav id="nav"></nav>
+		<div class="status">O Saving...</div>
 	</main>
-
-	<div class="status">O Saving...</div>
 
 	<script type="text/template" id="card-template">
 		<div class="wrapper style-<%= color %>">
@@ -49,6 +39,17 @@
 				 <a href="5" class="set-card-style">5</a>
 			 </div>
 		 </div>
+	</script>
+
+	<script type="text/template" id="nav-template">
+		<a href="#" class="toggle">toggle</a>
+		<div class="settings">
+			<fieldset>
+				<legend>Theme</legend>
+				<label><input type="radio" name="theme" value="classic"> Classic</label>
+				<label><input type="radio" name="theme" value="modern" checked> Modern</label>
+			</fieldset>
+		</div>
 	</script>
 
 </body>

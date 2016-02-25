@@ -40,22 +40,32 @@ body.classic h1 {
   color: #717171;
 }
 
-nav {
+main {
+  transition: all 100ms linear;
+}
+body.nav-open main {
+  margin-right: 300px;
+}
+main nav {
   position: fixed;
-  background: #292929;
   top: 0;
-  height: 100%;
   right: 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
-  color: white;
   z-index: 1;
   transition: width 150ms linear;
   width: 40px;
+  height: 100%;
 }
-body.nav-open nav {
+body.nav-open main nav {
   width: 300px;
 }
-nav:before {
+main nav .content {
+  background: #292929;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+main nav .content:before {
   content: '_ _ _';
   font-size: 40px;
   font-weight: bold;
@@ -66,34 +76,23 @@ nav:before {
   display: inline-block;
   cursor: pointer;
 }
-body.nav-open nav:before {
+body.nav-open main nav .content:before {
   content: '->';
   font-size: 30px;
   line-height: 44px;
   font-weight: 200;
 }
-nav .settings {
+main nav .content .settings {
   display: none;
 }
-body.nav-open nav .settings {
+body.nav-open main nav .content .settings {
   display: block;
 }
-
-main {
-  position: absolute;
-  right: 40px;
-  height: 100%;
-  left: 0;
-  transition: all 100ms linear;
-}
-body.nav-open main {
-  right: 300px;
-}
-
-ul#cards {
+main ul#cards {
   list-style: none;
+  overflow: hidden;
 }
-ul#cards li.card {
+main ul#cards li.card {
   float: left;
   margin: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -102,56 +101,56 @@ ul#cards li.card {
   cursor: pointer;
   box-sizing: border-box;
 }
-ul#cards li.card .wrapper {
+main ul#cards li.card .wrapper {
   width: 280px;
   height: 140px;
   box-sizing: border-box;
   /* THEME: MODERN */
   /* THEME: CLASSIC */
 }
-body.modern ul#cards li.card .wrapper {
+body.modern main ul#cards li.card .wrapper {
   border-top-width: 8px;
   border-top-style: solid;
   border-radius: 3px 3px 0 0;
   background: #ebebeb;
 }
-body.modern ul#cards li.card .wrapper.style-1 {
+body.modern main ul#cards li.card .wrapper.style-1 {
   border-color: #fac123;
 }
-body.modern ul#cards li.card .wrapper.style-2 {
+body.modern main ul#cards li.card .wrapper.style-2 {
   border-color: #448ccb;
 }
-body.modern ul#cards li.card .wrapper.style-3 {
+body.modern main ul#cards li.card .wrapper.style-3 {
   border-color: #3cb878;
 }
-body.modern ul#cards li.card .wrapper.style-4 {
+body.modern main ul#cards li.card .wrapper.style-4 {
   border-color: #eb4c4c;
 }
-body.modern ul#cards li.card .wrapper.style-5 {
+body.modern main ul#cards li.card .wrapper.style-5 {
   border-color: #f68e56;
 }
-body.classic ul#cards li.card .wrapper {
+body.classic main ul#cards li.card .wrapper {
   padding: 20px 10px 10px;
   text-overflow: ellipsis;
   background-image: linear-gradient(0deg, rgba(64, 128, 255, 0.25) 1px, transparent 1px);
   background-size: 100% 16px;
 }
-body.classic ul#cards li.card .wrapper.style-1 {
+body.classic main ul#cards li.card .wrapper.style-1 {
   background-color: #feef70;
 }
-body.classic ul#cards li.card .wrapper.style-2 {
+body.classic main ul#cards li.card .wrapper.style-2 {
   background-color: #a6c9dd;
 }
-body.classic ul#cards li.card .wrapper.style-3 {
+body.classic main ul#cards li.card .wrapper.style-3 {
   background-color: #b1dab8;
 }
-body.classic ul#cards li.card .wrapper.style-4 {
+body.classic main ul#cards li.card .wrapper.style-4 {
   background-color: #f6cdd5;
 }
-body.classic ul#cards li.card .wrapper.style-5 {
+body.classic main ul#cards li.card .wrapper.style-5 {
   background-color: #f17e61;
 }
-ul#cards li.card .wrapper textarea {
+main ul#cards li.card .wrapper textarea {
   background: transparent;
   border: 0;
   width: 100%;
@@ -162,20 +161,20 @@ ul#cards li.card .wrapper textarea {
   /* THEME: MODERN */
   /* THEME: CLASSIC */
 }
-ul#cards li.card .wrapper textarea::-webkit-input-placeholder {
+main ul#cards li.card .wrapper textarea::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
 }
-body.modern ul#cards li.card .wrapper textarea {
+body.modern main ul#cards li.card .wrapper textarea {
   padding: 10px 13px;
   outline: 0;
   max-height: 100%;
   max-width: 100%;
   transition: background 100ms ease-in-out;
 }
-body.modern ul#cards li.card .wrapper textarea:focus {
+body.modern main ul#cards li.card .wrapper textarea:focus {
   background: white;
 }
-body.classic ul#cards li.card .wrapper textarea {
+body.classic main ul#cards li.card .wrapper textarea {
   padding: 5px;
   font-family: 'Just Another Hand';
   font-size: 32px;
@@ -184,7 +183,7 @@ body.classic ul#cards li.card .wrapper textarea {
   line-height: 32px;
   letter-spacing: 0.5px;
 }
-body.classic ul#cards li.card .wrapper textarea:focus {
+body.classic main ul#cards li.card .wrapper textarea:focus {
   outline: 2px dotted rgba(0, 255, 0, 0.85);
 }
 

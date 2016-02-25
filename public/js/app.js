@@ -47,8 +47,11 @@ $(function() {
 	 		scribo.cards.fetch({reset: true});
 
 	 		this.$cards = this.$el.find('#cards');
+	 		this.$nav = this.$el.find('#nav');
 
 	 		this.makeSortable();
+
+	 		this.addNav();
 	    },
 
 	    makeSortable: function() {
@@ -87,6 +90,15 @@ $(function() {
 			scribo.cards.each(this.addOne, this);
 
 			
+		},
+
+		addNav: function() {
+			// takes  a model
+			// var nav = new scribo.NavView({ model: card });
+			var nav = new scribo.NavView();
+			this.$nav.append(nav.render().el);
+	
+
 		}
 	}); 
 
@@ -155,6 +167,45 @@ $(function() {
 
 	});
 
+
+
+
+
+
+
+
+
+	scribo.NavView = Backbone.View.extend({
+
+		// /tagName: 'nav',
+
+		className: 'content',
+
+		template: _.template( $('#nav-template').html() ),
+
+		render: function() {
+
+	 		// this.$el.html(this.template(this.model.toJSON()));
+	 		this.$el.html(this.template());
+
+	 		return this;
+		},
+
+
+		events : {
+
+			'click .toggle' :  function() {
+				$('body').toggleClass('nav-open');
+			},
+
+			'change input[name="theme"]' : function(e) {
+				$('body').toggleClass('modern', $(e.target).val() === "modern");
+				$('body').toggleClass('classic', $(e.target).val() === "classic");
+			}
+
+		}
+
+	});
 
 
 
