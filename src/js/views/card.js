@@ -25,6 +25,7 @@ scribo.CardView = Backbone.View.extend({
  		this.$el.html(this.template(this.model.toJSON()));
 
  		this.$input = this.$el.find('textarea');
+ 		this.$wrapper = this.$el.find('.wrapper');
 
  		// needed this when class was a function
  		// style now moved to wrapper class
@@ -67,11 +68,8 @@ scribo.CardView = Backbone.View.extend({
 	},
 
 	flipCard: function(e) {
-		// $(e.target).closest('.wrapper').toggleClass('flipped');
-		// this.isFlipped = $(e.target).closest('.wrapper').hasClass('flipped');
-
 		this.isFlipped = !this.isFlipped;
-		$(e.target).closest('.wrapper').toggleClass('flipped', this.isFlipped);
+		this.$wrapper.toggleClass('flipped', this.isFlipped);
 	},
 
 	throttledSave: _.throttle(function() {
