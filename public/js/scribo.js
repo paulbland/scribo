@@ -29971,7 +29971,7 @@ scribo.AppView = Backbone.View.extend({
 
 
 	addOne: function (card) {
-		var view = new scribo.CardItemView({ model: card });
+		var view = new scribo.CardView({ model: card });
 		this.$cards.append(view.render().el);
 	},
 
@@ -29996,7 +29996,7 @@ var scribo = scribo || {};
 scribo.config = scribo.config || {};
 
 
-scribo.CardItemView = Backbone.View.extend({
+scribo.CardView = Backbone.View.extend({
 
 	tagName: 'li',
 
@@ -30006,9 +30006,14 @@ scribo.CardItemView = Backbone.View.extend({
 
 	className: 'card',
 
+	cardStyles: [1,2,3,4,5],
+
+	isFlipped: false,
+
 	template: _.template( $('#card-template').html() ),
 
 	render: function() {
+		console.log('render: scribo.CardView');
 
  		this.$el.html(this.template(this.model.toJSON()));
 
@@ -30028,10 +30033,10 @@ scribo.CardItemView = Backbone.View.extend({
 	},
 
 	events: {
-		'keyup textarea' 			: 'updateCardText',
-		'click a.delete-card' 		: 'deleteCard',
-		'click a.set-card-style' 	: 'setCardStyle',
-		'click a.flip-card'			: 'flipCard'
+		'keyup textarea' 					: 'updateCardText',
+		'click a.delete-card' 				: 'deleteCard',
+		'change input[name="card_style"]' 	: 'setCardStyle',
+		'click a.flip-card'					: 'flipCard'
 	},
 
 	/**
@@ -30051,12 +30056,15 @@ scribo.CardItemView = Backbone.View.extend({
 	},
 
 	setCardStyle: function(e) {
-		e.preventDefault();
-		this.model.save('color', $(e.target).attr('href'));
+		this.model.save('color', $(e.target).val());
 	},
 
 	flipCard: function(e) {
-		$(e.target).closest('.wrapper').toggleClass('flipped');
+		// $(e.target).closest('.wrapper').toggleClass('flipped');
+		// this.isFlipped = $(e.target).closest('.wrapper').hasClass('flipped');
+
+		this.isFlipped = !this.isFlipped;
+		$(e.target).closest('.wrapper').toggleClass('flipped', this.isFlipped);
 	},
 
 	throttledSave: _.throttle(function() {

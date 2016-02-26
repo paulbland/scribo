@@ -48,7 +48,7 @@ scribo.AppView = Backbone.View.extend({
 
 
 	addOne: function (card) {
-		var view = new scribo.CardItemView({ model: card });
+		var view = new scribo.CardView({ model: card });
 		this.$cards.append(view.render().el);
 	},
 
