@@ -7,7 +7,7 @@ body {
 	font-family: 'Helvetica Neue';
 	font-weight: 200;
 	font-size: 18px;
-	line-height: 23px;
+	line-height: 1.2;
 	height: 100%;
 
 	&.classic {
@@ -26,7 +26,7 @@ main {
 
 h1 {
 	position: fixed;
-	bottom: -55px;
+	bottom: 0;
 	right: 60px;
 	font-size: 200px;
 	color: #424242; /*this should darken bg */
@@ -39,13 +39,13 @@ h1 {
 
 a.add-card {
 	position: fixed; 
-	top: 12px;
+	top: 0;
 	right: 50px;
 	text-decoration: none;
 	color: white;
 	display: block;
 	transition: 100ms all linear;
-	text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+	text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 
 	&:hover {
 		color: $modern-color-1;
@@ -134,7 +134,6 @@ ul#cards {
 	li.card {
 		float: left;
 		margin: 10px;
-		box-shadow: 0 0 10px rgba(0,0,0,0.3);
 		position: relative;
 		cursor: pointer;
 		box-sizing: border-box;
@@ -145,70 +144,68 @@ ul#cards {
 		.wrapper {
 			width: 100%;
 			height: 100%;
+			box-sizing: border-box;
 			position: absolute;
 			transition: transform 500ms;
 			transform-style: preserve-3d;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
-			&.flipped {
-				transform: rotateY( 180deg );
+			&.flipped { transform: rotateY(180deg); }
+
+
+			/* THEME: MODERN */
+			body.modern & {
+				border-top-width: 8px;
+				border-top-style: solid;
+				border-radius: 3px 3px 0 0 ;
+				background: #ebebeb;
+				
+				&.style-1 { border-color: $modern-color-1; }
+				&.style-2 { border-color: #448ccb; }
+				&.style-3 { border-color: #3cb878; }
+				&.style-4 { border-color: #eb4c4c; }
+				&.style-5 { border-color: #f68e56; }
 			}
+
+			/* THEME: CLASSIC */
+			body.classic & {
+			  	text-overflow: ellipsis;
+			    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
+				background-size: 100% 16px;
+
+				&.style-1 { background-color: #feef70; }
+				&.style-2 { background-color: #a6c9dd; }
+				&.style-3 { background-color: #b1dab8; }
+				&.style-4 { background-color: #f6cdd5; }
+				&.style-5 { background-color: #f17e61; }
+			}
+
 			.front,
 			.back, {
-		      display: block;
-		      height: 100%;
-		      width: 100%;   
-		      position: absolute;
-		      backface-visibility: hidden;
+		    	height: 100%;
+		    	width: 100%;   
+		    	position: absolute;
+		    	backface-visibility: hidden;
 		    }
-		    .front {
-      			xbackground: red;
-    		}
-     		.back {
-      			background: white; 
-      			transform: rotateY( 180deg );
-    		}
-
-			body.modern &.style-1 .front { border-color: $modern-color-1; }
-			body.modern &.style-2 .front { border-color: #448ccb; }
-			body.modern &.style-3 .front { border-color: #3cb878; }
-			body.modern	&.style-4 .front { border-color: #eb4c4c; }
-			body.modern	&.style-5 .front { border-color: #f68e56; }
-
-			body.classic &.style-1 .front { background-color: #feef70; }
-			body.classic &.style-2 .front { background-color: #a6c9dd; }
-			body.classic &.style-3 .front { background-color: #b1dab8; }
-			body.classic &.style-4 .front { background-color: #f6cdd5; }
-			body.classic &.style-5 .front { background-color: #f17e61; }
-
-
+		    
 			.front {
 
 				a.flip-card {
 					position: absolute;
 					right: 5px;
 					bottom: 2px;
+					color: rgba(0,0,0,0.2);
+					transition: color 100ms linear;
 					
 					&:before {
 						content: '\293F';
-						transform: rotate(-70deg);
+						transform: rotate(-75deg);
 						display: inline-block;
 					}
-				}
 
-				/* THEME: MODERN */
-				body.modern & {
-					border-top-width: 8px;
-					border-top-style: solid;
-					border-radius: 3px 3px 0 0 ;
-					background: #ebebeb;
-				}
-
-				/* THEME: CLASSIC */
-				body.classic & {
-					padding: 20px 10px 10px;
-				  	text-overflow: ellipsis;
-				    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
-					background-size: 100% 16px;
+					&:hover {
+						color: black;
+					}
 				}
 
 				textarea {
@@ -237,7 +234,7 @@ ul#cards {
 
 					/* THEME: CLASSIC */
 					body.classic & {
-						padding: 5px;
+						padding: 10px 13px;
 						font-family: 'Just Another Hand';
 						font-size: 36px;
 						font-weight: 100;
@@ -245,12 +242,17 @@ ul#cards {
 						line-height: 32px;
 						letter-spacing: 0.5px;
 
-						&:focus { outline: 2px dotted rgba(0,255,0,0.85); }
+						&:focus { }
 					}
 				
 				}
 			}
 
+			.back {
+				background: white;
+      			transform: rotateY( 180deg );
+    		}
+			
 
 		}
 
