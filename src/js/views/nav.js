@@ -2,14 +2,12 @@ var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
 
 
-
 scribo.NavView = Backbone.View.extend({
 
 	tagName: 'nav',
 
-	render: function() {
-		// remember you can pass model here
- 		this.$el.html(scribo.templates.nav());
+	render: function() { 
+ 		this.$el.html(scribo.templates.nav());	// remember you can pass model here!
  		return this;
 	},
 

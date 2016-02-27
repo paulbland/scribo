@@ -34502,7 +34502,7 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
 },"3":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "				\n					<li class=\"card-style-"
+  return "					<li class=\"card-style-"
     + alias2(alias1(depth0, depth0))
     + "\">\n						<label>\n							<input type=\"radio\" name=\"card_style\" value=\""
     + alias2(alias1(depth0, depth0))
@@ -34520,7 +34520,7 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
     + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.isFlipped : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\">\n	<div class=\"front\">\n		<textarea placeholder=\"Type here...\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.text : stack1), depth0))
-    + "</textarea>\n		<a class=\"flip-card\"></a>\n	</div>\n	<div class=\"back\">\n		\n	 	<a href=\"#\" class=\"delete-card\">delete card🗑✘</a><br />\n\n	 	Select color: \n		<form>\n			<ul class=\"card-style\">\n"
+    + "</textarea>\n		<a class=\"flip-card\"></a>\n	</div>\n	<div class=\"back\">\n	 	<a href=\"#\" class=\"delete-card\">delete card🗑✘</a><br />\n	 	Select color: \n		<form>\n			<ul class=\"card-style\">\n"
     + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.cardStyles : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "			</ul>\n		</form>\n	\n	</div>\n</div>	";
 },"useData":true,"useDepths":true});
@@ -34529,46 +34529,37 @@ this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.
     return "<a href=\"#\" class=\"toggle\"></a>\n<form>\n	<fieldset>\n		<legend>Theme</legend>\n		<label><input type=\"radio\" name=\"theme\" value=\"classic\"> Classic</label>\n		<label><input type=\"radio\" name=\"theme\" value=\"modern\" checked> Modern</label>\n	</fieldset>\n</form>";
 },"useData":true});;var scribo = scribo || {};
 
-
-
-Handlebars.registerHelper('if_eq', function(a, b, opts) {
-    if(a == b) // Or === depending on your needs
-        return opts.fn(this);
-    else
-        return opts.inverse(this);
-});
-
-
-
 $(function() { 
-
 	new scribo.AppView();
-
 });;var scribo = scribo || {};
 scribo.config = scribo.config || {};
 
 
 scribo.config.autosave_ms = 5000;
 
+;Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+});
 ;var scribo = scribo || {};
 
 
-// Model
 scribo.CardModel = Backbone.Model.extend({
+
 	defaults : {
 		color: 1,
 		text: ''
 	},
 
-	// yes! this line allows  PUT instad of post - to update
 	idAttribute: '_id',
-	
-	 // urlRoot: '/api/cards'
 });
 
-// Collection
 scribo.CardCollection = Backbone.Collection.extend({
+
   	model: scribo.CardModel,
+  	
   	url: '/api/cards'
 });
 ;var scribo = scribo || {};
@@ -34641,25 +34632,17 @@ scribo.AppView = Backbone.View.extend({
 
 	}
 }); 
-;
-var scribo = scribo || {};
+;var scribo = scribo || {};
 scribo.config = scribo.config || {};
 scribo.templates = scribo.templates || {};
 
 
 scribo.CardView = Backbone.View.extend({
 
-	tagName: 'li',
-
-	// className: function() {
-	// 	return 'card style-' + this.model.get('color');
-	// },
-
-	className: 'card',
-
-	cardStyles: [1,2,3,4,5],
-
-	isFlipped: false,
+	tagName 	: 'li',
+	className 	: 'card',
+	cardStyles 	: [1,2,3,4,5],
+	isFlipped	: false,
 
 	render: function() {
 		console.log('render: scribo.CardView');
@@ -34670,12 +34653,8 @@ scribo.CardView = Backbone.View.extend({
  			cardStyles 	: this.cardStyles
  		}));
 
- 		this.$input = this.$el.find('textarea');
- 		this.$wrapper = this.$el.find('.wrapper');
-
- 		// needed this when class was a function
- 		// style now moved to wrapper class
- 		// this.$el.attr('class', _.result(this, 'className'));
+ 		this.$input 	= this.$el.find('textarea');
+ 		this.$wrapper 	= this.$el.find('.wrapper');
 
  		return this;
 	},
@@ -34726,14 +34705,12 @@ scribo.CardView = Backbone.View.extend({
 scribo.templates = scribo.templates || {};
 
 
-
 scribo.NavView = Backbone.View.extend({
 
 	tagName: 'nav',
 
-	render: function() {
-		// remember you can pass model here
- 		this.$el.html(scribo.templates.nav());
+	render: function() { 
+ 		this.$el.html(scribo.templates.nav());	// remember you can pass model here!
  		return this;
 	},
 

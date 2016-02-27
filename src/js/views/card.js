@@ -1,4 +1,3 @@
-
 var scribo = scribo || {};
 scribo.config = scribo.config || {};
 scribo.templates = scribo.templates || {};
@@ -6,17 +5,10 @@ scribo.templates = scribo.templates || {};
 
 scribo.CardView = Backbone.View.extend({
 
-	tagName: 'li',
-
-	// className: function() {
-	// 	return 'card style-' + this.model.get('color');
-	// },
-
-	className: 'card',
-
-	cardStyles: [1,2,3,4,5],
-
-	isFlipped: false,
+	tagName 	: 'li',
+	className 	: 'card',
+	cardStyles 	: [1,2,3,4,5],
+	isFlipped	: false,
 
 	render: function() {
 		console.log('render: scribo.CardView');
@@ -27,12 +19,8 @@ scribo.CardView = Backbone.View.extend({
  			cardStyles 	: this.cardStyles
  		}));
 
- 		this.$input = this.$el.find('textarea');
- 		this.$wrapper = this.$el.find('.wrapper');
-
- 		// needed this when class was a function
- 		// style now moved to wrapper class
- 		// this.$el.attr('class', _.result(this, 'className'));
+ 		this.$input 	= this.$el.find('textarea');
+ 		this.$wrapper 	= this.$el.find('.wrapper');
 
  		return this;
 	},

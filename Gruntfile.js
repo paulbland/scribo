@@ -80,6 +80,22 @@ module.exports = function(grunt) {
       all: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js']
     },
 
+    handlebars: {
+      compile: {
+        options: {
+          namespace: 'scribo.templates',
+          // convert file path into a function name 
+          processName: function(filePath) {
+            var pieces = filePath.split('/');
+            return pieces[pieces.length - 1].split('.')[0];
+          }
+        },
+        files: {
+          'public/js/templates.js': 'src/templates/*.hbs'
+        }
+      }
+    },
+
     uglify: {
       dist: { 
         files: {
@@ -119,36 +135,15 @@ module.exports = function(grunt) {
           'public/css/scribo.css'],
         dest: 'public/css/scribo.concat.css',
       }
-    },
-
-
-
-
-
-
-
-    handlebars: {
-      compile: {
-        options: {
-
-          // configure a namespace for your templates
-          namespace: 'scribo.templates',
-
-          // convert file path into a function name
-          // in this example, I convert grab just the filename without the extension 
-          processName: function(filePath) {
-            var pieces = filePath.split('/');
-            return pieces[pieces.length - 1].split('.')[0];
-          }
-
-        },
-
-        // output file: input files
-        files: {
-          'public/js/templates.js': 'src/templates/*.hbs'
-        }
-      }
     }
+
+
+
+
+
+
+
+    
 
   });
 
