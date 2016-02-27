@@ -20,31 +20,23 @@ scribo.AppView = Backbone.View.extend({
  		this.addNav();
     },
 
-    makeSortable: function() {
+    makeSortable: function() {   	
 
-    	this.$cards.sortable({
- 			cancel: '',
- 		}).on('click', function(e) {
- 			$(e.target).focus();
-
- 			// doesnt out cursor in correct position...
-
- 			// e.target.setSelectionRange(4, 4);
- 			// console.log(e.target.selectionEnd);
- 			// console.log(e.target.selectionStart);
- 		});
+    	var el = document.getElementById('cards');
+		var sortable = Sortable.create(el, {
+			animation: 300, 
+			draggable: "li.card"
+		});
     },
-
 
     events: {
     	'click a.add-card' : 'addCard'
     },
+
     addCard: function(e) {
     	e.preventDefault();
 		scribo.cards.create();
     },
-
-
 
 	addOne: function (card) {
 		var view = new scribo.CardView({ model: card });
@@ -54,8 +46,6 @@ scribo.AppView = Backbone.View.extend({
 	// Add all items in the **Todos** collection at once.
 	addAll: function () {
 		scribo.cards.each(this.addOne, this);
-
-		
 	},
 
 	addNav: function() {
