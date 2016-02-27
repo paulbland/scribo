@@ -499,18 +499,19 @@ h1 {
   font-family: 'Neuton', serif;
   font-weight: 800;
   position: fixed;
-  bottom: 0;
+  bottom: -20px;
   right: 60px;
   font-size: 200px;
   font-weight: 900;
   color: rgba(0, 0, 0, 0.08);
   text-shadow: 1px 1px 2px #464646, 0 0 0 rgba(0, 0, 0, 0.2), 1px 1px 2px #464646;
+  z-index: -1;
 }
 
 a.add-card {
   position: fixed;
   top: 0;
-  right: 50px;
+  right: 48px;
   text-decoration: none;
   color: white;
   display: block;
@@ -522,7 +523,7 @@ a.add-card:hover {
 }
 a.add-card:before {
   content: '+';
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   display: block;
   cursor: pointer;
@@ -575,7 +576,7 @@ nav form label {
 ul#cards {
   list-style: none;
   overflow: hidden;
-  margin-right: 80px;
+  margin-right: 65px;
   /* nav width + add card */
   padding: 8px;
 }
