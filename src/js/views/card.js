@@ -1,6 +1,7 @@
 
 var scribo = scribo || {};
 scribo.config = scribo.config || {};
+scribo.templates = scribo.templates || {};
 
 
 scribo.CardView = Backbone.View.extend({
@@ -17,12 +18,10 @@ scribo.CardView = Backbone.View.extend({
 
 	isFlipped: false,
 
-    template : Handlebars.compile( $('#card-template').html() ),
-
 	render: function() {
 		console.log('render: scribo.CardView');
 
- 		this.$el.html(this.template({
+ 		this.$el.html(scribo.templates.card({
  			card 		: this.model.toJSON(),
  			isFlipped 	: this.isFlipped,
  			cardStyles 	: this.cardStyles

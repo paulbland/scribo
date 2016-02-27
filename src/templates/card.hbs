@@ -1,0 +1,26 @@
+<div class="wrapper style-{{card.color}} {{#if isFlipped}}flipped{{/if}}">
+	<div class="front">
+		<textarea placeholder="Type here...">{{card.text}}</textarea>
+		<a class="flip-card"></a>
+	</div>
+	<div class="back">
+		
+	 	<a href="#" class="delete-card">delete card🗑✘</a><br />
+
+	 	Select color: 
+		<form>
+			<ul class="card-style">
+				{{#each cardStyles}}
+				
+					<li class="card-style-{{this}}">
+						<label>
+							<input type="radio" name="card_style" value="{{this}}" {{#if_eq ../card.color this}}checked{{/if_eq}} >
+							<span></span>
+						</label>
+					</li>
+				{{/each}}
+			</ul>
+		</form>
+	
+	</div>
+</div>	

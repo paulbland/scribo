@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js'],
-        tasks: ['jshint', 'concat:js', 'uglify']
+        tasks: ['jshint', 'handlebars', 'concat:js', 'uglify']
       } 
     },
 
@@ -106,6 +106,7 @@ module.exports = function(grunt) {
           'bower_components/underscore/underscore.js',
           'bower_components/backbone/backbone.js',
           'bower_components/handlebars/handlebars.js',
+          'public/js/templates.js',
           'src/js/**/*.js'],
         dest: 'public/js/scribo.js',
       },
@@ -117,6 +118,35 @@ module.exports = function(grunt) {
           'bower_components/normalize-css/normalize.css',
           'public/css/scribo.css'],
         dest: 'public/css/scribo.concat.css',
+      }
+    },
+
+
+
+
+
+
+
+    handlebars: {
+      compile: {
+        options: {
+
+          // configure a namespace for your templates
+          namespace: 'scribo.templates',
+
+          // convert file path into a function name
+          // in this example, I convert grab just the filename without the extension 
+          processName: function(filePath) {
+            var pieces = filePath.split('/');
+            return pieces[pieces.length - 1].split('.')[0];
+          }
+
+        },
+
+        // output file: input files
+        files: {
+          'public/js/templates.js': 'src/templates/*.hbs'
+        }
       }
     }
 
@@ -131,6 +161,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
   grunt.registerTask('default', ['concurrent']);
 

@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Scrībō | The index card app for screenwriters</title>
-
- 	<!-- <link href='https://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'> -->
+ 	<link href='https://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
  	<link rel="stylesheet" type="text/css" href="/css/scribo.min.css">
 </head>
 
@@ -16,48 +15,6 @@
 		<ul id="cards"></ul>
 		<div class="status">O Saving...</div>
 	</main>
-
-	<script type="text/x-handlebars-template" id="card-template">
-
-		<div class="wrapper style-{{card.color}} {{#if isFlipped}}flipped{{/if}}">
-			<div class="front">
-				<textarea placeholder="Type here...">{{card.text}}</textarea>
-				<a class="flip-card"></a>
-			</div>
-			<div class="back">
-				
-			 	<a href="#" class="delete-card">delete card🗑✘</a><br />
-
-			 	Select color: 
-				<form>
-					<ul class="card-style">
-						{{#each cardStyles}}
-						
-							<li class="card-style-{{this}}">
-								<label>
-									<input type="radio" name="card_style" value="{{this}}" {{#if_eq ../card.color this}}checked{{/if_eq}} >
-									<span></span>
-								</label>
-							</li>
-						{{/each}}
-					</ul>
-				</form>
-			
-			</div>
-		</div>	
-
-	</script>
-
-	<script type="text/x-handlebars-template" id="nav-template">
-		<a href="#" class="toggle"></a>
-		<form>
-			<fieldset>
-				<legend>Theme</legend>
-				<label><input type="radio" name="theme" value="classic"> Classic</label>
-				<label><input type="radio" name="theme" value="modern" checked> Modern</label>
-			</fieldset>
-		</form>
-	</script>
 
 	<script src="/js/scribo.min.js"></script>
 
