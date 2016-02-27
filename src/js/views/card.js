@@ -17,12 +17,16 @@ scribo.CardView = Backbone.View.extend({
 
 	isFlipped: false,
 
-	template: _.template( $('#card-template').html() ),
+    template : Handlebars.compile( $('#card-template').html() ),
 
 	render: function() {
 		console.log('render: scribo.CardView');
 
- 		this.$el.html(this.template(this.model.toJSON()));
+ 		this.$el.html(this.template({
+ 			card 		: this.model.toJSON(),
+ 			isFlipped 	: this.isFlipped,
+ 			cardStyles 	: this.cardStyles
+ 		}));
 
  		this.$input = this.$el.find('textarea');
  		this.$wrapper = this.$el.find('.wrapper');

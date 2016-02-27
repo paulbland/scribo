@@ -6,10 +6,11 @@ scribo.NavView = Backbone.View.extend({
 
 	tagName: 'nav',
 
-	template: _.template( $('#nav-template').html() ),
+    template : Handlebars.compile( $('#nav-template').html() ),
 
 	render: function() {
 
+		// removed - no model here
  		// this.$el.html(this.template(this.model.toJSON()));
  		this.$el.html(this.template());
 

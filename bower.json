@@ -21,6 +21,7 @@
     "jquery-ui": "^1.11.4",
     "underscore": "^1.8.3",
     "backbone": "^1.2.3",
-    "normalize-css": "^3.0.3"
+    "normalize-css": "^3.0.3",
+    "handlebars": "^4.0.5"
   }
 }
