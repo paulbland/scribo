@@ -10,12 +10,8 @@ body {
 	line-height: 1.2;
 	height: 100%;
 
-	&.classic {
-		background: #777;  
-	}
-	&.modern {
-		background: #464646;  
-	}
+	&.classic { background: $classic-background; }
+	&.modern { background: $modern-background; }
 }
 
 
@@ -25,17 +21,16 @@ main {
 
 
 h1 {
+	font-family: 'Neuton', serif;
+	font-weight: 800;
 	position: fixed;
 	bottom: 0;
 	right: 60px;
 	font-size: 200px;
 	font-weight: 900;
-	color: #424242; /*this should darken bg */
-	letter-spacing: -5px;
+	color: rgba(0,0,0,0.08); 
+	text-shadow: 1px 1px 2px $modern-background, 0 0 0 rgba(0,0,0,0.2), 1px 1px 2px $modern-background;
 
-	body.classic & {
-		color: #717171;
-	}
 }	
 
 a.add-card {
@@ -224,6 +219,8 @@ ul#cards {
 
 					/* THEME: MODERN */
 					body.modern & {
+						font-family: 'Open Sans', sans-serif;
+						font-weight: 300;
 						padding: 10px 13px;
 						outline: 0;
 						max-height: 100%;
@@ -236,9 +233,8 @@ ul#cards {
 					/* THEME: CLASSIC */
 					body.classic & {
 						padding: 10px 13px;
-						font-family: 'Just Another Hand';
+						font-family: 'Just Another Hand', cursive;
 						font-size: 36px;
-						font-weight: 100;
 						outline: none;
 						line-height: 32px;
 						letter-spacing: 0.5px;
