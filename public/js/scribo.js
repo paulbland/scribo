@@ -34581,7 +34581,6 @@ scribo.AppView = Backbone.View.extend({
  		this.$cards = this.$el.find('#cards');
 
  		this.makeSortable();
-
  		this.addNav();
     },
 
