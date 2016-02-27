@@ -34,7 +34,7 @@ var port = process.env.PORT || 8080;
 //app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/dist'));
 
 // set the home page route
 app.get('/', auth, function(req, res) {
@@ -43,7 +43,7 @@ app.get('/', auth, function(req, res) {
     //res.render('index');
 
     // needed to put this in views otherwise public is just served without auth (fro lines above)
-    res.sendFile(__dirname + '/public/views/index.html');
+    res.sendFile(__dirname + '/dist/views/index.html');
 });
 
 

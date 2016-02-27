@@ -51,7 +51,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         
-          'public/css/scribo.css': 'src/scss/base.scss'       // 'destination': 'source'
+          'dist/css/scribo.css': 'src/scss/base.scss'       // 'destination': 'source'
         }
       } 
     },
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'public/css/scribo.min.css': ['public/css/scribo.concat.css']
+          'dist/css/scribo.min.css': ['dist/css/scribo.concat.css']
         }
       }
     },
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'public/js/templates.js': 'src/templates/*.hbs'
+          'dist/js/templates.js': 'src/templates/*.hbs'
         }
       }
     },
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: { 
         files: {
-          'public/js/scribo.min.js': ['public/js/scribo.js']
+          'dist/js/scribo.min.js': ['dist/js/scribo.js']
         },
         options: {
           sourceMap : true 
@@ -122,9 +122,9 @@ module.exports = function(grunt) {
           'bower_components/underscore/underscore.js',
           'bower_components/backbone/backbone.js',
           'bower_components/handlebars/handlebars.js',
-          'public/js/templates.js',
+          'dist/js/templates.js',
           'src/js/**/*.js'],
-        dest: 'public/js/scribo.js',
+        dest: 'dist/js/scribo.js',
       },
       css: {
          options: {
@@ -132,8 +132,8 @@ module.exports = function(grunt) {
                 },
         src: [
           'bower_components/normalize-css/normalize.css',
-          'public/css/scribo.css'],
-        dest: 'public/css/scribo.concat.css',
+          'dist/css/scribo.css'],
+        dest: 'dist/css/scribo.concat.css',
       }
     }
 
