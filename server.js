@@ -8,15 +8,17 @@ app.use(bodyParser.json());
 
 
 
-// nwe db stuff
-var mongoose   = require('mongoose');
+// DATASBASE
+var mongoose = require('mongoose');
 mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); // connect to our database
 
 
+// BASIC AUTH
+var auth = require('./api/auth');
 
-
- var auth     = require('./api/auth');
-
+// GZIP COMPRESSION
+var compression = require('compression');
+app.use(compression());
 
 
 
@@ -53,8 +55,10 @@ app.get('/', auth, function(req, res) {
 // router in its own thing
 
 var router = require('./api/router');
-
 app.use('/api', router);
+
+
+
 
 
 
