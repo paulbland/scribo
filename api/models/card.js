@@ -4,9 +4,9 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var CardSchema   = new Schema({
-    // name: String
     color: Number,
-    text: String
+    text: String,
+    order: Number
 });
 
 module.exports = mongoose.model('Card', CardSchema);

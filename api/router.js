@@ -26,10 +26,13 @@ router.route('/cards')
     // create a card (accessed at POST http://localhost:8080/api/cards)
     .post(function(req, res) {
         
-        var card = new Card();      // create a new instance of the Card model
-       // card.name = req.body.name;  // set the cards name (comes from the request)
-        card.color = req.body.color;  // set the cards name (comes from the request)
-        card.text = req.body.text;  // set the cards name (comes from the request)
+        // create a new instance of the Card model
+        var card = new Card();      
+
+        // set the cards info (comes from the request)
+        card.color  = req.body.color; 
+        card.text   = req.body.text; 
+        card.order  = req.body.order;  
 
         // save the card and check for errors
         card.save(function(err) {
@@ -73,9 +76,10 @@ router.route('/cards/:card_id')
             if (err)
                 res.send(err); 
 
-            //card.name = req.body.name;  // update the cards info
-            card.color = req.body.color;  // update the cards info
-            card.text = req.body.text;  // update the cards info
+            // update the cards info
+            card.color  = req.body.color; 
+            card.text   = req.body.text;  
+            card.order  = req.body.order;  
 
             // save the card
             card.save(function(err) {
