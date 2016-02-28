@@ -78,10 +78,9 @@ h1 {
   bottom: -20px;
   right: 60px;
   font-size: 200px;
-  font-weight: 900;
   color: rgba(0, 0, 0, 0.08);
-  text-shadow: 1px 1px 2px #464646, 0 0 0 rgba(0, 0, 0, 0.2), 1px 1px 2px #464646;
   z-index: -1;
+  letter-spacing: -1px;
 }
 
 a.add-card {
@@ -270,7 +269,7 @@ ul#cards li.card .wrapper .back {
   backface-visibility: hidden;
   box-sizing: border-box;
 }
-ul#cards li.card .wrapper .front .flip-card {
+ul#cards li.card .wrapper .front a.flip-card {
   /* this was visible onthe back for some reason */
   backface-visibility: hidden;
 }

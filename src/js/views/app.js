@@ -26,7 +26,6 @@ scribo.AppView = Backbone.View.extend({
 			animation: 300, 
 			draggable: "li.card",
 			handle: ".front", // only sort from front
-			// filter: ".flip-card"
 		});
     },
 
@@ -54,7 +53,5 @@ scribo.AppView = Backbone.View.extend({
 		// var nav = new scribo.NavView({ model: card });
 		var nav = new scribo.NavView();
 		this.$el.append(nav.render().el);
-
-
 	}
 }); 
