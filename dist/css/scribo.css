@@ -149,6 +149,9 @@ nav form label {
   cursor: pointer;
 }
 
+/**
+ * background styles applied to both front/back of cards
+ */
 body.modern ul#cards li.card .wrapper .front, body.modern
 ul#cards li.card .wrapper .back {
   border-top-width: 7px;
@@ -291,7 +294,7 @@ body.modern ul#cards li.card .wrapper .front textarea:focus {
   background: white;
 }
 body.classic ul#cards li.card .wrapper .front textarea {
-  padding: 12px 13px;
+  padding: 8px 13px;
   font-family: 'Just Another Hand', cursive;
   font-size: 36px;
   line-height: 32px;
