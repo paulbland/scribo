@@ -1,3 +1,11 @@
+
+# big things
+-fb login/and user management
+-how to related fb login to my own logic?
+
+
+
+
 user logs in
 
 we get email, send to db and get user id

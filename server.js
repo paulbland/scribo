@@ -48,6 +48,10 @@ app.get('/', auth, function(req, res) {
 
 
 
+// set the home page route
+app.get('/login', function(req, res) {
+    res.sendFile(__dirname + '/dist/views/login.html');
+});
 
 
 

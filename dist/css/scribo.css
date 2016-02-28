@@ -137,11 +137,11 @@ body.nav-open nav a.toggle:before {
   margin: 10px 0 0 10px;
   text-align: left;
 }
-nav form {
+nav .nav-content {
   display: none;
   padding: 10px;
 }
-body.nav-open nav form {
+body.nav-open nav .nav-content {
   display: block;
 }
 nav form label {

@@ -92,14 +92,17 @@ nav {
 		}
 	}
 
-	form {
+	.nav-content {
 		display: none;
 		padding: 10px;
 
 		body.nav-open & {
 			display: block;
 		}
+	}
 
+	form {
+		
 		label {
 			cursor: pointer;
 		}
