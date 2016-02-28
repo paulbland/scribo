@@ -19151,13 +19151,9 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.color : stack1), depth0))
     + " "
     + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.isFlipped : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\" data-id=\""
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1._id : stack1), depth0))
     + "\">\n	<div class=\"front\">\n		<textarea placeholder=\"Type here...\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.text : stack1), depth0))
-    + "("
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.order : stack1), depth0))
-    + ")</textarea>\n		<a class=\"flip-card\"></a>\n	</div>\n	<div class=\"back\">\n		Settings:<br />\n	 	Select color: \n		<form>\n			<ul class=\"card-style\">\n"
+    + "</textarea>\n		<a class=\"flip-card\"></a>\n	</div>\n	<div class=\"back\">\n		Settings:<br />\n	 	Select color: \n		<form>\n			<ul class=\"card-style\">\n"
     + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.cardStyles : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "			</ul>\n		</form>\n		<a href=\"#\" class=\"delete-card\">delete card</a><br />\n		<a class=\"flip-card\"></a>\n	</div>\n</div>	";
 },"useData":true,"useDepths":true});
@@ -19234,11 +19230,10 @@ scribo.AppView = Backbone.View.extend({
 		});
     },
 
-    updateOrder : function(e) {
-    	var i = 1;
-    	$(e.target).find('li.card .wrapper').each(function(index, value) {
+    updateOrder: function(e) {
+    	$(e.target).find('li.card').each(function(index, value) {
     		var item = scribo.cards.get($(value).data('id'));
-    		item.save('order', i++);
+    		item.save('order', (index + 1));
     	}); 
     },
 
@@ -19276,8 +19271,13 @@ scribo.CardView = Backbone.View.extend({
 	cardStyles 	: [1,2,3,4,5],
 	isFlipped	: false,
 
+	attributes : function() {
+		return {
+			"data-id" : this.model.id
+		};
+	},
+
 	render: function() {
-		console.log('render: scribo.CardView');
 
  		this.$el.html(scribo.templates.card({
  			card 		: this.model.toJSON(),
@@ -19307,7 +19307,7 @@ scribo.CardView = Backbone.View.extend({
 	/**
 	 * updates model but does not save - 
 	 * the model set() will trigger change:text event
-	 * which triggers throttledSave()  fn
+	 * which triggers throttledSave() fn
 	 */
 	updateCardText : function() {
 		// Want to save empty string if it exists

@@ -34,11 +34,10 @@ scribo.AppView = Backbone.View.extend({
 		});
     },
 
-    updateOrder : function(e) {
-    	var i = 1;
-    	$(e.target).find('li.card .wrapper').each(function(index, value) {
+    updateOrder: function(e) {
+    	$(e.target).find('li.card').each(function(index, value) {
     		var item = scribo.cards.get($(value).data('id'));
-    		item.save('order', i++);
+    		item.save('order', (index + 1));
     	}); 
     },
 

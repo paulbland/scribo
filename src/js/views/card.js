@@ -10,8 +10,13 @@ scribo.CardView = Backbone.View.extend({
 	cardStyles 	: [1,2,3,4,5],
 	isFlipped	: false,
 
+	attributes : function() {
+		return {
+			"data-id" : this.model.id
+		};
+	},
+
 	render: function() {
-		console.log('render: scribo.CardView');
 
  		this.$el.html(scribo.templates.card({
  			card 		: this.model.toJSON(),
@@ -41,7 +46,7 @@ scribo.CardView = Backbone.View.extend({
 	/**
 	 * updates model but does not save - 
 	 * the model set() will trigger change:text event
-	 * which triggers throttledSave()  fn
+	 * which triggers throttledSave() fn
 	 */
 	updateCardText : function() {
 		// Want to save empty string if it exists
