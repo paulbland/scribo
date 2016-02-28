@@ -218,7 +218,7 @@ body.nav-open ul#cards {
 }
 ul#cards li.card {
   float: left;
-  margin: 10px;
+  margin: 9px;
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
