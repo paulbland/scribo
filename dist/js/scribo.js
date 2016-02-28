@@ -19282,7 +19282,7 @@ scribo.CardView = Backbone.View.extend({
 	initialize: function() {
 		 this.listenTo(this.model, 'destroy', this.remove);
 		 this.listenTo(this.model, 'change:color', this.render);
-		 this.listenTo(this.model, 'change:text', this.throttledSave);
+		 this.listenTo(this.model, 'change:text', this.delayedSave);
 	},
 
 	events: {
@@ -19319,7 +19319,7 @@ scribo.CardView = Backbone.View.extend({
 		this.$wrapper.toggleClass('flipped', this.isFlipped);
 	},
 
-	throttledSave: _.throttle(function() {
+	delayedSave: _.debounce(function() {
 		this.model.save();
 	}, scribo.config.autosave_ms)
 
