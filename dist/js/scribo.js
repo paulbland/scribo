@@ -19201,6 +19201,7 @@ scribo.AppView = Backbone.View.extend({
     el: $('main'),
 
     initialize: function() {
+    	_.bindAll(this, 'updateOrder');
 
     	// Create new collection
 	 	scribo.cards = new scribo.CardCollection();
@@ -19231,7 +19232,8 @@ scribo.AppView = Backbone.View.extend({
     },
 
     updateOrder: function(e) {
-    	$(e.target).find('li.card').each(function(index, value) {
+    	// 'this' context missing - fixed with _.bindAll()
+    	this.$cards.find('li.card').each(function(index, value) {
     		var item = scribo.cards.get($(value).data('id'));
     		item.save('order', (index + 1));
     	}); 
