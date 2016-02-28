@@ -36,13 +36,9 @@ card {
 
 
 
-card model
-card collection
-
 settings/project model?
 
 user model
-
 
 ofr just prjecrts
 
@@ -55,54 +51,23 @@ how do model contain otehr models? or do i not do that
 TO DO
 different card/text sizes for browser width 
 sortagbe cards on touch devices]
-two views
--classic
--modern
+
 colro sets
--absic
+-basic
 -extended
 
 -text area height calcualted as mutipel of lineheihgt.
 
-save every 5 seconds - if chages occured
-
--settigns file "save every 5000 ms"
-
-layout
-	-freestyle/grid 
-
 
 nav opens adds overlay to main area - clicking main area clses nav
 
-hot to remove those little marks from a textarea
-
-"single clickt drag --- double click to edit"
 
 size select "sm md lg" for cards (in panel nav)
 
 
-settings (witout opening)
-
--zoom (sm  md lg)
--new card
--delete card
-
-
-settings (open)
--color scheme?
--style (modern/classic)
--auto save
-
 
 -- undo???
 -make card size animate
-
--make moving around animate
-
-
-body
-	-workspace
-	-settings (doesnt overlay - pushes?)
 
 
 
@@ -150,10 +115,6 @@ how does good do it
 
 
 
-
-	does fielset wrap one or both?
- 
-
 	
 
 	project model
@@ -188,20 +149,16 @@ how does good do it
 
 
 
-
-
 or jsut clikc "classic" and it updates model?
 no use inout
 
-chagne - update model
+chagne --- update model
 model --- updates view (new class?) 
 
 
 
 google that. how to update class from model atribute in backbone
 
-
--choose style from dots on back
 
 
 
@@ -279,9 +236,13 @@ if the app hasnt got the reponse back from POST --- it doesnt know id, so it sen
 
 
 
+maybe everything runs "set" then "debouced save"
 
-tempkating?
+-color
+-sort
+-update text
 
+?? n
 
 
 	
