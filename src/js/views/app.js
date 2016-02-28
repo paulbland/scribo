@@ -27,14 +27,23 @@ scribo.AppView = Backbone.View.extend({
     makeSortable: function() {   	
     	var el = document.getElementById('cards');
 		var sortable = Sortable.create(el, {
-			animation: 300, 
-			draggable: "li.card",
-			handle: ".front", // only sort from front
+			animation 	: 300, 
+			draggable 	: "li.card",
+			handle 		: ".front",
+			onEnd 		: this.updateOrder
 		});
     },
 
+    updateOrder : function(e) {
+    	var i = 1;
+    	$(e.target).find('li.card .wrapper').each(function(index, value) {
+    		var item = scribo.cards.get($(value).data('id'));
+    		item.save('order', i++);
+    	}); 
+    },
+
     addCard: function(e) {
-    	e.preventDefault();
+    	e.preventDefault(); 
 		scribo.cards.create();
     },
 

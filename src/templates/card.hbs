@@ -1,6 +1,6 @@
-<div class="wrapper style-{{card.color}} {{#if isFlipped}}flipped{{/if}}">
+<div class="wrapper style-{{card.color}} {{#if isFlipped}}flipped{{/if}}" data-id="{{card._id}}">
 	<div class="front">
-		<textarea placeholder="Type here...">{{card.text}}</textarea>
+		<textarea placeholder="Type here...">{{card.text}}({{card.order}})</textarea>
 		<a class="flip-card"></a>
 	</div>
 	<div class="back">

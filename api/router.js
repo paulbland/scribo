@@ -48,11 +48,12 @@ router.route('/cards')
     })
 
     // get all the cards (accessed at GET http://localhost:8080/api/cards)
+    // i added a sort fn
     .get(function(req, res) {
-        Card.find(function(err, cards) {
-            if (err) 
+        Card.find({}).sort({'order' : 1}).exec(function(err, cards) {
+            if (err) {
                 res.send(err);
-
+            }
             res.json(cards);
         }); 
     });
