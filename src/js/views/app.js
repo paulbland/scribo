@@ -6,7 +6,7 @@ scribo.AppView = Backbone.View.extend({
 
     initialize: function() {
 
-    	// Create new collectino
+    	// Create new collection
 	 	scribo.cards = new scribo.CardCollection();
 	 	
     	this.listenTo(scribo.cards, 'add', this.addOne);
@@ -24,7 +24,8 @@ scribo.AppView = Backbone.View.extend({
     	var el = document.getElementById('cards');
 		var sortable = Sortable.create(el, {
 			animation: 300, 
-			draggable: "li.card"
+			draggable: "li.card",
+			handle: ".front" // only sort from front
 		});
     },
 

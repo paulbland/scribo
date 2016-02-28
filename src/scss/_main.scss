@@ -117,6 +117,31 @@ nav {
 
 
 
+%modern-background {
+ 	border-top-width: 7px;
+	border-top-style: solid;
+	border-radius: 3px 3px 0 0 ;
+	background: #ebebeb;
+
+	.wrapper.style-1 & { border-color: $modern-color-1; }
+	.wrapper.style-2 & { border-color: $modern-color-2; }
+	.wrapper.style-3 & { border-color: $modern-color-3; }
+	.wrapper.style-4 & { border-color: $modern-color-4; }
+	.wrapper.style-5 & { border-color: $modern-color-5; }
+}
+
+%classic-background {
+	text-overflow: ellipsis;
+    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
+	background-size: 100% 16px;
+
+	.wrapper.style-1 & { background-color: $classic-color-1; }
+	.wrapper.style-2 & { background-color: $classic-color-2; }
+	.wrapper.style-3 & { background-color: $classic-color-3; }
+	.wrapper.style-4 & { background-color: $classic-color-4; }
+	.wrapper.style-5 & { background-color: $classic-color-5; }
+}
+
 ul#cards {
 	list-style: none; 
 	overflow: hidden;
@@ -139,7 +164,7 @@ ul#cards {
 
 		&.sortable-chosen {
 			.back {
-				display: none;
+				opacity: 0;
 			}
 		}
 
@@ -152,39 +177,11 @@ ul#cards {
 			height: 100%;
 			box-sizing: border-box;
 			position: absolute;
-			transition: transform 500ms;
+			transition: transform 500ms ease-in-out;
 			transform-style: preserve-3d;
 			box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
 			&.flipped { transform: rotateY(180deg); }
-
-
-			/* THEME: MODERN */
-			body.modern & {
-				border-top-width: 8px;
-				border-top-style: solid;
-				border-radius: 3px 3px 0 0 ;
-				background: #ebebeb;
-				
-				&.style-1 { border-color: $modern-color-1; }
-				&.style-2 { border-color: $modern-color-2; }
-				&.style-3 { border-color: $modern-color-3; }
-				&.style-4 { border-color: $modern-color-4; }
-				&.style-5 { border-color: $modern-color-5; }
-			}
-
-			/* THEME: CLASSIC */
-			body.classic & {
-			  	text-overflow: ellipsis;
-			    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
-				background-size: 100% 16px;
-
-				&.style-1 { background-color: $classic-color-1; }
-				&.style-2 { background-color: $classic-color-2; }
-				&.style-3 { background-color: $classic-color-3; }
-				&.style-4 { background-color: $classic-color-4; }
-				&.style-5 { background-color: $classic-color-5; }
-			}
 
 			.front,
 			.back, {
@@ -192,10 +189,18 @@ ul#cards {
 		    	width: 100%;   
 		    	position: absolute;
 		    	backface-visibility: hidden;
+
+		    	body.modern & {
+					@extend %modern-background;
+				}
+
+				body.classic & {
+					@extend %classic-background;
+				}
 		    }
 		    
 			.front {
-
+			
 				a.flip-card {
 					position: absolute;
 					right: 5px;
@@ -222,6 +227,7 @@ ul#cards {
 					resize: none;
 					box-sizing: border-box;
 					cursor: default;
+					outline: none;
 
 					&::-webkit-input-placeholder {
 						color: rgba(0,0,0,0.2);
@@ -232,7 +238,6 @@ ul#cards {
 						font-family: 'Open Sans', sans-serif;
 						font-weight: 300;
 						padding: 10px 13px;
-						outline: 0;
 						max-height: 100%;
 						max-width: 100%;
 						transition: background 100ms ease-in-out;
@@ -242,14 +247,14 @@ ul#cards {
 
 					/* THEME: CLASSIC */
 					body.classic & {
-						padding: 10px 13px;
+						padding: 12px 13px;
 						font-family: 'Just Another Hand', cursive;
 						font-size: 36px;
-						outline: none;
 						line-height: 32px;
 						letter-spacing: 0.5px;
 
-						&:focus { }
+						&:focus { 
+						 }
 					}
 				
 				}
@@ -258,7 +263,6 @@ ul#cards {
 			.back {
 				background: white;
       			transform: rotateY( 180deg );
-
 
       			ul.card-style {
       				li {
