@@ -19232,7 +19232,7 @@ scribo.AppView = Backbone.View.extend({
     },
 
     updateOrder: function(e) {
-    	// 'this' context missing - fixed with _.bindAll()
+    	// 'this' context missing - fixed with _.bindAll() in init
     	this.$cards.find('li.card').each(function(index, value) {
     		var item = scribo.cards.get($(value).data('id'));
     		item.save('order', (index + 1));
@@ -19294,9 +19294,9 @@ scribo.CardView = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		 this.listenTo(this.model, 'destroy', this.remove);
-		 this.listenTo(this.model, 'change:color', this.render);
-		 this.listenTo(this.model, 'change:text', this.delayedSave);
+		this.listenTo(this.model, 'destroy', this.remove);
+		this.listenTo(this.model, 'change:color', this.render);
+		this.listenTo(this.model, 'change:text', this.delayedSave);
 	},
 
 	events: {

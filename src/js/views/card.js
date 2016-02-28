@@ -31,9 +31,9 @@ scribo.CardView = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		 this.listenTo(this.model, 'destroy', this.remove);
-		 this.listenTo(this.model, 'change:color', this.render);
-		 this.listenTo(this.model, 'change:text', this.delayedSave);
+		this.listenTo(this.model, 'destroy', this.remove);
+		this.listenTo(this.model, 'change:color', this.render);
+		this.listenTo(this.model, 'change:text', this.delayedSave);
 	},
 
 	events: {
