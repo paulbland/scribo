@@ -21,7 +21,6 @@ scribo.AppView = Backbone.View.extend({
     },
 
     makeSortable: function() {   	
-
     	var el = document.getElementById('cards');
 		var sortable = Sortable.create(el, {
 			animation: 300, 
