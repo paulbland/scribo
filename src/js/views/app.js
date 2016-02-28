@@ -19,6 +19,10 @@ scribo.AppView = Backbone.View.extend({
  		this.makeSortable();
  		this.addNav();
     },
+  	
+  	events: {
+    	'click a.add-card' : 'addCard'
+    },
 
     makeSortable: function() {   	
     	var el = document.getElementById('cards');
@@ -27,10 +31,6 @@ scribo.AppView = Backbone.View.extend({
 			draggable: "li.card",
 			handle: ".front", // only sort from front
 		});
-    },
-
-    events: {
-    	'click a.add-card' : 'addCard'
     },
 
     addCard: function(e) {
@@ -49,7 +49,7 @@ scribo.AppView = Backbone.View.extend({
 	},
 
 	addNav: function() {
-		// takes  a model
+		// takes a model
 		// var nav = new scribo.NavView({ model: card });
 		var nav = new scribo.NavView();
 		this.$el.append(nav.render().el);
