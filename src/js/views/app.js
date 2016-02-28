@@ -25,7 +25,8 @@ scribo.AppView = Backbone.View.extend({
 		var sortable = Sortable.create(el, {
 			animation: 300, 
 			draggable: "li.card",
-			handle: ".front" // only sort from front
+			handle: ".front", // only sort from front
+			// filter: ".flip-card"
 		});
     },
 

@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         tasks: ['sass', 'concat:css', 'cssmin']
       },
       js: {
-        files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js'],
+        files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js', 'src/templates/*.hbs'],
         tasks: ['jshint', 'handlebars', 'concat:js', 'uglify']
       } 
     },

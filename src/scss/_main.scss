@@ -186,12 +186,33 @@ ul#cards {
 
 			&.flipped { transform: rotateY(180deg); }
 
+			/* exists in both front and back */
+			a.flip-card {
+				position: absolute;
+				right: 5px;
+				bottom: 2px;
+				color: rgba(0,0,0,0.2);
+				transition: color 100ms linear;
+				z-index: 0;
+
+				&:before {
+					content: '\293F';
+					transform: rotate(-75deg);
+					display: inline-block;
+				}
+
+				&:hover {
+					color: black;
+				}
+			}
+
 			.front,
 			.back, {
 		    	height: 100%;
 		    	width: 100%;   
 		    	position: absolute;
 		    	backface-visibility: hidden;
+		    	box-sizing: border-box;
 
 		    	body.modern & {
 					@extend %modern-background;
@@ -203,23 +224,10 @@ ul#cards {
 		    }
 		    
 			.front {
-			
-				a.flip-card {
-					position: absolute;
-					right: 5px;
-					bottom: 2px;
-					color: rgba(0,0,0,0.2);
-					transition: color 100ms linear;
-					
-					&:before {
-						content: '\293F';
-						transform: rotate(-75deg);
-						display: inline-block;
-					}
 
-					&:hover {
-						color: black;
-					}
+				.flip-card {
+					/* this was visible onthe back for some reason */
+					backface-visibility: hidden;
 				}
 
 				textarea {
@@ -257,15 +265,14 @@ ul#cards {
 						letter-spacing: 0.5px;
 
 						&:focus { 
-						 }
+						}
 					}
 				
 				}
 			}
 
 			.back {
-				background: white;
-      			transform: rotateY( 180deg );
+      			transform: rotateY( 180deg );      		
 
       			ul.card-style {
       				li {

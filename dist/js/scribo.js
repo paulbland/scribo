@@ -19155,7 +19155,7 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.text : stack1), depth0))
     + "</textarea>\n		<a class=\"flip-card\"></a>\n	</div>\n	<div class=\"back\">\n	 	<a href=\"#\" class=\"delete-card\">delete card🗑✘</a><br />\n	 	Select color: \n		<form>\n			<ul class=\"card-style\">\n"
     + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.cardStyles : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "			</ul>\n		</form>\n	\n	</div>\n</div>	";
+    + "			</ul>\n		</form>\n		<a class=\"flip-card\"></a>\n	</div>\n</div>	";
 },"useData":true,"useDepths":true});
 
 this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -19222,7 +19222,8 @@ scribo.AppView = Backbone.View.extend({
 		var sortable = Sortable.create(el, {
 			animation: 300, 
 			draggable: "li.card",
-			handle: ".front" // only sort from front
+			handle: ".front", // only sort from front
+			// filter: ".flip-card"
 		});
     },
 
