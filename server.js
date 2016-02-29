@@ -41,16 +41,14 @@ app.use(express.static(__dirname + '/dist'));
 
 // set the home page route
 app.get('/', auth, function(req, res) {
-
-    // ejs render automatically looks in the views folder
     res.render('index');
 });
 
 
 
-// set the home page route
+// testing my facebook login page (mayget removed with passportjs/etc)
 app.get('/login', function(req, res) {
-    res.sendFile(__dirname + '/dist/views/login.html');
+    res.render('login');
 });
 
 
