@@ -31,7 +31,10 @@ var port = process.env.PORT || 8080;
 
 
 // set the view engine to ejs
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
+// set views folder
+app.set('views',__dirname + '/api/views');
+
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/dist'));
@@ -40,10 +43,7 @@ app.use(express.static(__dirname + '/dist'));
 app.get('/', auth, function(req, res) {
 
     // ejs render automatically looks in the views folder
-    //res.render('index');
-
-    // needed to put this in views otherwise public is just served without auth (fro lines above)
-    res.sendFile(__dirname + '/dist/views/index.html');
+    res.render('index');
 });
 
 
