@@ -1,6 +1,9 @@
 FACEBOOK INFO
+https://developers.facebook.com/docs/facebook-login/overview
 
 https://developers.facebook.com/quickstarts/241748709502615/?platform=web
+
+http://passportjs.org/features!!!!!!!
 
 
 bacis facebook sdk

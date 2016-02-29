@@ -1,9 +1,26 @@
 
 # big things
--fb login/and user management
--how to related fb login to my own logic?
+
+- fb login/related fb login to my own logic?
+	
+	-passport js??
+	https://codeforgeek.com/2014/09/facebook-login-using-nodejs-express/
+	https://scotch.io/tutorials/easy-node-authentication-facebook
+	THIS!!
+	https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+
+- user/project/card structure
+
+- figure out set/save/deboucned logic for all saevs
+
+- status model (unsaved/saving/saved)
+
+- loading status for wen loading all cards
+
+- maybe that modal plugin for confirms?
 
 
+----
 
 
 user logs in

@@ -30,5 +30,5 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
 },"useData":true,"useDepths":true});
 
 this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<a href=\"#\" class=\"toggle\"></a>\n<div class=\"nav-content\">\n	Logged in as Paul Bland<br />\n	<br />\n	<form>\n		<fieldset>\n			<legend>Theme</legend>\n			<label><input type=\"radio\" name=\"theme\" value=\"classic\"> Classic</label>\n			<label><input type=\"radio\" name=\"theme\" value=\"modern\" checked> Modern</label>\n		</fieldset>\n	</form>\n</div>";
+    return "<a href=\"#\" class=\"toggle\"></a>\n<div class=\"nav-content\">\n	Logged in as Paul Bland<br />\n	<br />\n	<form>\n		<fieldset>\n			<legend>Theme</legend>\n			<label><input type=\"radio\" name=\"theme\" value=\"classic\"> Classic</label>\n			<label><input type=\"radio\" name=\"theme\" value=\"modern\" checked> Modern</label>\n		</fieldset>\n	</form>\n	<br />\n	My projects:<br />\n	<a href=\"#\" onclick=\"return confirm('Are you sure you wish to switch projects?')\">Project 1</a><br />\n	<a href=\"#\" onclick=\"return confirm('Are you sure you wish to switch projects?')\">Project 2</a><br />\n</div>";
 },"useData":true});
