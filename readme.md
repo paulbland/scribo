@@ -270,4 +270,29 @@ maybe everything runs "set" then "debouced save"
 ?? n
 
 
+---
+
+
+should i be using cards viwe that gets collection?
+
+is there a btter eay to updte all modesl from view 
+
+
+----what is the pattern to get FB logina nd auth my own app?
+
+--- do i store userid in cards?
+-and project id?
+-and user id in projects?
+
+user
+	-id
+projects
+	-id
+	-userid
+cards
+	-id
+	-userid
+	-projectid
+
+
 	
