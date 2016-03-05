@@ -18,10 +18,29 @@
 
       $(document).ready(function() {
 
+      
+
+
+
         var lock = new Auth0Lock(
           'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', // CLIENT ID
           'scribo.auth0.com' // API HOST
         );
+
+
+
+// retrieve the profile:
+var userToken = localStorage.getItem('userToken');
+if (userToken) {
+  lock.getProfile(userToken, function (err, profile) {
+    if (err) {
+      return alert('There was an error geting the profile: ' + err.message);
+    }
+    alert(profile.name);
+    console.log(profile);
+  });
+}
+
 
         // lock.show({
         //   callbackURL: 'http://localhost:8080/app'
@@ -44,11 +63,13 @@
               // Save the profile
               userProfile = profile;
 
-              $('.login-box').hide();
-              $('.logged-in-box').show();
-              $('.nickname').text(profile.nickname);
-              $('.nickname').text(profile.name);
-              $('.avatar').attr('src', profile.picture);
+              window.location='/app';
+
+              // $('.login-box').hide();
+              // $('.logged-in-box').show();
+              // $('.nickname').text(profile.nickname);
+              // $('.nickname').text(profile.name);
+              // $('.avatar').attr('src', profile.picture);
             }
           });
         });
