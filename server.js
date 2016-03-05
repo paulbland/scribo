@@ -39,17 +39,21 @@ app.set('views',__dirname + '/api/views');
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/dist'));
 
-// set the home page route
-app.get('/', auth, function(req, res) {
+// set the home page route (with basic auth)
+app.get('/app', auth, function(req, res) {
+    res.render('app');
+});
+
+// testing my facebook login page (mayget removed with passportjs/etc)
+app.get('/fb_login', function(req, res) {
+    res.render('fb_login');
+});
+
+// new homepage with auth0
+app.get('/', function(req, res) {
     res.render('index');
 });
 
-
-
-// testing my facebook login page (mayget removed with passportjs/etc)
-app.get('/login', function(req, res) {
-    res.render('login');
-});
 
 
 
