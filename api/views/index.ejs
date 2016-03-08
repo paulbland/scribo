@@ -12,7 +12,7 @@
 
     <script>
 
-      var userProfile;
+     // var userProfile;
 
 
 
@@ -26,7 +26,7 @@
           'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', // CLIENT ID
           'scribo.auth0.com' // API HOST
         );
-
+ 
 
 
 // retrieve the profile:
@@ -37,7 +37,7 @@ if (userToken) {
       return alert('There was an error geting the profile: ' + err.message);
     }
     alert(profile.name);
-    console.log(profile);
+    //console.log(profile);
   });
 }
 
@@ -61,9 +61,11 @@ if (userToken) {
               localStorage.setItem('userToken', token);
 
               // Save the profile
-              userProfile = profile;
+              //userProfile = profile;
 
-              window.location='/app';
+
+
+             // window.location='/app';
 
               // $('.login-box').hide();
               // $('.logged-in-box').show();
