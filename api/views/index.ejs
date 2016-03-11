@@ -10,10 +10,11 @@
       <div class="login-page clearfix login-box">
         <h3>Auth0 Example</h3>
         <button class="btn-login">SignIn</a>
+        <button class="btn-logout">SignOut</a>
       </div>
 
         <img class="avatar"/>
-        <h2>Welcome <span class="nickname"></span></h2>
+        <h2>not logged in</h2>
       </div>
 
 
@@ -36,12 +37,12 @@
 var userProfile = JSON.parse(localStorage.getItem('userProfile'));
 if (userProfile) {
   console.log(userProfile);
-  $('.nickname').html(userProfile.name);
+  $('h2').html('logged in as ' + userProfile.name);
 }
 // can also user lock to decode the token to get profile
 // but this way lock isnt needed on other pages.. ?
 
-
+ 
 
 
         $('.btn-login').click(function(e) {
@@ -61,11 +62,20 @@ if (userProfile) {
 
 
               // window.location='/app';
+              // refreshs - could just hide show things
+               window.location.href = "/";
 
             }
           });
         });
 
+
+         $('.btn-logout').click(function(e) {
+          e.preventDefault();
+          localStorage.removeItem('userToken');
+          localStorage.removeItem('userProfile');
+          window.location.href = "/";
+        });
 
 
 
