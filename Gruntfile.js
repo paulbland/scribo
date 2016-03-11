@@ -158,6 +158,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['concurrent']);
+  grunt.registerTask('build', ['sass', 'concat:css', 'cssmin', 'jshint', 'handlebars', 'concat:js', 'uglify']);
+  grunt.registerTask('default', ['build', 'concurrent']);
 
 };
