@@ -4,16 +4,21 @@
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="home">
+      <div class="login-page clearfix login-box">
+        <h3>Auth0 Example</h3>
+        <button class="btn-login">SignIn</a>
+      </div>
+
+        <img class="avatar"/>
+        <h2>Welcome <span class="nickname"></span></h2>
+      </div>
 
 
 
-
-    <script>
-
-     // var userProfile;
-
+      <script>
 
 
       $(document).ready(function() {
@@ -22,59 +27,52 @@
 
 
 
-        var lock = new Auth0Lock(
-          'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', // CLIENT ID
-          'scribo.auth0.com' // API HOST
-        );
+        var lock = new Auth0Lock( 'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', 'scribo.auth0.com'); // CLIENT ID, API HOST
  
 
 
+
 // retrieve the profile:
-var userToken = localStorage.getItem('userToken');
-if (userToken) {
-  lock.getProfile(userToken, function (err, profile) {
-    if (err) {
-      return alert('There was an error geting the profile: ' + err.message);
-    }
-    alert(profile.name);
-    //console.log(profile);
-  });
+var userProfile = JSON.parse(localStorage.getItem('userProfile'));
+if (userProfile) {
+  console.log(userProfile);
+  $('.nickname').html(userProfile.name);
 }
+// can also user lock to decode the token to get profile
+// but this way lock isnt needed on other pages.. ?
 
 
-        // lock.show({
-        //   callbackURL: 'http://localhost:8080/app'
-        // });
+
 
         $('.btn-login').click(function(e) {
           e.preventDefault();
 
-          lock.showSignin(function(err, profile, token) {
+          lock.show(function(err, profile, token) {
             if (err) {
               // Error callback
               console.log("There was an error");
-              alert("There was an error logging in");
+             // alert("There was an error logging in");
             } else {
               // Success calback
 
               // Save the JWT token.
               localStorage.setItem('userToken', token);
-
-              // Save the profile
-              //userProfile = profile;
+              localStorage.setItem('userProfile', JSON.stringify(profile));
 
 
+              // window.location='/app';
 
-             // window.location='/app';
-
-              // $('.login-box').hide();
-              // $('.logged-in-box').show();
-              // $('.nickname').text(profile.nickname);
-              // $('.nickname').text(profile.name);
-              // $('.avatar').attr('src', profile.picture);
             }
           });
         });
+
+
+
+
+
+
+
+        // NOT USING THIS YET 
 
         $.ajaxSetup({
           'beforeSend': function(xhr) {
@@ -101,17 +99,7 @@ if (userToken) {
 
     </script>
 
-  </head>
-  <body class="home">
-      <div class="login-page clearfix login-box">
-        <h3>Auth0 Example</h3>
-        <button class="btn-login">SignIn</a>
-      </div>
 
-      <div class="logged-in-box auth0-box logged-in" style="display: none;">
-        <img class="avatar"/>
-        <h2>Welcome <span class="nickname"></span></h2>
-        <button class="btn btn-lg btn-primary btn-api">Call API</button>
-      </div>
+
   </body>
 </html>
