@@ -8,13 +8,10 @@
   </head>
   <body class="home">
       <div class="login-page clearfix login-box">
-        <h3>Auth0 Example</h3>
-        <button class="btn-login">SignIn</a>
-        <button class="btn-logout">SignOut</a>
-      </div>
-
-        <img class="avatar"/>
-        <h2>not logged in</h2>
+        <h3>Scribo Login</h3>
+        <button class="btn-login">SignIn</button>
+        <button class="btn-logout">SignOut</button>
+        <h2>Not logged in</h2>
       </div>
 
 
@@ -37,7 +34,7 @@
 var userProfile = JSON.parse(localStorage.getItem('userProfile'));
 if (userProfile) {
   console.log(userProfile);
-  $('h2').html('logged in as ' + userProfile.name);
+  $('h2').html('Logged in as ' + userProfile.name);
 }
 // can also user lock to decode the token to get profile
 // but this way lock isnt needed on other pages.. ?
