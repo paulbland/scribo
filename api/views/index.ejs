@@ -13,20 +13,46 @@
     }
     body {
       font-family: 'Urbana', sans-serif;
-      background-image: url('/img/scribo_bg.jpg');
+      background-color: #2a262b;
+      background-image: url('/img/scribo-bg.jpg');
       background-size: cover;
       background-position: center;
       color: white;
-      padding: 15% 5%;
+      padding: 12% 8%;
+    }
+    h1 {
+      background-image: url('/img/scribo-logo.svg');
+      width: 335px;
+      height: 87px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      text-indent: -9999px;
+      margin: 0 0 0.6em;
+    }
+    p {
+      font-size: 28px;
+      margin: 0 0 2em;
+    }
+    a {
+      display: inline-block;
+      border: 1px solid white;
+      padding: 3px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    a:hover {
+      color: #feef70;
+      border-color: #feef70;
     }
     </style>
 
   </head>
   <body class="home">
       <div class="login-page clearfix login-box">
-        <h3>Scrībō</h3>
+        <h1>Scrībō</h1>
         <p>The index card app for writers.</p>
-        <button class="login">Login</button>
+        <a  href="#" class="login">Login</a>
       </div>
 
       <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
