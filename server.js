@@ -54,11 +54,6 @@ app.get('/app', function(req, res) {
     res.render('app');
 });
 
-// testing my facebook login page (mayget removed with passportjs/etc)
-app.get('/fb_login', function(req, res) {
-    res.render('fb_login');
-});
-
 // new homepage with auth0
 app.get('/', function(req, res) {
     res.render('index');

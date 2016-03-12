@@ -19374,7 +19374,9 @@ scribo.NavView = Backbone.View.extend({
 	tagName: 'nav',
 
 	render: function() { 
- 		this.$el.html(scribo.templates.nav({userProfile: scribo.userProfile}));	// remember you can pass model here!
+ 		this.$el.html(scribo.templates.nav({
+ 			userProfile: scribo.userProfile			// remember you can pass model here!
+ 		}));	
  		return this;
 	},
 
@@ -19391,9 +19393,11 @@ scribo.NavView = Backbone.View.extend({
 
 		'click .logout' : function(e) {
 			e.preventDefault();
-          	localStorage.removeItem('userToken');
-          	localStorage.removeItem('userProfile');
-          	window.location.href = "/";
+			if (confirm('Are you sure?')) {
+				localStorage.removeItem('userToken');
+          		localStorage.removeItem('userProfile');
+          		window.location.href = "/";
+			}
 		}
 	}
 

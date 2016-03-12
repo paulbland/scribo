@@ -11,14 +11,6 @@ yU27595567Vy90z
 
 # big things
 
-- fb login/related fb login to my own logic?
-	
-	-passport js??
-	https://codeforgeek.com/2014/09/facebook-login-using-nodejs-express/
-	https://scotch.io/tutorials/easy-node-authentication-facebook
-	THIS!!
-	https://scotch.io/tutorials/easy-node-authentication-setup-and-local
-
 - user/project/card structure
 
 - figure out set/save/deboucned logic for all saevs
@@ -28,6 +20,15 @@ yU27595567Vy90z
 - loading status for wen loading all cards
 
 - maybe that modal plugin for confirms?
+
+- cant click card on safari/ff arrow looks weird
+
+- add/test twitter login
+
+- work out if im iusing the correct used id  in cards ?
+
+- check out if security is even close to being correct... (can users access things they shoudlnt?)
+
 
 
 ----
@@ -118,25 +119,6 @@ opening
 
 
 
-log in
-user id 456
--get all cards with user = 456 
-cards {
-	id = "1"
-	user_id = "1"
-	project_id "1"
-}
-user {
-	id "1"
-	email "pbland"
-}
-
-projects {
-	id "1"
-	user id "1"
-	name "my project"
-	layout "classic"
-}
 
 
 
@@ -200,22 +182,7 @@ google that. how to update class from model atribute in backbone
 
 ------
 
- createa account
- 	PUT users (email password)
-
- error - email already exists
- password - not strong enough
-
-
- authenticate
- 	-sent email and password
- 	-hash password and match results
-
- if yes. login. 
- set auth cookie. a long string "dfgsdfgd"
- that also in user
-
- for every api call - set user id ad auth string
+ 
 
  make sure user id and auth string match
 
@@ -248,12 +215,6 @@ GET /api/cards?userID=1 ..... ?get a all user id cards?
 http://backbone.undojs.com/
 
 
-
--how to use ejs with handlebars
-
--user auth and collections
-
--what is heroku specific here? anything?
 
 -undo?
 	-for every change, save the cards json as revison

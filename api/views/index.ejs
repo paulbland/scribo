@@ -1,18 +1,19 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="utf-8">
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrībō ✎ The index card app for writers.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
   <body class="home">
       <div class="login-page clearfix login-box">
-        <h3>Scribo</h3>
-        <p>The index card app for writers</p>
+        <h3>Scrībō</h3>
+        <p>The index card app for writers.</p>
         <button class="login">Login</button>
       </div>
 
+      <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
       <script>
         $(function() {
           var lock = new Auth0Lock('eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', 'scribo.auth0.com'); // CLIENT ID, API HOST
@@ -28,6 +29,9 @@
               }
             });
           });
+
+          // if already logged in, redirect to /app
+
         });
       </script>
 
