@@ -14,44 +14,22 @@
       </div>
 
       <script>
-      $(function() {
-        var lock = new Auth0Lock('eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', 'scribo.auth0.com'); // CLIENT ID, API HOST
-        $('.login').click(function(e) {
-          e.preventDefault();
-          lock.show(function(err, profile, token) {
-            if (err) {
-              console.log("There was an error");
-            } else {
-              localStorage.setItem('userToken', token);
-              localStorage.setItem('userProfile', JSON.stringify(profile));
-              window.location.href = "/app";
-            }
+        $(function() {
+          var lock = new Auth0Lock('eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', 'scribo.auth0.com'); // CLIENT ID, API HOST
+          $('.login').click(function(e) {
+            e.preventDefault();
+            lock.show(function(err, profile, token) {
+              if (err) {
+                console.log("There was an error");
+              } else {
+                localStorage.setItem('userToken', token);
+                localStorage.setItem('userProfile', JSON.stringify(profile));
+                window.location.href = "/app";
+              }
+            });
           });
         });
-
-        
-
-
-
-
-        // NOT USING THIS YET 
-
-        $.ajaxSetup({
-          'beforeSend': function(xhr) {
-            if (localStorage.getItem('userToken')) {
-              xhr.setRequestHeader('Authorization',
-                    'Bearer ' + localStorage.getItem('userToken'));
-            }
-          }
-        });
-
-    
-
-      });
-
-    </script>
-
-
+      </script>
 
   </body>
 </html>

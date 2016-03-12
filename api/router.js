@@ -1,25 +1,27 @@
-var express = require('express');
-
-// new cards
-var Card     = require('./models/card');
-
-
+var express     = require('express');
+var expressJwt  = require('express-jwt');
+var Card        = require('./models/card');
+var router      = express.Router(); 
 
 
-// this is new - for the api
+// Set up JST on all router
+router.use(expressJwt({
+    secret: new Buffer('gXSooPEasP0oj4PtkpxvkniHE0gko9jtJnIU7wPNTPnn5kVS-U9jufSp-SqhtW-b', 'base64'),
+    audience: 'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l'
+}));
 
-var router = express.Router(); 
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
-    // do logging
     console.log('Something is happening.');
     next(); // make sure we go to the next routes and don't stop here
 });
 
+
 router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
+
 
 router.route('/cards')
 
