@@ -32,6 +32,7 @@ router.route('/cards')
         var card = new Card();      
 
         // set the cards info (comes from the request)
+        card.userID  = req.user.sub; 
         card.color  = req.body.color; 
         card.text   = req.body.text; 
         card.order  = req.body.order;  
@@ -52,7 +53,19 @@ router.route('/cards')
     // get all the cards (accessed at GET http://localhost:8080/api/cards)
     // i added a sort fn
     .get(function(req, res) {
-        Card.find({}).sort({'order' : 1}).exec(function(err, cards) {
+
+        // i am working here
+        // need some data taht i can use as user id to pass to the find function
+        // i have req.user.stuff
+        //id is not unqire for an email address
+        // also - how do i get user email here??
+        // its in the token.... 
+        console.log('userID: ' + req.user.sub);
+
+
+        Card.find({
+            userID: req.user.sub
+        }).sort({'order' : 1}).exec(function(err, cards) {
             if (err) {
                 res.send(err);
             }
@@ -65,8 +78,9 @@ router.route('/cards/:card_id')
     // get the card with that id (accessed at GET http://localhost:8080/api/cards/:card_id)
     .get(function(req, res) {
         Card.findById(req.params.card_id, function(err, card) {
-            if (err)
+            if (err) {
                 res.send(err);
+            }
             res.json(card);
         });
     })
@@ -76,8 +90,9 @@ router.route('/cards/:card_id')
         // use our card model to find the card we want
         Card.findById(req.params.card_id, function(err, card) {
 
-            if (err)
+            if (err) {
                 res.send(err); 
+            }
 
             // update the cards info
             card.color  = req.body.color; 
@@ -86,8 +101,9 @@ router.route('/cards/:card_id')
 
             // save the card
             card.save(function(err) {
-                if (err)
+                if (err) {
                     res.send(err);
+                }
 
                 res.json({ message: 'Card updated!' });
             });
@@ -99,8 +115,9 @@ router.route('/cards/:card_id')
         Card.remove({
             _id: req.params.card_id
         }, function(err, card) {
-            if (err)
+            if (err) {
                 res.send(err);
+            }
 
             res.json({ message: 'Successfully deleted' });
         });
