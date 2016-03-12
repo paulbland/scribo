@@ -3,6 +3,8 @@ var bodyParser 	= require('body-parser');
 var mongoose 	= require('mongoose');
 var compression = require('compression');
 var router 		= require('./api/router');
+var favicon 	= require('serve-favicon');
+
 
 var app 		= express();
 
@@ -31,6 +33,10 @@ var port = process.env.PORT || 8080;
 // VIEW ENGINE AND FOLDER
 app.set('view engine', 'ejs');
 app.set('views',__dirname + '/api/views');
+
+
+// FAVICON
+app.use(favicon(__dirname + '/dist/img/favicon.ico'));
 
 
 // SSL
