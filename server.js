@@ -5,10 +5,7 @@ var compression = require('compression');
 var router 		= require('./api/router');
 var favicon 	= require('serve-favicon');
 
-
 var app 		= express();
-
-
 
 
 // from new tutorial
@@ -19,7 +16,7 @@ app.use(bodyParser.json());
 mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); // connect to our database
 
 // BASIC AUTH
-//var auth = require('./api/auth');
+var basicAuth = require('./api/auth');
 
 // GZIP COMPRESSION
 app.use(compression());
@@ -55,22 +52,16 @@ app.use(favicon(__dirname + '/dist/img/favicon.ico'));
 app.use(express.static(__dirname + '/dist'));
 
 // set the home page route (with basic auth)
-//app.get('/app', auth, function(req, res) {
 app.get('/app', function(req, res) {
     res.render('app');
 });
 
-// new homepage with auth0
-app.get('/', function(req, res) {
+// HOMEPAGE
+app.get('/', basicAuth, function(req, res) {
     res.render('index');
 });
 
-
-
-
-
-// router in its own thing
-
+// SET ROUTER TO USE api/
 app.use('/api', router);
 
 
