@@ -34,14 +34,15 @@ app.set('views',__dirname + '/api/views');
 
 
 // SSL 
-app.use(function(req, res, next) {
-    if (req.headers['x-forwarded-proto'] != 'https') {
-        res.redirect('https://' + req.headers.host + req.path);
-    }
-    else {
-        return next();
-    }
-});
+// think this is in cloudflare now
+// app.use(function(req, res, next) {
+//     if (req.headers['x-forwarded-proto'] != 'https') {
+//         res.redirect('https://' + req.headers.host + req.path);
+//     }
+//     else {
+//         return next();
+//     }
+// });
 
 
 // make express look in the public directory for assets (css/js/img)
