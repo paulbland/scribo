@@ -1,3 +1,13 @@
+scribo:
+paul.bland@gmail.com
+1QVm624PxPYw92O
+
+pbland@vsapartners
+yU27595567Vy90z
+
+
+
+
 
 # big things
 
