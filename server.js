@@ -14,7 +14,7 @@ mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); /
 
 
 // BASIC AUTH
-var auth = require('./api/auth');
+//var auth = require('./api/auth');
 
 // GZIP COMPRESSION
 var compression = require('compression');
@@ -40,7 +40,9 @@ app.set('views',__dirname + '/api/views');
 app.use(express.static(__dirname + '/dist'));
 
 // set the home page route (with basic auth)
-app.get('/app', auth, function(req, res) {
+//app.get('/app', auth, function(req, res) {
+// removes basic auth
+app.get('/app', function(req, res) {
     res.render('app');
 });
 

@@ -1,4 +1,5 @@
 var scribo = scribo || {};
+scribo.userProfile = scribo.userProfile || {};
 
 scribo.AppView = Backbone.View.extend({
 
@@ -6,6 +7,8 @@ scribo.AppView = Backbone.View.extend({
 
     initialize: function() {
     	_.bindAll(this, 'updateOrder');
+
+    	this.doAuth();
 
     	// Create new collection
 	 	scribo.cards = new scribo.CardCollection();
@@ -17,7 +20,7 @@ scribo.AppView = Backbone.View.extend({
 
  		this.$cards = this.$el.find('#cards');
 
- 		this.makeSortable();
+ 		this.makeSortable(); 		
  		this.addNav();
     },
   	
@@ -63,5 +66,12 @@ scribo.AppView = Backbone.View.extend({
 		// var nav = new scribo.NavView({ model: card });
 		var nav = new scribo.NavView();
 		this.$el.append(nav.render().el);
+	},
+
+	doAuth: function() {
+		scribo.userProfile = JSON.parse(localStorage.getItem('userProfile'));
+		if (! scribo.userProfile) {
+		  window.location.href = "/";
+		}
 	}
 }); 

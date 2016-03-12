@@ -2,79 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="home">
       <div class="login-page clearfix login-box">
-        <h3>Scribo Login</h3>
-        <button class="btn-login">SignIn</button>
-        <button class="btn-logout">SignOut</button>
-        <h2>Not logged in</h2>
+        <h3>Scribo</h3>
+        <p>The index card app for writers</p>
+        <button class="login">Login</button>
       </div>
-
-
 
       <script>
 
-
       $(document).ready(function() {
 
-      
-
-
-
-        var lock = new Auth0Lock( 'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', 'scribo.auth0.com'); // CLIENT ID, API HOST
+        var lock = new Auth0Lock('eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l', 'scribo.auth0.com'); // CLIENT ID, API HOST
  
-
-
-
-// retrieve the profile:
-var userProfile = JSON.parse(localStorage.getItem('userProfile'));
-if (userProfile) {
-  console.log(userProfile);
-  $('h2').html('Logged in as ' + userProfile.name);
-}
-// can also user lock to decode the token to get profile
-// but this way lock isnt needed on other pages.. ?
-
- 
-
-
-        $('.btn-login').click(function(e) {
+        $('.login').click(function(e) {
           e.preventDefault();
-
           lock.show(function(err, profile, token) {
             if (err) {
-              // Error callback
               console.log("There was an error");
-             // alert("There was an error logging in");
             } else {
-              // Success calback
-
-              // Save the JWT token.
               localStorage.setItem('userToken', token);
               localStorage.setItem('userProfile', JSON.stringify(profile));
-
-
-              // window.location='/app';
-              // refreshs - could just hide show things
-               window.location.href = "/";
-
+              window.location.href = "/app";
             }
           });
         });
 
-
-         $('.btn-logout').click(function(e) {
-          e.preventDefault();
-          localStorage.removeItem('userToken');
-          localStorage.removeItem('userProfile');
-          window.location.href = "/";
-        });
-
-
+        
 
 
 
