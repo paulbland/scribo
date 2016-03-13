@@ -52,30 +52,20 @@ app.set('views',__dirname + '/api/views');
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/dist'));
 
-// set the home page route (with basic auth)
-app.get('/app', function(req, res) {
-    res.render('app');
-});
-
 // HOMEPAGE
 app.get('/', basicAuth, function(req, res) {
     res.render('index');
+});
+
+// set the home page route (with basic auth)
+app.get('/app', function(req, res) {
+    res.render('app');
 });
 
 // SET ROUTER TO USE api/
 app.use('/api', router);
 
 
-
-
-
-
-
-
-
-
-
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
-
