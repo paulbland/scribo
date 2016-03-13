@@ -33,7 +33,7 @@ app.set('views',__dirname + '/api/views');
 
 
 // FAVICON
-app.use(favicon(__dirname + '/dist/img/favicon.ico'));
+app.use(favicon(__dirname + '/dist/img/favicon2.ico'));
 
 
 // SSL
