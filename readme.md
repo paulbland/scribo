@@ -7,6 +7,10 @@ yU27595567Vy90z
 
 
 
+Mlab add on -heroku
+Auth0 add on - heroku
+ Status model
+
 
 
 # big things
