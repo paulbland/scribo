@@ -8,9 +8,13 @@ var favicon 	= require('serve-favicon');
 var app 		= express();
 
 
-// from new tutorial
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// SET PORT
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
+
+// FAVICON
+app.use(favicon(__dirname + '/dist/img/favicon.ico'));
+
 
 // DATASBASE
 mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); // connect to our database
@@ -22,18 +26,15 @@ var basicAuth = require('./api/auth');
 app.use(compression());
 
 
-// SET PORT
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+// from new tutorial
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 // VIEW ENGINE AND FOLDER
 app.set('view engine', 'ejs');
 app.set('views',__dirname + '/api/views');
 
-
-// FAVICON
-app.use(favicon(__dirname + '/dist/img/favicon.ico'));
 
 
 // SSL
