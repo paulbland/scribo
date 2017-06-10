@@ -308,6 +308,12 @@ body.classic ul#cards li.card .wrapper .front textarea {
 }
 ul#cards li.card .wrapper .back {
   transform: rotateY(180deg);
+  padding: 10px 13px;
+}
+ul#cards li.card .wrapper .back .settings {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 14px;
 }
 ul#cards li.card .wrapper .back ul.card-style li {
   display: inline-block;

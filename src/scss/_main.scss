@@ -266,7 +266,14 @@ ul#cards {
 			}
 
 			.back {
-      			transform: rotateY( 180deg );      		
+      			transform: rotateY( 180deg ); 
+      			padding: 10px 13px;     	
+
+      			.settings {
+      				font-weight: bold;
+      				margin-bottom: 3px;
+      				font-size: 14px;
+      			}	
 
       			ul.card-style {
       				li {
