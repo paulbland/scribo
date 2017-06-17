@@ -17,7 +17,7 @@ app.use(favicon(__dirname + '/dist/img/favicon.ico'));
 
 
 // DATASBASE
-mongoose.connect('scribo:69Sal6Iab4SWc9D@ds015398.mongolab.com:15398/scribo'); // connect to our database
+mongoose.connect(process.env.PROD_MONGODB); // connect to our database
 
 // BASIC AUTH
 var basicAuth = require('./api/auth');
