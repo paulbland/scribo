@@ -4,9 +4,14 @@ var mongoose 	= require('mongoose');
 var compression = require('compression');
 var router 		= require('./api/router');
 var favicon 	= require('serve-favicon');
+var sslRedirect = require('heroku-ssl-redirect');
+
 
 var app 		= express();
 
+
+// enable ssl redirect
+app.use(sslRedirect());
 
 // SET PORT
 // process.env.PORT lets the port be set by Heroku

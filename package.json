@@ -17,6 +17,7 @@
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-jwt": "^3.3.0",
+    "heroku-ssl-redirect": "0.0.4",
     "mongoose": "~4.4.7",
     "serve-favicon": "^2.3.0"
   },
