@@ -31,3 +31,4 @@ push to origin (bitbucket) for code repo
 ppush to heroku/master for deployment
 
 
+*now on github
