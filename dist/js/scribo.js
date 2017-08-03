@@ -19440,7 +19440,8 @@ scribo.NavView = Backbone.View.extend({
 
 	events: {
 
-		'click .toggle' :  function() {
+		'click .toggle' :  function(e) {
+			e.preventDefault();
 			$('body').toggleClass('nav-open');
 		},
 
