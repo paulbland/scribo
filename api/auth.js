@@ -17,7 +17,7 @@ module.exports = (function() {
 	    res.sendStatus(401);
 	    return;
 	  }
-	  if (user.name === 'paul' && user.pass === 'scribo825') {
+	  if (user.name === 'scribo' && user.pass === process.env.BASIC_AUTH_PW) {
 	    next();
 	  } else {
 	    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');

@@ -1,5 +1,5 @@
 {
-  "name": "Scribo",
+  "name": "scribo",
   "version": "1.0.0",
   "description": "The index card app for screenwriters",
   "main": "server.js",
