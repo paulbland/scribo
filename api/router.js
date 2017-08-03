@@ -6,7 +6,7 @@ var router      = express.Router();
 
 // Set up JST on all router
 router.use(expressJwt({
-    secret: new Buffer('process.env.JWT_SECRET', 'base64'),
+    secret: new Buffer(process.env.JWT_SECRET, 'base64'),
     audience: process.env.AUTH0_CLIENT_ID
 }));
 

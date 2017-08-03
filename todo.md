@@ -1,15 +1,6 @@
-scribo:
-paul.bland@gmail.com
-1QVm624PxPYw92O
-
-pbland@vsapartners.com
-yU27595567Vy90z
-
-
 
 Auth0 add on - heroku
  Status model
-
 
 
 # big things
