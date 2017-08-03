@@ -6,14 +6,14 @@ var router      = express.Router();
 
 // Set up JST on all router
 router.use(expressJwt({
-    secret: new Buffer('gXSooPEasP0oj4PtkpxvkniHE0gko9jtJnIU7wPNTPnn5kVS-U9jufSp-SqhtW-b', 'base64'),
-    audience: 'eaXYDVkHHSLQZVtJsXArAHOGq20Yxo1l'
+    secret: new Buffer('process.env.JWT_SECRET', 'base64'),
+    audience: process.env.AUTH0_CLIENT_ID
 }));
 
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
-    console.log('Something is happening.');
+   // console.log('Something is happening.');
     next(); // make sure we go to the next routes and don't stop here
 });
 
