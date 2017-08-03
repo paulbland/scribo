@@ -539,9 +539,13 @@ nav {
   background: #292929;
   color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
+  /* just log out for now */
 }
 body.nav-open nav {
   width: 300px;
+}
+nav a {
+  color: white;
 }
 nav a.toggle {
   display: block;
@@ -734,10 +738,11 @@ ul#cards li.card .wrapper .back {
   transform: rotateY(180deg);
   padding: 10px 13px;
 }
-ul#cards li.card .wrapper .back .settings {
-  font-weight: bold;
-  margin-bottom: 3px;
-  font-size: 14px;
+ul#cards li.card .wrapper .back a {
+  color: black;
+}
+ul#cards li.card .wrapper .back ul.card-style {
+  margin: 5px 0;
 }
 ul#cards li.card .wrapper .back ul.card-style li {
   display: inline-block;

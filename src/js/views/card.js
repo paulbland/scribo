@@ -56,7 +56,7 @@ scribo.CardView = Backbone.View.extend({
 
 	deleteCard: function(e) {
 		e.preventDefault();
-		if (confirm('Are you sure?')) {
+		if (confirm('Are you sure you wish to delete this card?')) {
 			this.model.destroy();
 		}
 	},

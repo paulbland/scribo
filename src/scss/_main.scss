@@ -71,6 +71,11 @@ nav {
 		width: 300px;
 	}
 	
+	/* just log out for now */
+	a {
+		color: white;
+	}
+
 	a.toggle {
 		display: block;
 		text-decoration: none;
@@ -102,7 +107,6 @@ nav {
 	}
 
 	form {
-		
 		label {
 			cursor: pointer;
 		}
@@ -261,30 +265,26 @@ ul#cards {
 						&:focus { 
 						}
 					}
-				
 				}
 			}
 
 			.back {
       			transform: rotateY( 180deg ); 
-      			padding: 10px 13px;     	
+				padding: 10px 13px;     
 
-      			.settings {
-      				font-weight: bold;
-      				margin-bottom: 3px;
-      				font-size: 14px;
-      			}	
+				a {
+					color: black;
+				}
 
       			ul.card-style {
+					margin: 5px 0;
+
       				li {
       					display: inline-block;
-
       					label {
-      							
       						input {
       							display: none;
       						}
-
       						span {
       							display: block;
 	      						width: 20px;
@@ -294,7 +294,6 @@ ul#cards {
 	      						border: 2px solid transparent;
 	      						box-sizing: border-box;
       						}
-
       						input:checked + span {
       							border-color: black;
       						}					
@@ -310,17 +309,13 @@ ul#cards {
       					body.classic &.card-style-2 label span { background: $classic-color-2; }
       					body.classic &.card-style-3 label span { background: $classic-color-3; }
       					body.classic &.card-style-4 label span { background: $classic-color-4; }
-      					body.classic &.card-style-5 label span { background: $classic-color-5; }
-      						
+      					body.classic &.card-style-5 label span { background: $classic-color-5; }	
       				}
       			}
     		}
-			
 		}
-
 	}
 }
-
 
 
 .status {
@@ -332,5 +327,3 @@ ul#cards {
 	border-radius: 3px 0 0;
 	z-index: 2;
 }
-
-
