@@ -27,7 +27,7 @@ scribo.NavView = Backbone.View.extend({
 
 		'click .logout' : function(e) {
 			e.preventDefault();
-			if (confirm('Are you sure?')) {
+			if (confirm('Are you sure you wish to log out?')) {
 				localStorage.removeItem('userToken');
           		localStorage.removeItem('userProfile');
           		window.location.href = "/";

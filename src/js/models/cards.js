@@ -1,6 +1,5 @@
 var scribo = scribo || {};
 
-
 scribo.CardModel = Backbone.Model.extend({
 
 	defaults : {

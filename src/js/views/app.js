@@ -6,49 +6,49 @@ scribo.AppView = Backbone.View.extend({
     el: $('main'),
 
     initialize: function() {
-    	_.bindAll(this, 'updateOrder');
+        _.bindAll(this, 'updateOrder');
 
-    	this.doAuth();
+        this.doAuth();
 
-    	// Create new collection
-	 	scribo.cards = new scribo.CardCollection();
-	 	
-    	this.listenTo(scribo.cards, 'add', this.addOne);
-		this.listenTo(scribo.cards, 'reset', this.addAll);
+        // Create new collection
+        scribo.cards = new scribo.CardCollection();
+        
+        this.listenTo(scribo.cards, 'add', this.addOne);
+        this.listenTo(scribo.cards, 'reset', this.addAll);
 
- 		scribo.cards.fetch({reset: true});
+        scribo.cards.fetch({reset: true});
 
- 		this.$cards = this.$el.find('#cards');
+        this.$cards = this.$el.find('#cards');
 
- 		this.makeSortable(); 		
- 		this.addNav();
+        this.makeSortable(); 		
+        this.addNav();
     },
-  	
-  	events: {
-    	'click a.add-card' : 'addCard'
+        
+    events: {
+        'click a.add-card' : 'addCard'
     },
 
     makeSortable: function() {   	
-    	var el = document.getElementById('cards');
-		var sortable = Sortable.create(el, {
-			animation 	: 300, 
-			draggable 	: "li.card",
-			handle 		: ".front",
-			onEnd 		: this.updateOrder
-		});
+        var el = document.getElementById('cards');
+        var sortable = Sortable.create(el, {
+            animation : 300, 
+            draggable : "li.card",
+            handle 		: ".front",
+            onEnd 		: this.updateOrder
+        });
     },
 
     updateOrder: function(e) {
-    	// 'this' context missing - fixed with _.bindAll() in init
-    	this.$cards.find('li.card').each(function(index, value) {
-    		var model = scribo.cards.get($(value).data('id'));
-    		model.save('order', (index + 1));
-    	}); 
+        // 'this' context missing - fixed with _.bindAll() in init
+        this.$cards.find('li.card').each(function(index, value) {
+                var model = scribo.cards.get($(value).data('id'));
+                model.save('order', (index + 1));
+        }); 
     },
 
     addCard: function(e) {
-    	e.preventDefault(); 
-		scribo.cards.create();
+        e.preventDefault(); 
+        scribo.cards.create();
     },
 
 	addOne: function (card) {
@@ -74,17 +74,13 @@ scribo.AppView = Backbone.View.extend({
 		  window.location.href = "/";
 		}
 
-
-
-
-        $.ajaxSetup({
-          'beforeSend': function(xhr) {
-            if (localStorage.getItem('userToken')) {
-              xhr.setRequestHeader('Authorization',
-                    'Bearer ' + localStorage.getItem('userToken'));
-            }
-          }
-        });
-
+		$.ajaxSetup({
+			'beforeSend': function(xhr) {
+				if (localStorage.getItem('userToken')) {
+					xhr.setRequestHeader('Authorization',
+						'Bearer ' + localStorage.getItem('userToken'));
+				}
+			}
+		});
 	}
 }); 

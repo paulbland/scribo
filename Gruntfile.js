@@ -51,7 +51,8 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         
-          'dist/css/scribo.css': 'src/scss/base.scss'       // 'destination': 'source'
+          'dist/css/scribo.css': 'src/scss/base.scss' 
+          /* 'destination': 'source' */      
         }
       } 
     },
@@ -128,8 +129,8 @@ module.exports = function(grunt) {
       },
       css: {
          options: {
-                    separator: ''
-                },
+          separator: ''
+        },
         src: [
           'bower_components/normalize-css/normalize.css',
           'dist/css/scribo.css'],
@@ -137,13 +138,6 @@ module.exports = function(grunt) {
       }
     }
 
-
-
-
-
-
-
-    
 
   });
 
