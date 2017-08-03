@@ -22,6 +22,10 @@ scribo.AppView = Backbone.View.extend({
 
         this.makeSortable(); 		
         this.addNav();
+
+        if (!localStorage.getItem('seenModal')) {
+            this.addModal();
+        }
     },
         
     events: {
@@ -68,6 +72,11 @@ scribo.AppView = Backbone.View.extend({
 		this.$el.append(nav.render().el);
 	},
 
+	addModal: function() {
+		var modal = new scribo.ModalView();
+		this.$el.append(modal.render().el);
+    },
+    
 	doAuth: function() {
 		scribo.userProfile = JSON.parse(localStorage.getItem('userProfile'));
 		if (! scribo.userProfile) {

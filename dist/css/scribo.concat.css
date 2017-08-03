@@ -608,29 +608,29 @@ ul#cards li.card .wrapper.style-5 .back {
 }
 
 body.classic ul#cards li.card .wrapper .front, body.classic
-ul#cards li.card .wrapper .back {
+ul#cards li.card .wrapper .back, .modal {
   text-overflow: ellipsis;
   background-image: linear-gradient(0deg, rgba(64, 128, 255, 0.25) 1px, transparent 1px);
   background-size: 100% 16px;
 }
 body.classic ul#cards li.card .wrapper.style-1 .front, body.classic
-ul#cards li.card .wrapper.style-1 .back {
+ul#cards li.card .wrapper.style-1 .back, .wrapper.style-1 .modal {
   background-color: #feef70;
 }
 body.classic ul#cards li.card .wrapper.style-2 .front, body.classic
-ul#cards li.card .wrapper.style-2 .back {
+ul#cards li.card .wrapper.style-2 .back, .wrapper.style-2 .modal {
   background-color: #a6c9dd;
 }
 body.classic ul#cards li.card .wrapper.style-3 .front, body.classic
-ul#cards li.card .wrapper.style-3 .back {
+ul#cards li.card .wrapper.style-3 .back, .wrapper.style-3 .modal {
   background-color: #b1dab8;
 }
 body.classic ul#cards li.card .wrapper.style-4 .front, body.classic
-ul#cards li.card .wrapper.style-4 .back {
+ul#cards li.card .wrapper.style-4 .back, .wrapper.style-4 .modal {
   background-color: #f6cdd5;
 }
 body.classic ul#cards li.card .wrapper.style-5 .front, body.classic
-ul#cards li.card .wrapper.style-5 .back {
+ul#cards li.card .wrapper.style-5 .back, .wrapper.style-5 .modal {
   background-color: #f17e61;
 }
 
@@ -801,6 +801,33 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   padding: 5px 10px;
   border-radius: 3px 0 0;
   z-index: 2;
+}
+
+.modal {
+  position: absolute;
+  top: 15%;
+  width: 50%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #feef70;
+  padding: 24px 23px;
+  font-family: 'Just Another Hand', cursive;
+  font-size: 36px;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+.modal p {
+  margin: 0 0 16px;
+}
+.modal a {
+  color: black;
+}
+.modal .icon {
+  transform: rotate(-75deg);
+  display: inline-block;
+  font-size: 24px;
 }
 
 /*# sourceMappingURL=scribo.css.map */

@@ -19184,6 +19184,10 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
     + "			</ul>\n		</form>\n		<a href=\"#\" class=\"delete-card\">Delete card</a><br />\n		<a class=\"flip-card\"></a>\n	</div>\n</div>	";
 },"useData":true,"useDepths":true});
 
+this["scribo"]["templates"]["modal"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<p><strong>Welcome to Scribo. The index card app for writers.</strong></p>\n<p>&middot; Click the \" + \" to create a new card</p>\n<p>&middot; Click the \"<span class=\"icon\">⤿</span>\" for card options</p>\n<p>Important: This is beta software. Things may break. Please don't make this the only copy of your precious work.</p>\n<p>And please let us know what you think <a href=\"mailto:feedback@scribo.co.\">feedback@scribo.co</a>.</p>\n<p><a href=\"#\" class=\"close-modal\">Ok, got it</a></p>";
+},"useData":true});
+
 this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -19247,6 +19251,10 @@ scribo.AppView = Backbone.View.extend({
 
         this.makeSortable(); 		
         this.addNav();
+
+        if (!localStorage.getItem('seenModal')) {
+            this.addModal();
+        }
     },
         
     events: {
@@ -19293,6 +19301,11 @@ scribo.AppView = Backbone.View.extend({
 		this.$el.append(nav.render().el);
 	},
 
+	addModal: function() {
+		var modal = new scribo.ModalView();
+		this.$el.append(modal.render().el);
+    },
+    
 	doAuth: function() {
 		scribo.userProfile = JSON.parse(localStorage.getItem('userProfile'));
 		if (! scribo.userProfile) {
@@ -19384,6 +19397,30 @@ scribo.CardView = Backbone.View.extend({
 	delayedSave: _.debounce(function() {
 		this.model.save();
 	}, scribo.config.autosave_ms)
+
+});;var scribo = scribo || {};
+scribo.templates = scribo.templates || {};
+
+
+scribo.ModalView = Backbone.View.extend({
+
+    tagName 	: 'div',
+    className 	: 'modal',
+    
+	render: function() { 
+ 		this.$el.html(scribo.templates.modal({}));	
+ 		return this;
+    },
+    
+    events: {
+		'click a.close-modal' : 'closeModal'
+    },
+    
+    closeModal: function(e) {
+        e.preventDefault();
+        localStorage.setItem('seenModal', true);
+        this.remove();
+    }
 
 });;var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
