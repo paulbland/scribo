@@ -19181,7 +19181,7 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.text : stack1), depth0))
     + "</textarea>\n		<a class=\"flip-card\"></a>\n	</div>\n	<div class=\"back\">\n		<div class=\"settings\">Settings</div>\n	 	Select color: \n		<form>\n			<ul class=\"card-style\">\n"
     + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.cardStyles : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "			</ul>\n		</form>\n		<a href=\"#\" class=\"delete-card\">delete card</a><br />\n		<a class=\"flip-card\"></a>\n	</div>\n</div>	";
+    + "			</ul>\n		</form>\n		<a href=\"#\" class=\"delete-card\">Delete card</a><br />\n		<a class=\"flip-card\"></a>\n	</div>\n</div>	";
 },"useData":true,"useDepths":true});
 
 this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -19189,7 +19189,7 @@ this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.
 
   return "<a href=\"#\" class=\"toggle\"></a>\n<div class=\"nav-content\">\n	Logged in as "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.userProfile : depth0)) != null ? stack1.name : stack1), depth0))
-    + "<br />\n	<br />\n	<form>\n		<fieldset>\n			<legend>Theme</legend>\n			<label><input type=\"radio\" name=\"theme\" value=\"classic\"> Classic</label>\n			<label><input type=\"radio\" name=\"theme\" value=\"modern\" checked> Modern</label>\n		</fieldset>\n	</form>\n	<br />\n	My projects:<br />\n	<a href=\"#\" onclick=\"return confirm('Are you sure you wish to switch projects?')\">Project 1</a><br />\n	<a href=\"#\" onclick=\"return confirm('Are you sure you wish to switch projects?')\">Project 2</a><br />\n\n	<br />\n	<a href=\"#\" class=\"logout\">logout</a>\n</div>";
+    + "<br />\n	<br />\n	<form>\n		<fieldset>\n			<legend>Theme</legend>\n			<label><input type=\"radio\" name=\"theme\" value=\"classic\"> Classic</label>\n			<label><input type=\"radio\" name=\"theme\" value=\"modern\" checked> Modern</label>\n		</fieldset>\n	</form>\n	<br /> \n\n	<br />\n	<a href=\"#\" class=\"logout\">Logout</a>\n</div>";
 },"useData":true});;var scribo = scribo || {};
 
 $(function() { 
@@ -19207,7 +19207,6 @@ scribo.config.autosave_ms = 5000;
         return opts.inverse(this);
 });
 ;var scribo = scribo || {};
-
 
 scribo.CardModel = Backbone.Model.extend({
 
@@ -19232,49 +19231,49 @@ scribo.AppView = Backbone.View.extend({
     el: $('main'),
 
     initialize: function() {
-    	_.bindAll(this, 'updateOrder');
+        _.bindAll(this, 'updateOrder');
 
-    	this.doAuth();
+        this.doAuth();
 
-    	// Create new collection
-	 	scribo.cards = new scribo.CardCollection();
-	 	
-    	this.listenTo(scribo.cards, 'add', this.addOne);
-		this.listenTo(scribo.cards, 'reset', this.addAll);
+        // Create new collection
+        scribo.cards = new scribo.CardCollection();
+        
+        this.listenTo(scribo.cards, 'add', this.addOne);
+        this.listenTo(scribo.cards, 'reset', this.addAll);
 
- 		scribo.cards.fetch({reset: true});
+        scribo.cards.fetch({reset: true});
 
- 		this.$cards = this.$el.find('#cards');
+        this.$cards = this.$el.find('#cards');
 
- 		this.makeSortable(); 		
- 		this.addNav();
+        this.makeSortable(); 		
+        this.addNav();
     },
-  	
-  	events: {
-    	'click a.add-card' : 'addCard'
+        
+    events: {
+        'click a.add-card' : 'addCard'
     },
 
     makeSortable: function() {   	
-    	var el = document.getElementById('cards');
-		var sortable = Sortable.create(el, {
-			animation 	: 300, 
-			draggable 	: "li.card",
-			handle 		: ".front",
-			onEnd 		: this.updateOrder
-		});
+        var el = document.getElementById('cards');
+        var sortable = Sortable.create(el, {
+            animation : 300, 
+            draggable : "li.card",
+            handle 		: ".front",
+            onEnd 		: this.updateOrder
+        });
     },
 
     updateOrder: function(e) {
-    	// 'this' context missing - fixed with _.bindAll() in init
-    	this.$cards.find('li.card').each(function(index, value) {
-    		var model = scribo.cards.get($(value).data('id'));
-    		model.save('order', (index + 1));
-    	}); 
+        // 'this' context missing - fixed with _.bindAll() in init
+        this.$cards.find('li.card').each(function(index, value) {
+                var model = scribo.cards.get($(value).data('id'));
+                model.save('order', (index + 1));
+        }); 
     },
 
     addCard: function(e) {
-    	e.preventDefault(); 
-		scribo.cards.create();
+        e.preventDefault(); 
+        scribo.cards.create();
     },
 
 	addOne: function (card) {
@@ -19300,18 +19299,14 @@ scribo.AppView = Backbone.View.extend({
 		  window.location.href = "/";
 		}
 
-
-
-
-        $.ajaxSetup({
-          'beforeSend': function(xhr) {
-            if (localStorage.getItem('userToken')) {
-              xhr.setRequestHeader('Authorization',
-                    'Bearer ' + localStorage.getItem('userToken'));
-            }
-          }
-        });
-
+		$.ajaxSetup({
+			'beforeSend': function(xhr) {
+				if (localStorage.getItem('userToken')) {
+					xhr.setRequestHeader('Authorization',
+						'Bearer ' + localStorage.getItem('userToken'));
+				}
+			}
+		});
 	}
 }); 
 ;var scribo = scribo || {};
@@ -19419,7 +19414,7 @@ scribo.NavView = Backbone.View.extend({
 
 		'click .logout' : function(e) {
 			e.preventDefault();
-			if (confirm('Are you sure?')) {
+			if (confirm('Are you sure you wish to log out?')) {
 				localStorage.removeItem('userToken');
           		localStorage.removeItem('userProfile');
           		window.location.href = "/";
