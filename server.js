@@ -58,7 +58,8 @@ app.set('views',__dirname + '/api/views');
 app.use(express.static(__dirname + '/dist'));
 
 // HOMEPAGE
-app.get('/', basicAuth, function(req, res) {
+//app.get('/', basicAuth, function(req, res) {
+app.get('/', function(req, res) {
     res.render('index');
 });
 
