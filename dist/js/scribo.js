@@ -19185,7 +19185,7 @@ this["scribo"]["templates"]["card"] = Handlebars.template({"1":function(containe
 },"useData":true,"useDepths":true});
 
 this["scribo"]["templates"]["modal"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<p><strong>Welcome to Scribo. The index card app for writers.</strong></p>\n<p>&middot; Click the \" + \" to create a new card</p>\n<p>&middot; Click the \"<span class=\"icon\">⤿</span>\" for card options</p>\n<p>&middot; Drag to reorder the cards</p>\n<p>Important: This is beta software. Things may break. Please don't make this the only copy of your precious work.</p>\n<p>And please let us know what you think <a href=\"mailto:feedback@scribo.co.\">feedback@scribo.co</a>.</p>\n<p><a href=\"#\" class=\"close-modal\">Ok, got it</a></p>";
+    return "<p><strong>Welcome to Scribo. The index card app for writers.</strong></p>\n<p>&middot; Click the \" + \" to create a new card</p>\n<p>&middot; Click the \"<span class=\"icon\">⤿</span>\" for card options</p>\n<p>&middot; Drag to reorder the cards</p>\n<p>&middot; Cards are automatically saved</p>\n<p>Important: This is beta software. Things may break. Please don't make this the only copy of your precious work.</p>\n<p>And please let us know what you think <a href=\"mailto:feedback@scribo.co.\">feedback@scribo.co</a>.</p>\n<p><a href=\"#\" class=\"close-modal\">Ok, got it</a></p>";
 },"useData":true});
 
 this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
