@@ -60,7 +60,7 @@ router.route('/cards')
         //id is not unqire for an email address
         // also - how do i get user email here??
         // its in the token.... 
-        console.log('userID: ' + req.user.sub);
+        //console.log('userID: ' + req.user.sub);
 
 
         Card.find({

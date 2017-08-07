@@ -1,0 +1,57 @@
+
+nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	transition: width 150ms linear;
+	width: 40px;
+	height: 100%; 
+	background: #292929;
+	color: white;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
+
+	body.nav-open & {
+		width: 300px;
+	}
+	
+	/* just log out for now */
+	a {
+		color: white;
+	}
+
+	a.toggle {
+		display: block;
+		text-decoration: none;
+
+		&:before {
+			content:'\2630'; 
+			font-size: 26px;
+			color: white;
+			margin: 15px 0;
+			display: block;
+			cursor: pointer;
+			text-align: center;
+
+			body.nav-open & {
+				content: '\2192';
+				margin: 10px 0 0 10px;
+				text-align: left;
+			}
+		}
+	}
+
+	.nav-content {
+		display: none;
+		padding: 10px;
+
+		body.nav-open & {
+			display: block;
+		}
+	}
+
+	form {
+		label {
+			cursor: pointer;
+		}
+	}	
+} 

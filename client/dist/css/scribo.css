@@ -52,6 +52,24 @@ table {
   border-spacing: 0;
 }
 
+/*#777;*/
+body.classic ul#cards li.card .wrapper .front textarea, .modal .test-1 {
+  font-family: 'Just Another Hand', cursive;
+  font-size: 36px;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+body.modern ul#cards li.card .wrapper .front textarea, .modal .test-2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+h1, .modal .test-3 {
+  font-family: 'Neuton', serif;
+  font-weight: 800;
+}
+
 html {
   height: 100%;
 }
@@ -65,15 +83,13 @@ body {
   height: 100%;
 }
 body.classic {
-  background: #777;
+  background: #464646;
 }
 body.modern {
   background: #464646;
 }
 
 h1 {
-  font-family: 'Neuton', serif;
-  font-weight: 800;
   position: fixed;
   bottom: -5px;
   right: 50px;
@@ -103,6 +119,16 @@ a.add-card:before {
   display: block;
   cursor: pointer;
   text-align: center;
+}
+
+.status {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: #feef70;
+  padding: 5px 10px;
+  border-radius: 3px 0 0;
+  z-index: 2;
 }
 
 nav {
@@ -184,29 +210,29 @@ ul#cards li.card .wrapper.style-5 .back {
 }
 
 body.classic ul#cards li.card .wrapper .front, body.classic
-ul#cards li.card .wrapper .back, .modal {
+ul#cards li.card .wrapper .back {
   text-overflow: ellipsis;
   background-image: linear-gradient(0deg, rgba(64, 128, 255, 0.25) 1px, transparent 1px);
   background-size: 100% 16px;
 }
 body.classic ul#cards li.card .wrapper.style-1 .front, body.classic
-ul#cards li.card .wrapper.style-1 .back, .wrapper.style-1 .modal {
+ul#cards li.card .wrapper.style-1 .back {
   background-color: #feef70;
 }
 body.classic ul#cards li.card .wrapper.style-2 .front, body.classic
-ul#cards li.card .wrapper.style-2 .back, .wrapper.style-2 .modal {
+ul#cards li.card .wrapper.style-2 .back {
   background-color: #a6c9dd;
 }
 body.classic ul#cards li.card .wrapper.style-3 .front, body.classic
-ul#cards li.card .wrapper.style-3 .back, .wrapper.style-3 .modal {
+ul#cards li.card .wrapper.style-3 .back {
   background-color: #b1dab8;
 }
 body.classic ul#cards li.card .wrapper.style-4 .front, body.classic
-ul#cards li.card .wrapper.style-4 .back, .wrapper.style-4 .modal {
+ul#cards li.card .wrapper.style-4 .back {
   background-color: #f6cdd5;
 }
 body.classic ul#cards li.card .wrapper.style-5 .front, body.classic
-ul#cards li.card .wrapper.style-5 .back, .wrapper.style-5 .modal {
+ul#cards li.card .wrapper.style-5 .back {
   background-color: #f17e61;
 }
 
@@ -293,8 +319,6 @@ ul#cards li.card .wrapper .front textarea::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
 }
 body.modern ul#cards li.card .wrapper .front textarea {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
   padding: 10px 13px;
   max-height: 100%;
   max-width: 100%;
@@ -305,10 +329,6 @@ body.modern ul#cards li.card .wrapper .front textarea:focus {
 }
 body.classic ul#cards li.card .wrapper .front textarea {
   padding: 8px 13px;
-  font-family: 'Just Another Hand', cursive;
-  font-size: 36px;
-  line-height: 32px;
-  letter-spacing: 0.5px;
 }
 ul#cards li.card .wrapper .back {
   transform: rotateY(180deg);
@@ -369,16 +389,6 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   background: #f17e61;
 }
 
-.status {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: #feef70;
-  padding: 5px 10px;
-  border-radius: 3px 0 0;
-  z-index: 2;
-}
-
 .modal {
   position: absolute;
   top: 15%;
@@ -387,12 +397,12 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  background-color: #feef70;
+  background: #ebebeb;
+    /*
+    @extend %classic-background;
+    background-color: $classic-color-1;
+*/
   padding: 24px 23px;
-  font-family: 'Just Another Hand', cursive;
-  font-size: 36px;
-  line-height: 32px;
-  letter-spacing: 0.5px;
 }
 .modal p {
   margin: 0 0 16px;
