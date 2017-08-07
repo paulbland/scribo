@@ -389,6 +389,16 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   background: #f17e61;
 }
 
+.modal.modal-1, .modal.modal-5 {
+  top: 15%;
+  width: 50%;
+  max-width: 500px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .modal {
   position: absolute;
   padding: 24px 23px;
@@ -428,41 +438,29 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
 .modal.modal-5 {
   border-color: #f68e56;
 }
-.modal.modal-1 {
-  top: 15%;
-  width: 50%;
-  max-width: 700px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
 .modal.modal-2 {
   top: 20px;
   right: 85px;
 }
 .modal.modal-3 {
-  top: 25px;
-  left: 25px;
+  top: 75px;
+  left: 185px;
 }
 .modal.modal-4 {
-  top: 25px;
-  left: 25px;
-}
-.modal.modal-5 {
-  top: 25px;
-  left: 25px;
+  top: 145px;
+  left: 315px;
 }
 .modal h2 {
   margin: 0 0 30px;
   font-size: 32px;
   font-weight: strong;
+  text-align: center;
 }
-.modal h2 strong {
+.modal strong {
   font-weight: 700;
 }
 .modal h2 span {
-  font-size: 24px;
+  font-size: 22px;
 }
 .modal p {
   margin: 0 0 16px;
@@ -470,15 +468,30 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
 .modal a {
   color: black;
 }
+.modal a.skip {
+  font-size: 16px;
+  text-decoration: none;
+}
 .modal .icon-1 {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 40px;
   margin: 0 5px;
 }
 .modal .icon-2 {
   transform: rotate(-75deg);
   display: inline-block;
   font-size: 18px;
+  margin: 0 5px;
+}
+.modal .icon-3 {
+  transform: rotate(-125deg);
+  display: inline-block;
+  font-size: 24px;
+  margin: 0 5px;
+}
+.modal .icon-4 {
+  font-weight: bold;
+  font-size: 26px;
   margin: 0 5px;
 }
 

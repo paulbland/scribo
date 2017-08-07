@@ -1,10 +1,19 @@
+%centered-modal {
+    top: 15%;
+    width: 50%;
+    max-width: 500px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+    
 .modal {
     position: absolute;
     @extend %modern-background;
    
     padding: 24px 23px;
     font-size: 22px;
-
     
     .modal-content { display: none; }
     &.modal-1 .modal-content.modal-1 { display: block; }
@@ -19,32 +28,25 @@
     &.modal-4 { border-color: $modern-color-4; }
     &.modal-5 { border-color: $modern-color-5; }
 
-    
+
     /* positions */
     &.modal-1 {
-        top: 15%;
-        width: 50%;
-        max-width: 700px;
-        left: 0; 
-        right: 0; 
-        margin-left: auto; 
-        margin-right: auto; 
+        @extend %centered-modal;
     }
     &.modal-2 {
         top: 20px;
         right: 85px;
     }
      &.modal-3 {
-        top: 25px;
-        left: 25px;
+        top: 75px;
+        left: 185px;
     }
      &.modal-4  {
-        top: 25px;
-        left: 25px;
+        top: 145px;
+        left: 315px;
     }
      &.modal-5 {
-        top: 25px;
-        left: 25px;
+        @extend  %centered-modal;
     }
     
 
@@ -54,12 +56,13 @@
         margin: 0 0 30px;
         font-size: 32px;
         font-weight: strong;
+        text-align: center;
     }
-    h2 strong {
+    strong {
        font-weight: 700;
     }
     h2 span {
-        font-size: 24px;
+        font-size: 22px;
     }
    
 
@@ -71,10 +74,15 @@
         color: black;
     }
 
+    a.skip {
+        font-size: 16px;
+        text-decoration: none;
+    }
+
 
     .icon-1 {
         font-weight: bold;
-        font-size: 24px;
+        font-size: 40px;
         margin: 0 5px;
     }
 
@@ -86,5 +94,18 @@
     }
 
 
+     .icon-3 {
+        transform: rotate(-125deg);
+        display: inline-block;
+        font-size: 24px;
+        margin: 0 5px;
+    }
+
+ .icon-4 {
+        font-weight: bold;
+        font-size: 26px;
+        margin: 0 5px;
+    }
+    
 
 }
