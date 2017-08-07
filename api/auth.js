@@ -1,10 +1,6 @@
 
-
-
-/// i added this
-// from here http://www.codexpedia.com/node-js/node-js-basic-auth-in-express-js/
-// and also npom install basic-autth
-// woo
+// code below taken from here http://www.codexpedia.com/node-js/node-js-basic-auth-in-express-js/
+// also requires npm install basic-autth
 
 module.exports = (function() {
 

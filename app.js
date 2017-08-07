@@ -6,9 +6,7 @@ var router 		= require('./api/router');
 var favicon 	= require('serve-favicon');
 var sslRedirect = require('heroku-ssl-redirect');
 
-
 var app 		= express();
-
 
 // enable ssl redirect
 app.use(sslRedirect());
@@ -20,7 +18,6 @@ var port = process.env.PORT || 8080;
 // FAVICON
 app.use(favicon(__dirname + '/client/dist/img/favicon.ico'));
 
-
 // DATASBASE
 //mongoose.connect(process.env.PROD_MONGODB); // connect to our database
 var promise = mongoose.connect(process.env.PROD_MONGODB, { useMongoClient: true });
@@ -31,29 +28,13 @@ var basicAuth = require('./api/auth');
 // GZIP COMPRESSION
 app.use(compression());
 
-
 // from new tutorial
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 // VIEW ENGINE AND FOLDER
 app.set('view engine', 'ejs');
 app.set('views',__dirname + '/api/views');
-
-
-
-// SSL
-// removign agan wait to see whats needed 
-// app.use(function(req, res, next) {
-//     if (req.headers['x-forwarded-proto'] != 'https') {
-//         res.redirect('https://' + req.headers.host + req.path);
-//     }
-//     else {
-//         return next();
-//     }
-// });
-
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/client/dist'));
@@ -72,7 +53,6 @@ app.get('/app', function(req, res) {
 // SET ROUTER TO USE api/
 app.use('/api', router);
 
-
 app.listen(port, function() {
-    console.log('App is running on http://localhost:' + port);
+    console.log('Scribo is running on http://localhost:' + port);
 });
