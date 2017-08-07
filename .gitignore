@@ -3,4 +3,3 @@ npm-debug.log
 .sass-cache/
 bower_components/
 .env
-dist/
