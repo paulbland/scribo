@@ -19650,7 +19650,7 @@ this["scribo"]["templates"]["nav"] = Handlebars.template({"compiler":[7,">= 4.0.
 
   return "<a href=\"#\" class=\"toggle\"></a>\r\n<div class=\"nav-content\">\r\n	Logged in as "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.userProfile : depth0)) != null ? stack1.name : stack1), depth0))
-    + "<br />\r\n	<br />\r\n	<form>\r\n		<fieldset>\r\n			<legend>Theme</legend>\r\n			<label><input type=\"radio\" name=\"theme\" value=\"classic\" checked> Classic</label>\r\n			<label><input type=\"radio\" name=\"theme\" value=\"modern\"> Modern</label>\r\n		</fieldset>\r\n	</form>\r\n	<br /> \r\n	<br />\r\n	<a href=\"#\" class=\"logout\">Logout</a>\r\n	\r\n</div>\r\n<div class=\"nav-logo\">S</div>";
+    + "<br />\r\n	<br />\r\n	<form>\r\n		<fieldset>\r\n			<legend>Theme</legend>\r\n			<label><input type=\"radio\" name=\"theme\" value=\"classic\" checked> Classic</label>\r\n			<label><input type=\"radio\" name=\"theme\" value=\"modern\"> Modern</label>\r\n		</fieldset>\r\n	</form>\r\n	<br /> \r\n	<br />\r\n	<a href=\"#\" class=\"logout\">Logout</a>\r\n</div>\r\n<div class=\"nav-logo\">S<span>cribo</span></div>";
 },"useData":true});;var scribo = scribo || {};
 
 $(function() { 

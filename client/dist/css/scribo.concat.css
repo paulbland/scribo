@@ -611,6 +611,12 @@ nav .nav-logo {
   z-index: -1;
   letter-spacing: 0;
 }
+nav .nav-logo span {
+  display: none;
+}
+body.nav-open nav .nav-logo span {
+  display: inline;
+}
 
 /**
  * background styles applied to both front/back of cards

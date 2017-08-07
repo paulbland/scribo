@@ -65,5 +65,13 @@ nav {
         opacity: 0.3;
         z-index: -1;
         letter-spacing: 0;
+
+        span {
+            display: none;
+
+            body.nav-open & {
+                display: inline;
+            }
+        }
     }	
 } 
