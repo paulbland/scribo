@@ -50,8 +50,8 @@ scribo.AppView = Backbone.View.extend({
     updateOrder: function(e) {
         // 'this' context missing - fixed with _.bindAll() in init
         this.$cards.find('li.card').each(function(index, value) {
-                var model = scribo.cards.get($(value).data('id'));
-                model.save('order', (index + 1));
+            var model = scribo.cards.get($(value).data('id'));
+            model.save('order', (index + 1));
         }); 
     },
 

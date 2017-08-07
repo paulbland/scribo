@@ -1,7 +1,7 @@
 %centered-modal {
     top: 15%;
     width: 50%;
-    max-width: 500px;
+    max-width: 525px;
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -36,10 +36,11 @@
     &.modal-2 {
         top: 20px;
         right: 85px;
+        width: 380px;
     }
      &.modal-3 {
-        top: 75px;
-        left: 185px;
+        top: 85px;
+        left: 330px;
     }
      &.modal-4  {
         top: 145px;
@@ -53,14 +54,14 @@
 
     h2 {
         @extend %font-2;
-        margin: 0 0 10px;
+        margin: 0 0 5px;
         font-size: 34px;
         font-weight: strong;
         text-align: center;
     }
     h3 {
         @extend %font-2;
-        margin: 0 0 30px;
+        margin: 0 0 35px;
         font-size: 22px;
         font-weight: strong;
         text-align: center;
@@ -72,16 +73,41 @@
    
 
     p {
-        margin: 0 0 16px;
+        margin: 0 0 20px;
+        
+        &.link-block {
+            margin: 30px 0 10px;
+            text-align: center;
+        }
     }
 
     a {
-        color: black;
+         color: black;
+
+     }
+
+    a.next {
+        font-weight: bold;
+        text-decoration: none;
+
+        &:after {
+            content: '→';
+            display: inline-block;
+            margin: 0 0 0 5px;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
     a.skip {
-        font-size: 16px;
+        font-size: 12px;
         text-decoration: none;
+        font-weight: normal;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
 
@@ -103,7 +129,7 @@
         transform: rotate(-125deg);
         display: inline-block;
         font-size: 24px;
-        margin: 0 5px;
+        margin: 0 5px 0 0;
     }
 
  .icon-4 {

@@ -422,6 +422,7 @@ td,
 th {
   padding: 0;
 }
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -832,7 +833,7 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
 .modal.modal-1, .modal.modal-5 {
   top: 15%;
   width: 50%;
-  max-width: 500px;
+  max-width: 525px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -881,23 +882,24 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
 .modal.modal-2 {
   top: 20px;
   right: 85px;
+  width: 380px;
 }
 .modal.modal-3 {
-  top: 75px;
-  left: 185px;
+  top: 85px;
+  left: 330px;
 }
 .modal.modal-4 {
   top: 145px;
   left: 315px;
 }
 .modal h2 {
-  margin: 0 0 10px;
+  margin: 0 0 5px;
   font-size: 34px;
   font-weight: strong;
   text-align: center;
 }
 .modal h3 {
-  margin: 0 0 30px;
+  margin: 0 0 35px;
   font-size: 22px;
   font-weight: strong;
   text-align: center;
@@ -906,14 +908,34 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   font-weight: 700;
 }
 .modal p {
-  margin: 0 0 16px;
+  margin: 0 0 20px;
+}
+.modal p.link-block {
+  margin: 30px 0 10px;
+  text-align: center;
 }
 .modal a {
   color: black;
 }
-.modal a.skip {
-  font-size: 16px;
+.modal a.next {
+  font-weight: bold;
   text-decoration: none;
+}
+.modal a.next:after {
+  content: '→';
+  display: inline-block;
+  margin: 0 0 0 5px;
+}
+.modal a.next:hover {
+  opacity: 0.8;
+}
+.modal a.skip {
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: normal;
+}
+.modal a.skip:hover {
+  text-decoration: underline;
 }
 .modal .icon-1 {
   font-weight: bold;
@@ -930,7 +952,7 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   transform: rotate(-125deg);
   display: inline-block;
   font-size: 24px;
-  margin: 0 5px;
+  margin: 0 5px 0 0;
 }
 .modal .icon-4 {
   font-weight: bold;
