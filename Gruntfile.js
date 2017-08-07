@@ -25,17 +25,17 @@ module.exports = function(grunt) {
      */
     nodemon: {
       dev: {
-        script: 'server.js'
+        script: 'app.js'
       }
     },
 
     watch: {
       css: {
-        files: ['src/scss/*.scss'],
+        files: ['client/src/scss/*.scss'],
         tasks: ['sass', 'concat:css', 'cssmin']
       },
       js: {
-        files: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js', 'src/templates/*.hbs'],
+        files: ['Gruntfile.js', 'client/src/js/**/*.js', 'api/**/*.js', 'client/src/templates/*.hbs'],
         tasks: ['jshint', 'handlebars', 'concat:js', 'uglify']
       } 
     },
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         
-          'dist/css/scribo.css': 'src/scss/base.scss' 
+          'client/dist/css/scribo.css': 'client/src/scss/base.scss' 
           /* 'destination': 'source' */      
         }
       } 
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'dist/css/scribo.min.css': ['dist/css/scribo.concat.css']
+          'client/dist/css/scribo.min.css': ['client/dist/css/scribo.concat.css']
         }
       }
     },
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
      * JS TASKS
      */
     jshint: {
-      all: ['Gruntfile.js', 'src/js/**/*.js', 'api/**/*.js']
+      all: ['Gruntfile.js', 'client/src/js/**/*.js', 'api/**/*.js']
     },
 
     handlebars: {
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'dist/js/templates.js': 'src/templates/*.hbs'
+          'client/dist/js/templates.js': 'client/src/templates/*.hbs'
         }
       }
     },
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: { 
         files: {
-          'dist/js/scribo.min.js': ['dist/js/scribo.js']
+          'client/dist/js/scribo.min.js': ['client/dist/js/scribo.js']
         },
         options: {
           sourceMap : true 
@@ -123,9 +123,9 @@ module.exports = function(grunt) {
           'bower_components/underscore/underscore.js',
           'bower_components/backbone/backbone.js',
           'bower_components/handlebars/handlebars.js',
-          'dist/js/templates.js',
-          'src/js/**/*.js'],
-        dest: 'dist/js/scribo.js',
+          'client/dist/js/templates.js',
+          'client/src/js/**/*.js'],
+        dest: 'client/dist/js/scribo.js',
       },
       css: {
          options: {
@@ -133,8 +133,8 @@ module.exports = function(grunt) {
         },
         src: [
           'bower_components/normalize-css/normalize.css',
-          'dist/css/scribo.css'],
-        dest: 'dist/css/scribo.concat.css',
+          'client/dist/css/scribo.css'],
+        dest: 'client/dist/css/scribo.concat.css',
       }
     },
 
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           // includes files within path
-          {expand: true, src: ['src/img/*'], dest: 'dist/img', filter: 'isFile', flatten: true},
+          {expand: true, src: ['client/src/img/*'], dest: 'client/dist/img', filter: 'isFile', flatten: true},
 
           /*
           // includes files within path and its sub-directories

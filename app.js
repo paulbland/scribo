@@ -18,7 +18,7 @@ app.use(sslRedirect());
 var port = process.env.PORT || 8080;
 
 // FAVICON
-app.use(favicon(__dirname + '/dist/img/favicon.ico'));
+app.use(favicon(__dirname + '/client/dist/img/favicon.ico'));
 
 
 // DATASBASE
@@ -55,7 +55,7 @@ app.set('views',__dirname + '/api/views');
 
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/client/dist'));
 
 // HOMEPAGE
 //app.get('/', basicAuth, function(req, res) {
