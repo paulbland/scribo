@@ -26,6 +26,11 @@ scribo.AppView = Backbone.View.extend({
         if (!localStorage.getItem('seenModal')) {
             this.addModal();
         }
+
+        // if no cards, add one
+        // if (scribo.cards.length === 0) {
+        //     scribo.cards.create();
+        // }
     },
         
     events: {
