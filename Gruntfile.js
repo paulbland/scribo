@@ -136,7 +136,29 @@ module.exports = function(grunt) {
           'dist/css/scribo.css'],
         dest: 'dist/css/scribo.concat.css',
       }
-    }
+    },
+
+
+
+    copy: {
+      main: {
+        files: [
+          // includes files within path
+          {expand: true, src: ['src/img/*'], dest: 'dist/img', filter: 'isFile', flatten: true},
+
+          /*
+          // includes files within path and its sub-directories
+          {expand: true, src: ['path/**'], dest: 'dest/'},
+
+          // makes all src relative to cwd
+          {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
+
+          // flattens results to a single level
+          {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
+          */
+        ],
+      },
+    },
 
 
   });
@@ -151,8 +173,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['sass', 'concat:css', 'cssmin', 'jshint', 'handlebars', 'concat:js', 'uglify']);
+
+  grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin', 'jshint', 'handlebars', 'concat:js', 'uglify']);
   grunt.registerTask('default', ['build', 'concurrent']);
 
 };
