@@ -51,19 +51,24 @@
     
 
 
-     h2 {
+    h2 {
+        @extend %font-2;
+        margin: 0 0 10px;
+        font-size: 34px;
+        font-weight: strong;
+        text-align: center;
+    }
+    h3 {
         @extend %font-2;
         margin: 0 0 30px;
-        font-size: 32px;
+        font-size: 22px;
         font-weight: strong;
         text-align: center;
     }
     strong {
        font-weight: 700;
     }
-    h2 span {
-        font-size: 22px;
-    }
+   
    
 
     p {

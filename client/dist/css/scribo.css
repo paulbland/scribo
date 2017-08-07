@@ -60,7 +60,7 @@ body.classic ul#cards li.card .wrapper .front textarea {
   letter-spacing: 0.5px;
 }
 
-body.modern ul#cards li.card .wrapper .front textarea, .modal h2 {
+body.modern ul#cards li.card .wrapper .front textarea, .modal h2, .modal h3 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
@@ -451,16 +451,19 @@ body.classic ul#cards li.card .wrapper .back ul.card-style li.card-style-5 label
   left: 315px;
 }
 .modal h2 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: strong;
+  text-align: center;
+}
+.modal h3 {
   margin: 0 0 30px;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: strong;
   text-align: center;
 }
 .modal strong {
   font-weight: 700;
-}
-.modal h2 span {
-  font-size: 22px;
 }
 .modal p {
   margin: 0 0 16px;
