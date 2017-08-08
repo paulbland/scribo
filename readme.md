@@ -33,4 +33,4 @@ ppush to heroku/master for deployment
 *now on github
 
 # NEW:
-run with ```heroku local dev```
+run with `heroku local dev`
