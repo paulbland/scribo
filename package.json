@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postinstall": "grunt build"
+    "postinstall": "bower install && grunt build"
   },
   "engines": {
     "node": "6.11.1"
