@@ -5,9 +5,8 @@
 %modern-background {
  	border-top-width: 7px;
 	border-top-style: solid;
-	border-radius: 3px 3px 0 0 ;
+	border-radius: 3px 3px 0 0;
 	background: #ebebeb;
-
 	.wrapper.style-1 & { border-color: $modern-color-1; }
 	.wrapper.style-2 & { border-color: $modern-color-2; }
 	.wrapper.style-3 & { border-color: $modern-color-3; }
@@ -19,12 +18,20 @@
 	text-overflow: ellipsis;
     background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
 	background-size: 100% 16px;
-
 	.wrapper.style-1 & { background-color: $classic-color-1; }
 	.wrapper.style-2 & { background-color: $classic-color-2; }
 	.wrapper.style-3 & { background-color: $classic-color-3; }
 	.wrapper.style-4 & { background-color: $classic-color-4; }
 	.wrapper.style-5 & { background-color: $classic-color-5; }
+}
+
+%bright-background {
+	border-radius: 5px;
+	.wrapper.style-1 & { background: $bright-color-1; } 
+	.wrapper.style-2 & { background: $bright-color-2; } 
+	.wrapper.style-3 & { background: $bright-color-3; } 
+	.wrapper.style-4 & { background: $bright-color-4; } 
+	.wrapper.style-5 & { background: $bright-color-5; } 
 }
 
 
@@ -48,6 +55,8 @@ ul#cards {
 		height: 140px;
 		perspective: 800px;
 
+		
+
 		&.sortable-chosen {
 			.back {
 				opacity: 0;
@@ -67,6 +76,12 @@ ul#cards {
 			transform-style: preserve-3d;
 			box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
+			body.bright & {
+				border-radius: 5px;
+				box-shadow: 1px 7px 16px 3px rgba(0, 0, 0, 0.2);
+			}
+			
+
 			&.flipped { transform: rotateY(180deg); }
 
 			/* exists in both front and back */
@@ -78,12 +93,12 @@ ul#cards {
 				transition: color 100ms linear;
 				z-index: 0;
 
+
 				&:before {
 					content: '\293F';
 					transform: rotate(-75deg);
 					display: inline-block;
 				}
-
 				&:hover {
 					color: black;
 				}
@@ -91,23 +106,20 @@ ul#cards {
 
 			.front,
 			.back, {
+
+
+				
 		    	height: 100%;
 		    	width: 100%;   
 		    	position: absolute;
 		    	backface-visibility: hidden;
 		    	box-sizing: border-box;
-
-		    	body.modern & {
-					@extend %modern-background;
-				}
-
-				body.classic & {
-					@extend %classic-background;
-				}
+		    	body.modern & { @extend %modern-background; }
+				body.classic & { @extend %classic-background; }
+				body.bright & { @extend %bright-background; }
 		    }
 		    
 			.front {
-
 				a.flip-card {
 					/* this was visible onthe back for some reason */
 					backface-visibility: hidden;
@@ -134,7 +146,6 @@ ul#cards {
 						max-height: 100%;
 						max-width: 100%;
 						transition: background 100ms ease-in-out;
-
 						&:focus { background: white; }
 					}
 
@@ -142,8 +153,16 @@ ul#cards {
 					body.classic & {
 						padding: 8px 13px;
 						@extend %font-1;
+						&:focus { /* */ }
+					}
 
-						&:focus { 
+					/* THEME: BRIGHT */
+					body.bright & {
+						padding: 10px 13px;
+						color: white;
+						letter-spacing: 0.5px;
+						&::-webkit-input-placeholder {
+							color: rgba(255,255,2555,0.4);
 						}
 					}
 				}
@@ -190,7 +209,13 @@ ul#cards {
       					body.classic &.card-style-2 label span { background: $classic-color-2; }
       					body.classic &.card-style-3 label span { background: $classic-color-3; }
       					body.classic &.card-style-4 label span { background: $classic-color-4; }
-      					body.classic &.card-style-5 label span { background: $classic-color-5; }	
+						body.classic &.card-style-5 label span { background: $classic-color-5; }	
+						  
+						body.bright &.card-style-1 label span { background: $bright-color-1; }
+      					body.bright &.card-style-2 label span { background: $bright-color-2; }
+      					body.bright &.card-style-3 label span { background: $bright-color-3; }
+      					body.bright &.card-style-4 label span { background: $bright-color-4; }
+      					body.bright &.card-style-5 label span { background: $bright-color-5; }	
       				}
       			}
     		}

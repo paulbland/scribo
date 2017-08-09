@@ -24,6 +24,13 @@ scribo.NavView = Backbone.View.extend({
 		'change input[name="theme"]' : function(e) {
 			$('body').toggleClass('modern', $(e.target).val() === "modern");
 			$('body').toggleClass('classic', $(e.target).val() === "classic");
+			$('body').toggleClass('bright', $(e.target).val() === "bright");
+		},
+
+		'change input[name="zoom"]' : function(e) {
+			$('body').toggleClass('zoom-sm', $(e.target).val() === "sm");
+			$('body').toggleClass('zoom-md', $(e.target).val() === "md");
+			$('body').toggleClass('zoom-lg', $(e.target).val() === "lg");
 		},
 
 		'click .logout' : function(e) {

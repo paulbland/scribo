@@ -10,8 +10,9 @@ body {
 	line-height: 1.2;
 	height: 100%;
 
-	&.classic { background: $classic-background; }
-	&.modern { background: $modern-background; }
+	&.classic { background: $classic-background-color; }
+	&.modern { background: $modern-background-color; }
+	&.bright { background: $bright-background-color; }
 }
 
 
