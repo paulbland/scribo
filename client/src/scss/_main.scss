@@ -4,11 +4,15 @@ html {
 
 body {
 	margin: 0;
-	font-family: 'Helvetica Neue';
-	font-weight: 200;
+	/*font-family: 'Helvetica Neue';
+	font-weight: 200;*/
+	@extend %font-2;
 	font-size: 18px;
 	line-height: 1.2;
 	height: 100%;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale; 
 
 	&.classic { background: $classic-background-color; }
 	&.modern { background: $modern-background-color; }

@@ -55,7 +55,14 @@ ul#cards {
 		height: 140px;
 		perspective: 800px;
 
-		
+
+		transition: all 150ms linear;
+
+		body.portrait & {
+			width: 180px;
+			height: 280px;
+		}
+
 
 		&.sortable-chosen {
 			.back {
@@ -78,7 +85,7 @@ ul#cards {
 
 			body.bright & {
 				border-radius: 5px;
-				box-shadow: 1px 7px 16px 3px rgba(0, 0, 0, 0.2);
+				box-shadow: 1px 7px 16px 3px rgba(0, 0, 0, 0.1);
 			}
 			
 
@@ -92,6 +99,10 @@ ul#cards {
 				color: rgba(0,0,0,0.2);
 				transition: color 100ms linear;
 				z-index: 0;
+
+				body.bright & {
+					color: rgba(255,255,2555,0.4);
+				}
 
 
 				&:before {
@@ -158,9 +169,9 @@ ul#cards {
 
 					/* THEME: BRIGHT */
 					body.bright & {
+						@extend %font-2;
 						padding: 10px 13px;
 						color: white;
-						letter-spacing: 0.5px;
 						&::-webkit-input-placeholder {
 							color: rgba(255,255,2555,0.4);
 						}
@@ -214,7 +225,7 @@ ul#cards {
 						body.bright &.card-style-1 label span { background: $bright-color-1; }
       					body.bright &.card-style-2 label span { background: $bright-color-2; }
       					body.bright &.card-style-3 label span { background: $bright-color-3; }
-      					body.bright &.card-style-4 label span { background: $bright-color-4; }
+      					body.bright &.card-style-4 label span { background: $bright-color-4-from; }
       					body.bright &.card-style-5 label span { background: $bright-color-5; }	
       				}
       			}

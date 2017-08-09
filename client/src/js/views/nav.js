@@ -33,6 +33,11 @@ scribo.NavView = Backbone.View.extend({
 			$('body').toggleClass('zoom-lg', $(e.target).val() === "lg");
 		},
 
+		'change input[name="orientation"]' : function(e) {
+			$('body').toggleClass('portrait', $(e.target).val() === "portrait");
+			$('body').toggleClass('landscape', $(e.target).val() === "landscape");
+		},
+
 		'click .logout' : function(e) {
 			e.preventDefault();
 			if (confirm('Are you sure you wish to log out?')) {

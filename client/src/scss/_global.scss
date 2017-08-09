@@ -10,11 +10,14 @@ $classic-color-3: #b1dab8;
 $classic-color-4: #f6cdd5; 
 $classic-color-5: #f17e61; 
 
-$bright-color-1: linear-gradient(25deg, #e64252 0, #e87a85 100%); //#EA5455 0%, #FEB692
-$bright-color-2: linear-gradient(25deg, #ea4d33 0%, #ff866e 100%); //F55555 0%, #FCCF31
-$bright-color-3: linear-gradient(45deg, #F8D800 0%, #FDEB71 100%);
-$bright-color-4: linear-gradient(45deg, #28C76F 0%, #81FBB8 100%);
-$bright-color-5: linear-gradient(45deg, #0396FF 0%, #ABDCFF 100%);
+$bright-color-4-from:   #EA5455;
+$bright-color-4-to:     #FEB692;
+
+$bright-color-1: linear-gradient(45deg, #F8D800 0%, #FDEB71 100%);
+$bright-color-2: linear-gradient(45deg, #0396FF 0%, #ABDCFF 100%);
+$bright-color-3: linear-gradient(45deg, #28C76F 0%, #81FBB8 100%);
+$bright-color-4: linear-gradient(25deg, $bright-color-4-from 0%, $bright-color-4-to 100%);
+$bright-color-5: linear-gradient(25deg, #F55555 0%, #FCCF31 100%);
 // $bright-color-x: linear-gradient(45deg, #E2B0FF 0%, #9F44D3 100%);
 
 
@@ -23,3 +26,5 @@ $accent-color: $classic-color-1;
 $modern-background-color: #464646;
 $classic-background-color: #464646; 
 $bright-background-color: #ccc;
+
+
