@@ -51,17 +51,17 @@ ul#cards {
 		position: relative;
 		cursor: pointer;
 		box-sizing: border-box;
-		width: 280px;
-		height: 140px;
 		perspective: 800px;
+		transition: all 150ms ease-in-out;
 
+		body.zoom-sm.landscape & 	{ width: (280px*0.8); height: (140px*0.8); }
+		body.zoom-sm.portrait & 	{ width: (180px*0.8); height: (280px*0.8); }
 
-		transition: all 150ms linear;
+		body.zoom-md.landscape & 	{ width: 280px; height: 140px; }
+		body.zoom-md.portrait & 	{ width: 180px; height: 260px; }
 
-		body.portrait & {
-			width: 180px;
-			height: 280px;
-		}
+		body.zoom-lg.landscape & 	{ width: (280px*1.2); height: (140px*1.2); }
+		body.zoom-lg.portrait & 	{ width: (180px*1.2); height: (280px*1.2); }
 
 
 		&.sortable-chosen {
