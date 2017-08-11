@@ -13,11 +13,20 @@ scribo.AppView = Backbone.View.extend({
         // Create new collection
         scribo.cards = new scribo.CardCollection();
         
+
+        
         this.listenTo(scribo.cards, 'add', this.addOne);
         this.listenTo(scribo.cards, 'reset', this.addAll);
 
         scribo.cards.fetch({reset: true});
+        
 
+        // new user prefs
+        scribo.userPrefs = new scribo.UserPrefModel();
+        // api doesnt exist yet!
+        // scribo.userPrefs.fetch({});
+        console.log( scribo.userPrefs );
+        
         this.$cards = this.$el.find('#cards');
 
         this.makeSortable(); 		
@@ -73,7 +82,7 @@ scribo.AppView = Backbone.View.extend({
 	addNav: function() {
 		// takes a model
 		// var nav = new scribo.NavView({ model: card });
-		var nav = new scribo.NavView();
+		var nav = new scribo.NavView({ model: scribo.userPrefs });
 		this.$el.append(nav.render().el);
 	},
 

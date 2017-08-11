@@ -118,7 +118,8 @@ ul#cards {
 			.front,
 			.back, {
 
-
+				transition: border 150ms ease-in-out;
+				
 				
 		    	height: 100%;
 		    	width: 100%;   

@@ -1,6 +1,7 @@
 var express     = require('express');
 var expressJwt  = require('express-jwt');
 var Card        = require('./models/card');
+var UserPrefs   = require('./models/userprefs');
 var router      = express.Router(); 
 
 
@@ -39,8 +40,9 @@ router.route('/cards')
 
         // save the card and check for errors
         card.save(function(err) {
-            if (err)
+            if (err) {
                 res.send(err);
+            }
 
             // paul did this. this sused to return a message. now returns 
             // card - so bcakboen knows the id, and can update it
@@ -123,7 +125,74 @@ router.route('/cards/:card_id')
         });
     });
 
+    router.route('/userprefs')
+    
+        .post(function(req, res) {
+            
+            var userPrefs = new UserPrefs();      
+    
+            userPrefs.userID        = req.user.sub; 
+            userPrefs.theme         = req.body.theme; 
+            userPrefs.background    = req.body.background; 
+            userPrefs.zoom          = req.body.zoom;  
+            userPrefs.orientation   = req.body.orientation;  
+            
+            userPrefs.save(function(err) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(userPrefs);
+            });
+            
+        })
+    
 
+        .get(function(req, res) {
+
+            UserPrefs.find({
+                userID: req.user.sub
+            }).exec(function(err, cards) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(cards);
+            }); 
+        });
+
+
+
+        router.route('/userprefs/:userprefs_id')
+        
+          
+            .put(function(req, res) {
+        
+                // use our card model to find the card we want
+                UserPrefs.findById(req.params.userprefs_id, function(err, userprefs) {
+        
+                    if (err) {
+                        res.send(err); 
+                    }
+        
+                    // update the cards info
+                    userprefs.theme         = req.body.theme; 
+                    userprefs.background    = req.body.background;  
+                    userprefs.zoom          = req.body.zoom;  
+                    userprefs.orientation   = req.body.orientation;  
+                    
+                    // save the card
+                    userprefs.save(function(err) {
+                        if (err) {
+                            res.send(err);
+                        }
+        
+                        res.json({ message: 'userprefs updated!' });
+                    });
+        
+                }); 
+            });
+        
+            
+      
 
   module.exports = router;
 

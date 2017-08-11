@@ -5,9 +5,9 @@
 	<form>
 		<fieldset>
 			<legend>Theme</legend>
-			<label><input type="radio" name="theme" value="classic"> Classic</label><br />
-			<label><input type="radio" name="theme" value="modern"> Modern</label><br />
-			<label><input type="radio" name="theme" value="bright"> Bright</label>
+			<label><input type="radio" name="theme" value="classic" {{#if_eq userPrefs.theme 'classic'}}checked{{/if_eq}}> Classic</label><br />
+			<label><input type="radio" name="theme" value="modern" {{#if_eq userPrefs.theme 'modern'}}checked{{/if_eq}}> Modern</label><br />
+			<label><input type="radio" name="theme" value="bright" {{#if_eq userPrefs.theme 'bright'}}checked{{/if_eq}}> Bright</label>
 		</fieldset>
 		<br />
 		<fieldset>
