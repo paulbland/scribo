@@ -13,11 +13,26 @@ body {
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale; 
-
-	&.classic { background: $classic-background-color; }
-	&.modern { background: $modern-background-color; }
-	&.bright { background: $bright-background-color; }
 }
+
+%light-background {
+	background-color: #ccc;
+}
+%dark-background {
+	background-color: #464646;
+}
+%image-background {
+	background-color: #2a262b;
+	background-image: url('/img/scribo-bg.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+
+body.light { @extend %light-background; }
+body.dark { @extend %dark-background; }
+body.image { @extend %image-background; }
+
 
 
 main {

@@ -15,8 +15,8 @@
 
 # STRUCTURE
 ---
-```/api``` --- is backend app
-```/src``` and ```/dist``` ---- is front end backbone app
+`/api` --- is backend app
+`/src` and `/dist` ---- is front end backbone app
 
 
 

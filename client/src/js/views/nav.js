@@ -27,6 +27,12 @@ scribo.NavView = Backbone.View.extend({
 			$('body').toggleClass('bright', $(e.target).val() === "bright");
 		},
 
+		'change input[name="background"]' : function(e) {
+			$('body').toggleClass('light', $(e.target).val() === "light");
+			$('body').toggleClass('dark', $(e.target).val() === "dark");
+			$('body').toggleClass('image', $(e.target).val() === "image");
+		},
+
 		'change input[name="zoom"]' : function(e) {
 			$('body').toggleClass('zoom-sm', $(e.target).val() === "sm");
 			$('body').toggleClass('zoom-md', $(e.target).val() === "md");
