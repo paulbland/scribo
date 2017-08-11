@@ -27,8 +27,6 @@ scribo.NavView = Backbone.View.extend({
 			$('body').toggleClass('classic', val === "classic");
 			$('body').toggleClass('bright', val === "bright");
 
-			console.log('this.model.isNew');
-			console.log(this.model.isNew());
 			this.model.set({'theme' : val});
 			this.model.save();
 		},

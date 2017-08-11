@@ -85,14 +85,16 @@ scribo.AppView = Backbone.View.extend({
         userPrefs.fetch({
             /* userID: scribo.userProfile.user_id, */
             success: function() {
-
-                console.log('userPrefs id:', userPrefs.attributes[0]._id);
-
-                userPrefs.set('id', userPrefs.attributes[0]._id);
-                userPrefs.save();
-                
-                console.log('userPrefs.isNew():', userPrefs.isNew());
-
+                // if an entry is returned, then set its id (so we dont create multiples)
+                if (typeof userPrefs.attributes[0] !== 'undefined') {
+                    userPrefs.set('_id', userPrefs.attributes[0]._id);
+                    // this will change isnEw() to false and then future uodartes will use PUT
+                    // instead of post and not make dulicates
+                    // i guess i can ssave here.. but dont need to. it will save when its changed
+                    // userPrefs.save().then(function() {
+                    //     console.log('userPrefs.isNew() after save:', userPrefs.isNew());
+                    // });
+                }
             }
         });
 
