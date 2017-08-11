@@ -79,10 +79,25 @@ scribo.AppView = Backbone.View.extend({
 		// takes a model
         // var nav = new scribo.NavView({ model: card });
         
-         // new user prefs
-         var userPrefs = new scribo.UserPrefsModel({userID: scribo.userProfile.user_id});
-         userPrefs.fetch({});
+        // new user prefs
+        var userPrefs = new scribo.UserPrefsModel({userID: scribo.userProfile.user_id});
 
+        userPrefs.fetch({
+            /* userID: scribo.userProfile.user_id, */
+            success: function() {
+
+                console.log('userPrefs id:', userPrefs.attributes[0]._id);
+
+                userPrefs.set('id', userPrefs.attributes[0]._id);
+                userPrefs.save();
+                
+                console.log('userPrefs.isNew():', userPrefs.isNew());
+
+            }
+        });
+
+       
+         
 		var nav = new scribo.NavView({model: userPrefs});
 		this.$el.append(nav.render().el);
 	},

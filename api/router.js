@@ -36,7 +36,7 @@ router.route('/cards')
         card.userID  = req.user.sub; 
         card.color  = req.body.color; 
         card.text   = req.body.text; 
-        card.order  = req.body.order;  
+        card.order  = req.body.order;
 
         // save the card and check for errors
         card.save(function(err) {
@@ -125,74 +125,70 @@ router.route('/cards/:card_id')
         });
     });
 
-    router.route('/userprefs')
+router.route('/userprefs')
     
-        .post(function(req, res) {
-            
-            var userPrefs = new UserPrefs();      
-    
-            userPrefs.userID        = req.user.sub; 
-            userPrefs.theme         = req.body.theme; 
-            userPrefs.background    = req.body.background; 
-            userPrefs.zoom          = req.body.zoom;  
-            userPrefs.orientation   = req.body.orientation;  
-            
-            userPrefs.save(function(err) {
-                if (err) {
-                    res.send(err);
-                }
-                res.json(userPrefs);
-            });
-            
-        })
-    
+    .post(function(req, res) {
+        
+        var userPrefs = new UserPrefs();      
 
-        .get(function(req, res) {
-
-            UserPrefs.find({
-                userID: req.user.sub
-            }).exec(function(err, cards) {
-                if (err) {
-                    res.send(err);
-                }
-                res.json(cards);
-            }); 
+        userPrefs.userID        = req.user.sub; 
+        userPrefs.theme         = req.body.theme; 
+        userPrefs.background    = req.body.background; 
+        userPrefs.zoom          = req.body.zoom;  
+        userPrefs.orientation   = req.body.orientation;  
+        
+        userPrefs.save(function(err) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(userPrefs);
         });
-
-
-
-        router.route('/userprefs/:userprefs_id')
         
+    })
+
+    .get(function(req, res) {
+
+        UserPrefs.find({
+            userID: req.user.sub
+        }).
+        limit(1).
+        exec(function(err, cards) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(cards);
+        }); 
+    });
+
+router.route('/userprefs/:userprefs_id')
           
-            .put(function(req, res) {
-        
-                // use our card model to find the card we want
-                UserPrefs.findById(req.params.userprefs_id, function(err, userprefs) {
-        
-                    if (err) {
-                        res.send(err); 
-                    }
-        
-                    // update the cards info
-                    userprefs.theme         = req.body.theme; 
-                    userprefs.background    = req.body.background;  
-                    userprefs.zoom          = req.body.zoom;  
-                    userprefs.orientation   = req.body.orientation;  
-                    
-                    // save the card
-                    userprefs.save(function(err) {
-                        if (err) {
-                            res.send(err);
-                        }
-        
-                        res.json({ message: 'userprefs updated!' });
-                    });
-        
-                }); 
-            });
-        
-            
-      
+    .put(function(req, res) {
 
-  module.exports = router;
+        // use our card model to find the card we want
+        UserPrefs.findById(req.params.userprefs_id, function(err, userprefs) {
+
+            if (err) {
+                res.send(err); 
+            }
+
+            // update the cards info
+            userprefs.theme         = req.body.theme; 
+            userprefs.background    = req.body.background;  
+            userprefs.zoom          = req.body.zoom;  
+            userprefs.orientation   = req.body.orientation;  
+            
+            // save the card
+            userprefs.save(function(err) {
+                if (err) {
+                    res.send(err);
+                }
+
+                res.json({ message: 'userprefs updated!' });
+            });
+
+        }); 
+    });
+ 
+
+module.exports = router;
 
