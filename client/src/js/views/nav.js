@@ -1,8 +1,6 @@
 var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
 scribo.userProfile = scribo.userProfile || {};
-scribo.userPrefs = scribo.userPrefs || {};
-
 
 scribo.NavView = Backbone.View.extend({
 

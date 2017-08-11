@@ -21,11 +21,7 @@ scribo.AppView = Backbone.View.extend({
         scribo.cards.fetch({reset: true});
         
 
-        // new user prefs
-        scribo.userPrefs = new scribo.UserPrefModel();
-        // api doesnt exist yet!
-        // scribo.userPrefs.fetch({});
-        console.log( scribo.userPrefs );
+       
         
         this.$cards = this.$el.find('#cards');
 
@@ -81,8 +77,13 @@ scribo.AppView = Backbone.View.extend({
 
 	addNav: function() {
 		// takes a model
-		// var nav = new scribo.NavView({ model: card });
-		var nav = new scribo.NavView({ model: scribo.userPrefs });
+        // var nav = new scribo.NavView({ model: card });
+        
+         // new user prefs
+         var userPrefs = new scribo.UserPrefsModel({userID: scribo.userProfile.user_id});
+         userPrefs.fetch({});
+
+		var nav = new scribo.NavView({model: userPrefs});
 		this.$el.append(nav.render().el);
 	},
 
