@@ -76,6 +76,7 @@ scribo.AppView = Backbone.View.extend({
 	},
 
 	addNav: function() {
+        var self = this;
 		// takes a model
         // var nav = new scribo.NavView({ model: card });
         
@@ -95,13 +96,14 @@ scribo.AppView = Backbone.View.extend({
                     //     console.log('userPrefs.isNew() after save:', userPrefs.isNew());
                     // });
                 }
+                var nav = new scribo.NavView({model: userPrefs});
+                self.$el.append(nav.render().el);
             }
         });
 
        
          
-		var nav = new scribo.NavView({model: userPrefs});
-		this.$el.append(nav.render().el);
+		
 	},
 
 	addModal: function() {
