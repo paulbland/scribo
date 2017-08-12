@@ -145,6 +145,7 @@ module.exports = function(grunt) {
         files: [
           // includes files within path
           {expand: true, src: ['client/src/img/*'], dest: 'client/dist/img', filter: 'isFile', flatten: true},
+          {expand: true, src: ['client/src/manifest.json'], dest: 'client/dist/', filter: 'isFile', flatten: true},
 
           /*
           // includes files within path and its sub-directories

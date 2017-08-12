@@ -1,0 +1,22 @@
+{
+  "short_name": "Scribo",
+  "name": "The index card app for writers",
+  "icons": [
+    {
+      "src": "/img/launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/img/launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/img/auncher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/app"
+}
