@@ -31,9 +31,9 @@ body {
 }
 
 
-body.light { @extend %light-background; }
-body.dark { @extend %dark-background; }
-body.image { @extend %image-background; }
+body.background-light { @extend %light-background; }
+body.background-dark { @extend %dark-background; }
+body.background-image { @extend %image-background; }
 
 
 

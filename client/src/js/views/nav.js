@@ -8,11 +8,47 @@ scribo.NavView = Backbone.View.extend({
 
 	render: function() { 
  		this.$el.html(scribo.templates.nav({
-			 userProfile: scribo.userProfile,	// remember you can pass model here!
-			 userPrefs: this.model.toJSON()		// this is it!
+			userProfile : scribo.userProfile,	// remember you can pass model here!
+			userPrefs 	: this.model.toJSON(),		// this is it!
+			userOptions : this.userOptions
 		 }));	
  		return this;
 	},
+
+	userOptions: {
+		theme 		: ['modern', 'classic', 'bright'],
+		background 	: ['light', 'dark', 'image'],
+		zoom 		: ['small', 'medium', 'large'],
+		orientation : ['portrait', 'landscape'],
+	},	
+
+
+
+	// userOptions: [
+	// 	{
+	// 		name: 'theme',
+	// 		vals: ['modern', 'classic', 'bright']
+	// 	},
+	// 	{
+	// 		name: 'background',
+	// 		vals: ['light', 'dark', 'image']
+	// 	},
+	// 	{
+	// 		name: 'zoom',
+	// 		vals: ['small', 'medium', 'large']
+	// 	},
+	// 	{
+	// 		name: 'orientation',
+	// 		vals: ['portrait', 'landscape']
+	// 	}
+	// ],	
+
+
+	// changeInput: function(e) {
+	// 	console.log('thos');
+	// 	console.log(e);
+
+	// },
 
 	events: {
 
@@ -21,37 +57,39 @@ scribo.NavView = Backbone.View.extend({
 			$('body').toggleClass('nav-open');
 		},
 
+	//	'change input' : 'changeInput',
+
 		'change input[name="theme"]' : function(e) {
 			var val = $(e.target).val();
-			$('body').toggleClass('modern', val === "modern");
-			$('body').toggleClass('classic', val === "classic");
-			$('body').toggleClass('bright', val === "bright");
+			$('body').toggleClass('theme-modern', val === "modern");
+			$('body').toggleClass('theme-classic', val === "classic");
+			$('body').toggleClass('theme-bright', val === "bright");
 			this.model.set({'theme' : val});
 			this.model.save();
 		},
 
 		'change input[name="background"]' : function(e) {
 			var val = $(e.target).val();
-			$('body').toggleClass('light', val === "light");
-			$('body').toggleClass('dark', val === "dark");
-			$('body').toggleClass('image', val === "image");
+			$('body').toggleClass('background-light', val === "light");
+			$('body').toggleClass('background-dark', val === "dark");
+			$('body').toggleClass('background-image', val === "image");
 			this.model.set({'background' : val});
 			this.model.save();
 		},
 
 		'change input[name="zoom"]' : function(e) {
 			var val = $(e.target).val();
-			$('body').toggleClass('zoom-sm', val === "sm");
-			$('body').toggleClass('zoom-md', val === "md");
-			$('body').toggleClass('zoom-lg', val === "lg");
+			$('body').toggleClass('zoom-small', val === "small");
+			$('body').toggleClass('zoom-medium', val === "medium");
+			$('body').toggleClass('zoom-large', val === "large");
 			this.model.set({'zoom' : val});
 			this.model.save();
 		},
 
 		'change input[name="orientation"]' : function(e) {
 			var val = $(e.target).val();
-			$('body').toggleClass('portrait',  val === "portrait");
-			$('body').toggleClass('landscape', val === "landscape");
+			$('body').toggleClass('orientation-portrait',  val === "portrait");
+			$('body').toggleClass('orientation-landscape', val === "landscape");
 			this.model.set({'orientation' : val});
 			this.model.save();
 		},

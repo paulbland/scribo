@@ -3,32 +3,27 @@
 	Logged in as {{userProfile.name}}<br />
 	<br />
 	<form>
-		<fieldset>
-			<legend>Theme</legend>
-			<label><input type="radio" name="theme" value="classic" {{#if_eq userPrefs.theme 'classic'}}checked{{/if_eq}}> Classic</label><br />
-			<label><input type="radio" name="theme" value="modern" {{#if_eq userPrefs.theme 'modern'}}checked{{/if_eq}}> Modern</label><br />
-			<label><input type="radio" name="theme" value="bright" {{#if_eq userPrefs.theme 'bright'}}checked{{/if_eq}}> Bright</label>
-		</fieldset>
-		<br />
-		<fieldset>
-			<legend>Background</legend>
-			<label><input type="radio" name="background" value="light"> Light</label><br />
-			<label><input type="radio" name="background" value="dark"> Dark</label><br />
-			<label><input type="radio" name="background" value="image"> Image</label>
-		</fieldset>
-		<br />
-		<fieldset>
-			<legend>Zoom</legend>
-			<label><input type="radio" name="zoom" value="sm"> Small</label><br />
-			<label><input type="radio" name="zoom" value="md"> Medium</label><br />
-			<label><input type="radio" name="zoom" value="lg"> Large</label>
-		</fieldset>
-		<br />
-		<fieldset>
-			<legend>Orientation</legend>
-			<label><input type="radio" name="orientation" value="portrait"> Portrait</label><br />
-			<label><input type="radio" name="orientation" value="landscape"> Landscape</label>
-		</fieldset>
+
+		{{#each userOptions}}
+			<fieldset>
+				<legend>{{first_to_upper @key}}</legend>
+				{{#each this}}
+					<label><input type="radio" name="{{@../key}}" value="{{this}}" {{#check_prop ../../userPrefs @../key this}}checked{{/check_prop}}> {{first_to_upper this}}</label><br /> 
+				{{/each}}
+			</fieldset>
+			<br />
+		{{/each}}
+
+		{{!-- {{#each userOptions}}
+			<fieldset>
+				<legend>{{first_to_upper name}}</legend>
+				{{#each vals}}					
+					<label><input type="radio" name="{{../name}}" value="{{this}}" {{#check_prop ../../userPrefs ../name this}}checked{{/check_prop}}> {{first_to_upper this}}</label><br /> 
+				{{/each}}
+			</fieldset>
+			<br />
+		{{/each}} --}}
+
 	</form>
 	<br /> 
 	{{!-- My projects:<br />
