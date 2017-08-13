@@ -6,6 +6,10 @@ scribo.NavView = Backbone.View.extend({
 
 	tagName: 'nav',
 
+	initialize: function() {
+		this.setBodyClasses();
+	},
+
 	render: function() { 
  		this.$el.html(scribo.templates.nav({
 			userProfile : scribo.userProfile,	// remember you can pass model here!
@@ -22,27 +26,11 @@ scribo.NavView = Backbone.View.extend({
 		orientation : ['portrait', 'landscape'],
 	},	
 
-
-
-	// userOptions: [
-	// 	{
-	// 		name: 'theme',
-	// 		vals: ['modern', 'classic', 'bright']
-	// 	},
-	// 	{
-	// 		name: 'background',
-	// 		vals: ['light', 'dark', 'image']
-	// 	},
-	// 	{
-	// 		name: 'zoom',
-	// 		vals: ['small', 'medium', 'large']
-	// 	},
-	// 	{
-	// 		name: 'orientation',
-	// 		vals: ['portrait', 'landscape']
-	// 	}
-	// ],	
-
+	setBodyClasses: function() {
+		for (var key in this.userOptions) {
+			$('body').addClass(key+'-'+this.model.attributes[key]);
+		 }
+	},
 
 	// changeInput: function(e) {
 	// 	console.log('thos');
@@ -57,7 +45,7 @@ scribo.NavView = Backbone.View.extend({
 			$('body').toggleClass('nav-open');
 		},
 
-	//	'change input' : 'changeInput',
+		// 'change input' : 'changeInput',
 
 		'change input[name="theme"]' : function(e) {
 			var val = $(e.target).val();

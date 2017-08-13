@@ -1,9 +1,7 @@
 <a href="#" class="toggle"></a>
 <div class="nav-content">
-	Logged in as {{userProfile.name}}<br />
-	<br />
+	Logged in as {{userProfile.name}}<br /><br />
 	<form>
-
 		{{#each userOptions}}
 			<fieldset>
 				<legend>{{first_to_upper @key}}</legend>
@@ -13,17 +11,6 @@
 			</fieldset>
 			<br />
 		{{/each}}
-
-		{{!-- {{#each userOptions}}
-			<fieldset>
-				<legend>{{first_to_upper name}}</legend>
-				{{#each vals}}					
-					<label><input type="radio" name="{{../name}}" value="{{this}}" {{#check_prop ../../userPrefs ../name this}}checked{{/check_prop}}> {{first_to_upper this}}</label><br /> 
-				{{/each}}
-			</fieldset>
-			<br />
-		{{/each}} --}}
-
 	</form>
 	<br /> 
 	{{!-- My projects:<br />

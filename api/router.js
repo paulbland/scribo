@@ -161,6 +161,17 @@ router.route('/userprefs')
     });
 
 router.route('/userprefs/:userprefs_id')
+
+
+    // get the card with that id (accessed at GET http://localhost:8080/api/cards/:card_id)
+    .get(function(req, res) {
+        UserPrefs.findById(req.params.userprefs_id, function(err, userprefs) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(userprefs);
+        });
+    })
           
     .put(function(req, res) {
 

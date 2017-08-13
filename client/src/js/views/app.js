@@ -77,34 +77,26 @@ scribo.AppView = Backbone.View.extend({
 
 	addNav: function() {
         var self = this;
-		// takes a model
-        // var nav = new scribo.NavView({ model: card });
         
         // new user prefs
         var userPrefs = new scribo.UserPrefsModel({userID: scribo.userProfile.user_id});
 
-        userPrefs.fetch({
-            /* userID: scribo.userProfile.user_id, */
-            success: function() {
-                // if an entry is returned, then set its id (so we dont create multiples)
-                if (typeof userPrefs.attributes[0] !== 'undefined') {
-                    userPrefs.set('_id', userPrefs.attributes[0]._id);
-                    // this will change isnEw() to false and then future uodartes will use PUT
-                    // instead of post and not make dulicates
-                    // i guess i can ssave here.. but dont need to. it will save when its changed
-                    // userPrefs.save().then(function() {
-                    //     console.log('userPrefs.isNew() after save:', userPrefs.isNew());
-                    // });
-                }
-                var nav = new scribo.NavView({model: userPrefs});
-                self.$el.append(nav.render().el);
-            }
-        });
+        userPrefs.fetch().then(function() {
 
-       
-         
-		
-	},
+            // get get user id from first one. becausae weird thigns are happening. now get the model again:
+            var userPrefs2 = new scribo.UserPrefsModel({_id: userPrefs.attributes[0]._id});
+            userPrefs2.fetch().then(function() {
+                //console.log('userPrefs2', userPrefs2);
+                var nav = new scribo.NavView({model: userPrefs2});
+                self.$el.append(nav.render().el);
+            });
+
+            // if an entry is returned, then set its id (so we dont create multiples)
+            // if (typeof userPrefs.attributes[0] !== 'undefined') {
+            //     userPrefs.set('_id', userPrefs.attributes[0]._id);
+            // }
+        });	
+    },
 
 	addModal: function() {
 		var modal = new scribo.ModalView();
