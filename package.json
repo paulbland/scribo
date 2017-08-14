@@ -20,7 +20,7 @@
     "bower": "^1.8.0",
     "compression": "^1.7.0",
     "ejs": "^2.5.7",
-    "express": "^4.15.3",
+    "express": "^4.15.4",
     "express-jwt": "^3.4.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^1.2.0",
@@ -32,12 +32,12 @@
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-sass": "^2.0.0",
     "heroku-ssl-redirect": "0.0.4",
-    "mongoose": "^4.11.5",
+    "mongoose": "^4.11.6",
     "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
     "grunt-concurrent": "^2.2.1",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-nodemon": "^0.4.1"
+    "grunt-nodemon": "^0.4.2"
   }
 }
