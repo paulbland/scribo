@@ -170,11 +170,12 @@ ul#cards {
 					/* THEME: BRIGHT */
 					body.theme-bright & {
 						@extend %font-2;
+						font-weight: 400;
 						padding: 10px 13px;
-						// color: white;
-						// &::-webkit-input-placeholder {
-						// 	color: rgba(255,255,2555,0.5);
-						// }
+						color: white;
+						&::-webkit-input-placeholder {
+							color: rgba(255,255,2555,0.5);
+						}
 					}
 				}
 			}
