@@ -37,17 +37,15 @@ scribo.NavView = Backbone.View.extend({
 		var val = e.target.value;
 		
 		// Remove exisitng body classes with same key
-		$('body').attr('class', function(i, c){
-        	return c.replace(key+'-', '');
-        });
+		$('body').alterClass( key+'-*', '' );
 
 		// Add body class
 		$('body').addClass(key+'-'+val);
 
 		// Update model and save
-		this.model.set({key : val});
+		this.model.set(key, val);
 		this.model.save();
-	},
+	}, 
 
 	events: {
 
@@ -57,41 +55,6 @@ scribo.NavView = Backbone.View.extend({
 		},
 
 		'change input' : 'changeInput',
-
-		// 'change input[name="theme"]' : function(e) {
-		// 	var val = $(e.target).val();
-		// 	$('body').toggleClass('theme-modern', val === "modern");
-		// 	$('body').toggleClass('theme-classic', val === "classic");
-		// 	$('body').toggleClass('theme-bright', val === "bright");
-		// 	this.model.set({'theme' : val});
-		// 	this.model.save();
-		// },
-
-		// 'change input[name="background"]' : function(e) {
-		// 	var val = $(e.target).val();
-		// 	$('body').toggleClass('background-light', val === "light");
-		// 	$('body').toggleClass('background-dark', val === "dark");
-		// 	$('body').toggleClass('background-image', val === "image");
-		// 	this.model.set({'background' : val});
-		// 	this.model.save();
-		// },
-
-		// 'change input[name="zoom"]' : function(e) {
-		// 	var val = $(e.target).val();
-		// 	$('body').toggleClass('zoom-small', val === "small");
-		// 	$('body').toggleClass('zoom-medium', val === "medium");
-		// 	$('body').toggleClass('zoom-large', val === "large");
-		// 	this.model.set({'zoom' : val});
-		// 	this.model.save();
-		// },
-
-		// 'change input[name="orientation"]' : function(e) {
-		// 	var val = $(e.target).val();
-		// 	$('body').toggleClass('orientation-portrait',  val === "portrait");
-		// 	$('body').toggleClass('orientation-landscape', val === "landscape");
-		// 	this.model.set({'orientation' : val});
-		// 	this.model.save();
-		// },
 
 		'click .logout' : function(e) {
 			e.preventDefault();
@@ -104,3 +67,38 @@ scribo.NavView = Backbone.View.extend({
 	}
 
 });
+
+
+// From: https://gist.github.com/peteboere/1517285
+
+(function ( $ ) {
+	
+$.fn.alterClass = function ( removals, additions ) {
+	
+	var self = this;
+	
+	if ( removals.indexOf( '*' ) === -1 ) {
+		// Use native jQuery methods if there is no wildcard matching
+		self.removeClass( removals );
+		return !additions ? self : self.addClass( additions );
+	}
+
+	var patt = new RegExp( '\\s' + 
+			removals.
+				replace( /\*/g, '[A-Za-z0-9-_]+' ).
+				split( ' ' ).
+				join( '\\s|\\s' ) + 
+			'\\s', 'g' );
+
+	self.each( function ( i, it ) {
+		var cn = ' ' + it.className + ' ';
+		while ( patt.test( cn ) ) {
+			cn = cn.replace( patt, ' ' );
+		}
+		it.className = $.trim( cn );
+	});
+
+	return !additions ? self : self.addClass( additions );
+};
+
+})( jQuery );
