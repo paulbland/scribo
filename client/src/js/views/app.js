@@ -13,15 +13,10 @@ scribo.AppView = Backbone.View.extend({
         // Create new collection
         scribo.cards = new scribo.CardCollection();
         
-
-        
         this.listenTo(scribo.cards, 'add', this.addOne);
         this.listenTo(scribo.cards, 'reset', this.addAll);
 
         scribo.cards.fetch({reset: true});
-        
-
-       
         
         this.$cards = this.$el.find('#cards');
 

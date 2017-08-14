@@ -47,6 +47,11 @@ scribo.NavView = Backbone.View.extend({
 		this.model.save();
 	}, 
 
+	showModal: function() {
+		var modal = new scribo.ModalView();
+		$('main').append(modal.render().el);
+	},
+
 	events: {
 
 		'click .toggle' :  function(e) {
@@ -55,6 +60,8 @@ scribo.NavView = Backbone.View.extend({
 		},
 
 		'change input' : 'changeInput',
+
+		'click .show-modal' : 'showModal',
 
 		'click .logout' : function(e) {
 			e.preventDefault();

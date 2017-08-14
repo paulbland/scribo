@@ -8,7 +8,7 @@ scribo.ModalView = Backbone.View.extend({
     className 	: 'modal modal-1',
     
 	render: function() { 
-        console.log('running render');
+        //console.log('running render');
  		this.$el.html(scribo.templates.modal({}));	
  		return this;
     },
