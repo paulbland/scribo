@@ -47,7 +47,8 @@ scribo.NavView = Backbone.View.extend({
 		this.model.save();
 	}, 
 
-	showModal: function() {
+	showModal: function(e) {
+		e.preventDefault();
 		var modal = new scribo.ModalView();
 		$('main').append(modal.render().el);
 	},
