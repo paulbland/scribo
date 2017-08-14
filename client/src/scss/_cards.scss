@@ -173,7 +173,6 @@ ul#cards {
 					/* THEME: BRIGHT */
 					body.theme-bright & {
 						@extend %font-2;
-						font-weight: 400;
 						padding: 10px 13px;
 						// color: white;
 						&::-webkit-input-placeholder {
