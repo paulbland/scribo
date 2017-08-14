@@ -24,21 +24,41 @@ body.home {
     }
 
     p {
-        font-size: 28px;
+       font-size: 28px;
         margin: 0 0 2em;
     }
 
-    a {
+    small {
+        position: absolute; 
+        bottom: 12%;
+        left: 8%;
+        font-size: 15px;
+        span {
+           @extend %font-3;
+           font-size: 16px;
+           color: #dad292;
+        }
+        a {
+            text-decoration: none;
+            color: #55c1e0; /*#00aee0;*/
+        }
+        a[href^="mailto"] {
+            text-decoration: underline;
+        }
+    }
+
+    a.login {
         display: inline-block;
         border: 1px solid white;
         padding: 3px 20px;
         color: white;
         text-decoration: none;
         font-size: 18px;
-    }
 
-    a:hover {
-        color: #feef70;
-        border-color: #feef70;
+        &:hover {
+            color: #feef70;
+            border-color: #feef70;
+        }
     }
+    
 }
