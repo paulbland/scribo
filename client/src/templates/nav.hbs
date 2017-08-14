@@ -1,12 +1,15 @@
 <a href="#" class="toggle"></a>
 <div class="nav-content">
-	Logged in as {{userProfile.name}}<br /><br />
+	Logged in as <strong>{{userProfile.name}}</strong><br /><br />
 	<form>
 		{{#each userOptions}}
 			<fieldset>
 				<legend>{{first_to_upper @key}}</legend>
 				{{#each this}}
-					<label><input type="radio" name="{{@../key}}" value="{{this}}" {{#check_prop ../../userPrefs @../key this}}checked{{/check_prop}}> {{first_to_upper this}}</label><br /> 
+					<label>
+						<input type="radio" name="{{@../key}}" value="{{this}}" {{#check_prop ../../userPrefs @../key this}}checked{{/check_prop}}>
+						{{first_to_upper this}}
+					</label>
 				{{/each}}
 			</fieldset>
 			<br />

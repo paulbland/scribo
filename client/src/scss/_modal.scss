@@ -13,7 +13,8 @@
     @extend %modern-background;
    
     padding: 24px 23px;
-    font-size: 22px;
+    font-size: 20px;
+    font-family:'Urbana';
     
     .modal-content { display: none; }
     &.modal-1 .modal-content.modal-1 { display: block; }
@@ -34,17 +35,20 @@
         @extend %centered-modal;
     }
     &.modal-2 {
-        top: 20px;
-        right: 85px;
-        width: 380px;
+         @extend %centered-modal;
+        // top: 20px;
+        // right: 85px;
+        // width: 380px;
     }
      &.modal-3 {
-        top: 85px;
-        left: 330px;
+          @extend %centered-modal;
+        // top: 85px;
+        // left: 330px;
     }
      &.modal-4  {
-        top: 145px;
-        left: 315px;
+          @extend %centered-modal;
+        // top: 145px;
+        // left: 315px;
     }
      &.modal-5 {
         @extend  %centered-modal;
@@ -53,16 +57,16 @@
 
 
     h2 {
-        @extend %font-2;
+        @extend %font-3;
         margin: 0 0 5px;
-        font-size: 34px;
-        font-weight: strong;
+        font-size: 42px;
         text-align: center;
+        font-weight: normal;
     }
     h3 {
-        @extend %font-2;
+       /* @extend %font-2;*/
         margin: 0 0 35px;
-        font-size: 22px;
+        font-size: 24px;
         font-weight: strong;
         text-align: center;
     }
@@ -84,11 +88,16 @@
     a {
          color: black;
 
+          &:hover {
+           color: $modern-color-1; // opacity: 0.7;
+        }
+
      }
 
     a.next {
         font-weight: bold;
         text-decoration: none;
+        font-size: 24px;
 
         &:after {
             content: '→';
@@ -96,18 +105,14 @@
             margin: 0 0 0 5px;
         }
 
-        &:hover {
-            opacity: 0.8;
-        }
+   
     }
 
     a.skip {
-        font-size: 12px;
-        text-decoration: none;
+        font-size: 14px;
+        text-decoration: underline;
         font-weight: normal;
-        &:hover {
-            text-decoration: underline;
-        }
+        
     }
 
 

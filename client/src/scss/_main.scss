@@ -41,22 +41,10 @@ main {
 
 }
 
-
-h1 {
-	@extend %font-3;
-	position: fixed;
-	bottom: -5px;
-	right: 50px;
-	font-size: 50px;
-	color: rgba(0,0,0,0.06); 
-	z-index: -1;
-	letter-spacing: 0;
-}	
-
 a.add-card {
 	position: fixed; 
-	top: 3px;
-	right: 48px;
+	top: -4px;
+	right: 54px;
 	text-decoration: none;
 	color: white;
 	display: block;
@@ -69,7 +57,7 @@ a.add-card {
 
 	&:before {
 		content:'+'; 
-		font-size: 40px;
+		font-size: 56px;
 		font-weight: bold;
 		display: block;
 		cursor: pointer;

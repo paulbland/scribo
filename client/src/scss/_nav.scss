@@ -44,14 +44,30 @@ nav {
 		display: none;
 		padding: 10px;
 
+		strong {
+			font-weight: 700;
+		}
+
 		body.nav-open & {
 			display: block;
 		}
 	}
 
 	form {
-		label {
-			cursor: pointer;
+		fieldset {
+			legend {
+				font-weight: 700;
+				margin: 0 0 5px;
+			}
+			label {
+				display: block;
+				margin: 0 0 3px;
+				cursor: pointer;
+				input {
+					margin: 0 5px 0 0;
+				}
+
+			}
 		}
     }	
     
