@@ -102,10 +102,9 @@ ul#cards {
 				transition: color 100ms linear;
 				z-index: 0;
 
-				body.theme-bright & {
-					color: rgba(255,255,2555,0.4);
-				}
-
+				// body.theme-bright & {
+				// 	color: rgba(255,255,2555,0.4);
+				// }
 
 				&:before {
 					content: '\293F';
@@ -119,15 +118,13 @@ ul#cards {
 
 			.front,
 			.back, {
-
-				transition: border 150ms ease-in-out;
-				
-				
-		    	height: 100%;
+				height: 100%;
 		    	width: 100%;   
 		    	position: absolute;
 		    	backface-visibility: hidden;
-		    	box-sizing: border-box;
+				box-sizing: border-box;
+				transition: border 150ms ease-in-out;
+
 		    	body.theme-modern & { @extend %modern-background; }
 				body.theme-classic & { @extend %classic-background; }
 				body.theme-bright & { @extend %bright-background; }
@@ -225,11 +222,11 @@ ul#cards {
       					body.theme-classic &.card-style-4 label span { background: $classic-color-4; }
 						body.theme-classic &.card-style-5 label span { background: $classic-color-5; }	
 						  
-						body.theme-bright &.card-style-1 label span { background: $bright-color-1; }
-      					body.theme-bright &.card-style-2 label span { background: $bright-color-2; }
-      					body.theme-bright &.card-style-3 label span { background: $bright-color-3; }
+						body.theme-bright &.card-style-1 label span { background: $bright-color-1-from; }
+      					body.theme-bright &.card-style-2 label span { background: $bright-color-2-from; }
+      					body.theme-bright &.card-style-3 label span { background: $bright-color-3-from; }
       					body.theme-bright &.card-style-4 label span { background: $bright-color-4-from; }
-      					body.theme-bright &.card-style-5 label span { background: $bright-color-5; }	
+      					body.theme-bright &.card-style-5 label span { background: $bright-color-5-from; }	
       				}
       			}
     		}
