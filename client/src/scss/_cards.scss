@@ -175,9 +175,9 @@ ul#cards {
 						@extend %font-2;
 						padding: 10px 13px;
 						// color: white;
-						&::-webkit-input-placeholder {
-							color: rgba(255,255,2555,0.5);
-						}
+						// &::-webkit-input-placeholder {
+						// 	color: rgba(255,255,2555,0.5);
+						// }
 					}
 				}
 			}

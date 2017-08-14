@@ -43,7 +43,7 @@ main {
 
 a.add-card {
 	position: fixed; 
-	top: -4px;
+	top: -10px;
 	right: 54px;
 	text-decoration: none;
 	color: white;
@@ -57,7 +57,7 @@ a.add-card {
 
 	&:before {
 		content:'+'; 
-		font-size: 56px;
+		font-size: 72px;
 		font-weight: bold;
 		display: block;
 		cursor: pointer;
