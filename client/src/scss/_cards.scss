@@ -16,8 +16,9 @@
 
 %classic-background {
 	text-overflow: ellipsis;
-    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, rgba(0,0,0,0) 1px);
+    background-image: linear-gradient(0deg, rgba(64,128,255,0.25) 1px, transparent 1px);
 	background-size: 100% 16px;
+
 	.wrapper.style-1 & { background-color: $classic-color-1; }
 	.wrapper.style-2 & { background-color: $classic-color-2; }
 	.wrapper.style-3 & { background-color: $classic-color-3; }
