@@ -154,7 +154,7 @@ ul#cards {
 					/* THEME: MODERN */
 					body.theme-modern & {
 						@extend %font-2;
-						padding: 10px 13px;
+						padding: 10px 12px;
 						max-height: 100%;
 						max-width: 100%;
 						transition: background 100ms ease-in-out;
