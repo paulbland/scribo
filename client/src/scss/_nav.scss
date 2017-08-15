@@ -68,7 +68,12 @@ nav {
 				}
 			}
 		}
-    }	
+	}	
+	
+	em {
+		font-style: italic;
+		font-size: 14px;
+	}
     
     .nav-logo {
         @extend %font-3;
