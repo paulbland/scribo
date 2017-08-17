@@ -16,7 +16,12 @@ scribo.AppView = Backbone.View.extend({
         this.listenTo(scribo.cards, 'add', this.addOne);
         this.listenTo(scribo.cards, 'reset', this.addAll);
 
-        scribo.cards.fetch({reset: true});
+        scribo.cards.fetch({reset: true}).then(function() {
+            // if no cards, add one
+            if (scribo.cards.length === 0) {
+                scribo.cards.create();
+            }
+        });
         
         this.$cards = this.$el.find('#cards');
 
@@ -27,10 +32,7 @@ scribo.AppView = Backbone.View.extend({
             this.addModal();
         }
 
-        // if no cards, add one
-        // if (scribo.cards.length === 0) {
-        //     scribo.cards.create();
-        // }
+        
     },
         
     events: {
@@ -79,12 +81,20 @@ scribo.AppView = Backbone.View.extend({
         userPrefs.fetch().then(function() {
 
             // get get user id from first one. becausae weird thigns are happening. now get the model again:
-            var userPrefs2 = new scribo.UserPrefsModel({_id: userPrefs.attributes[0]._id});
-            userPrefs2.fetch().then(function() {
-                //console.log('userPrefs2', userPrefs2);
-                var nav = new scribo.NavView({model: userPrefs2});
+
+            if (typeof userPrefs.attributes[0] !== 'undefined') {
+                // existing user
+                var userPrefs2 = new scribo.UserPrefsModel({_id: userPrefs.attributes[0]._id});
+                userPrefs2.fetch().then(function() {
+                    //console.log('userPrefs2', userPrefs2);
+                    var nav = new scribo.NavView({model: userPrefs2});
+                    self.$el.append(nav.render().el);
+                });
+            } else {
+                // new user
+                var nav = new scribo.NavView({model: userPrefs});
                 self.$el.append(nav.render().el);
-            });
+            }
 
             // if an entry is returned, then set its id (so we dont create multiples)
             // if (typeof userPrefs.attributes[0] !== 'undefined') {
