@@ -20,7 +20,7 @@ scribo.ModalView = Backbone.View.extend({
 
     showModal: function(e) {
         e.preventDefault();
-        this.$el.removeClass('modal-1 modal-2 modal-3 modal-4 modal-5');
+        this.$el.removeClass('modal-1 modal-2 modal-3 modal-4');
         this.$el.addClass('modal-' + $(e.target).data('modal'));
     },
     
