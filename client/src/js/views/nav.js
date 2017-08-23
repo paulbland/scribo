@@ -71,6 +71,23 @@ scribo.NavView = Backbone.View.extend({
           		localStorage.removeItem('userProfile');
           		window.location.href = "/";
 			}
+		},
+
+
+		'click .download' : function(e) {
+				e.preventDefault();
+				
+				//console.log(scribo.cards);
+
+				var mynewthing = scribo.cards.map(function(model){
+  					return model.get('text');
+				});
+
+			
+
+				window.location = "data:application/octet-stream," + encodeURIComponent(mynewthing.join("\n\n---\n\n"));
+			
+
 		}
 	}
 
