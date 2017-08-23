@@ -76,23 +76,36 @@ scribo.NavView = Backbone.View.extend({
 		'click .download' : function(e) {
 			e.preventDefault();
 		
-			var colors = {1:'yellow', 2:'blue', 3:'green', 4:'red', 5:'orange'};
+			var colors = {
+				1 : 'yellow',
+				2 : 'blue',
+				3 : 'green',
+				4 : 'red',
+				5 : 'orange'
+			};
 
-			var mynewthing = scribo.cards.map(function(model) {
+			var cardText = scribo.cards.map(function(model) {
 				var result = '';
 				result += (scribo.cards.indexOf(model) + 1) + '. ';
 				result +=  model.get('text'); 
 				result += '\n\n\n(card color: '+ colors[model.get('color')] + ')';
 				return result;
 			});
+			
+			var date = new Date();
+			var dateOptions = {  
+    			weekday: "long", year: "numeric", month: "short",  
+   				day: "numeric", hour: "2-digit", minute: "2-digit"  
+			};  
 
-			var lnk = "data:application/octet-stream," + encodeURIComponent(mynewthing.join("\n\n---\n\n"));
+			prependText = '\n\n===\n\nTotal: '+ scribo.cards.length + ' cards';
+			prependText += '\nDownloaded on: '+ date.toLocaleTimeString("en-us", dateOptions) + '\n';
+			
+			var downloadLink = "data:application/octet-stream," + encodeURIComponent(cardText.join("\n\n---\n\n") + prependText);
 
-			this.$el.append('<a id="my_link" href="'+lnk+'" download="cards.txt">click</a>');
-
+			this.$el.append('<a id="my_link" href="'+downloadLink+'" download="scribo-cards-'+date.yyyymmdd()+'.txt"></a>');
 			$('#my_link')[0].click();
 
-			//window.location = lnk;
 		}
 	}
 
@@ -132,3 +145,17 @@ $.fn.alterClass = function ( removals, additions ) {
 };
 
 })( jQuery );
+
+
+// From: https://stackoverflow.com/questions/3066586/get-string-in-yyyymmdd-format-from-js-date-object
+// *Edited slightly
+
+Date.prototype.yyyymmdd = function() {
+  var mm = this.getMonth() + 1; // getMonth() is zero-based
+  var dd = this.getDate();
+
+  return [this.getFullYear(),
+          (mm>9 ? '' : '0') + mm,
+          (dd>9 ? '' : '0') + dd
+         ].join('-');
+};
