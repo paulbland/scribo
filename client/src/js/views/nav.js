@@ -105,6 +105,7 @@ scribo.NavView = Backbone.View.extend({
 
 			this.$el.append('<a id="my_link" href="'+downloadLink+'" download="scribo-cards-'+date.yyyymmdd()+'.txt"></a>');
 			$('#my_link')[0].click();
+			$('#my_link').remove();
 
 		}
 	}
