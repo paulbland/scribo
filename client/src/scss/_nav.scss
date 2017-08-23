@@ -9,6 +9,7 @@ nav {
 	background: #292929;
 	color: white;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
+	font-size: 17px;
 
 	body.nav-open & {
 		width: 300px;
@@ -17,6 +18,15 @@ nav {
 	/* just log out for now */
 	a {
 		color: white;
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&.feedback {
+			text-decoration: underline;
+		}
 	}
 
 	a.toggle {
