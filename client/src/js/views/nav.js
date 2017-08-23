@@ -79,8 +79,10 @@ scribo.NavView = Backbone.View.extend({
 				
 				//console.log(scribo.cards);
 
+				// add color!!
+
 				var mynewthing = scribo.cards.map(function(model){
-  					return model.get('text');
+  					return (scribo.cards.indexOf(model) + 1) + '. ' + model.get('text');
 				});
 
 			
