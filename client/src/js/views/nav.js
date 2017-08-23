@@ -73,23 +73,26 @@ scribo.NavView = Backbone.View.extend({
 			}
 		},
 
-
 		'click .download' : function(e) {
-				e.preventDefault();
-				
-				//console.log(scribo.cards);
+			e.preventDefault();
+		
+			var colors = {1:'yellow', 2:'blue', 3:'green', 4:'red', 5:'orange'};
 
-				// add color!!
+			var mynewthing = scribo.cards.map(function(model) {
+				var result = '';
+				result += (scribo.cards.indexOf(model) + 1) + '. ';
+				result +=  model.get('text'); 
+				result += '\n\n\n(card color: '+ colors[model.get('color')] + ')';
+				return result;
+			});
 
-				var mynewthing = scribo.cards.map(function(model){
-  					return (scribo.cards.indexOf(model) + 1) + '. ' + model.get('text');
-				});
+			var lnk = "data:application/octet-stream," + encodeURIComponent(mynewthing.join("\n\n---\n\n"));
 
-			
+			this.$el.append('<a id="my_link" href="'+lnk+'" download="cards.txt">click</a>');
 
-				window.location = "data:application/octet-stream," + encodeURIComponent(mynewthing.join("\n\n---\n\n"));
-			
+			$('#my_link')[0].click();
 
+			//window.location = lnk;
 		}
 	}
 
