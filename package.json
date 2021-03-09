@@ -32,7 +32,7 @@
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-sass": "^2.0.0",
     "heroku-ssl-redirect": "0.0.4",
-    "mongoose": "^4.11.6",
+    "mongoose": "^5.9.23",
     "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
