@@ -274,3 +274,6 @@ https://cloud.mongodb.com/v2/604979ee8375d37d6e93bcd0#security/network/accessLis
 
 
 run npm audit / npm audit fix
+
+
+deal with new dependabot vulnerabilites
