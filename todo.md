@@ -271,3 +271,6 @@ NEW TO DO
 
 chage so mongo db doesnt allow access from any ip 
 https://cloud.mongodb.com/v2/604979ee8375d37d6e93bcd0#security/network/accessList
+
+
+run npm audit / npm audit fix
