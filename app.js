@@ -20,7 +20,7 @@ app.use(favicon(__dirname + '/client/dist/img/favicon.ico'));
 
 // DATASBASE
 //mongoose.connect(process.env.PROD_MONGODB); // connect to our database
-var promise = mongoose.connect(process.env.PROD_MONGODB, { useMongoClient: true });
+var promise = mongoose.connect(process.env.PROD_MONGODB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 // BASIC AUTH
