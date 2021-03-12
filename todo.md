@@ -277,3 +277,6 @@ run npm audit / npm audit fix
 
 
 deal with new dependabot vulnerabilites
+
+
+try to animate the cards to say "scribo"....
