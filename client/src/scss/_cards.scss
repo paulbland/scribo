@@ -120,7 +120,7 @@ ul#cards {
 			}
 
 			.front,
-			.back, {
+			.back {
 				height: 100%;
 		    	width: 100%;   
 		    	position: absolute;
@@ -167,7 +167,7 @@ ul#cards {
 					body.theme-classic & {
 						padding: 8px 13px;
 						@extend %font-1;
-						&:focus { /* */ }
+						/* &:focus {  } */
 					}
 
 					/* THEME: BRIGHT */
