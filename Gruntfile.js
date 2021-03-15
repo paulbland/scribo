@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+  var sass = require('sass');
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -45,14 +47,14 @@ module.exports = function(grunt) {
     /** 
      * CSS TASKS
      */
-    sass: {                              
+    sass: { 
+      options: {  
+        implementation: sass,
+        sourceMap: true
+      },                             
       dist: {                            
-        options: {  
-          style: 'expanded'
-        },
-        files: {                         
-          'client/dist/css/scribo.css': 'client/src/scss/base.scss' 
-          /* 'destination': 'source' */      
+        files: {  
+          'client/dist/css/scribo.css': 'client/src/scss/base.scss' /* 'destination': 'source' */  
         }
       } 
     },
