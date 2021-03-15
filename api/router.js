@@ -115,7 +115,7 @@ router.route('/cards/:card_id')
     })
 
      .delete(function(req, res) {
-        Card.remove({
+        Card.deleteOne({
             _id: req.params.card_id
         }, function(err, card) {
             if (err) {
