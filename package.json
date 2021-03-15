@@ -9,7 +9,7 @@
     "postinstall": "bower install && grunt build"
   },
   "engines": {
-    "node": "6.11.1"
+    "node": "8.17.0"
   },
   "keywords": [],
   "author": "",
