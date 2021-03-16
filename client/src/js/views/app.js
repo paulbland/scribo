@@ -16,10 +16,11 @@ scribo.AppView = Backbone.View.extend({
         this.listenTo(scribo.cards, 'add', this.addOne);
         this.listenTo(scribo.cards, 'reset', this.addAll);
 
+        var self = this;
         scribo.cards.fetch({reset: true}).then(function() {
             // if no cards, add one
             if (scribo.cards.length === 0) {
-                scribo.cards.create();
+                self.addCard();
             }
         });
         
@@ -52,14 +53,24 @@ scribo.AppView = Backbone.View.extend({
     updateOrder: function(e) {
         // 'this' context missing - fixed with _.bindAll() in init
         this.$cards.find('li.card').each(function(index, value) {
-            var model = scribo.cards.get($(value).data('id'));
-            model.save('order', (index + 1));
+            if (typeof $(value).data('id') !== 'undefined') {
+                var model = scribo.cards.get($(value).data('id'));
+                model.save('order', (index + 1));
+            }
         }); 
     },
 
     addCard: function(e) {
-        e.preventDefault(); 
-        scribo.cards.create();
+        if (e) e.preventDefault(); 
+        var self = this;
+        scribo.cards.create({}, {
+            wait: true,
+            success: function(model, response) {
+                self.$cards.find('li.card').last().data('id', response._id); // find last element and set id to value returned from api 
+                // ^^ feel like this should be easier or automatic...
+                model.save('order', scribo.cards.length); // udpate order just for this card (with the total length of collection)
+            }
+        });
     },
 
 	addOne: function (card) {
