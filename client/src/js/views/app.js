@@ -56,7 +56,6 @@ scribo.AppView = Backbone.View.extend({
             if (typeof $(value).data('id') !== 'undefined') {
                 var model = scribo.cards.get($(value).data('id'));
                 model.save('order', (index + 1));
-               // model.destroy();
             }
         }); 
     },
