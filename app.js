@@ -33,8 +33,8 @@ var basicAuth = require('./api/auth');
 app.use(compression());
 
 // from new tutorial
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // VIEW ENGINE AND FOLDER
 app.set('view engine', 'ejs');
