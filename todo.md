@@ -273,10 +273,11 @@ chage so mongo db doesnt allow access from any ip
 https://cloud.mongodb.com/v2/604979ee8375d37d6e93bcd0#security/network/accessList
 
 
-run npm audit / npm audit fix
-
-
-deal with new dependabot vulnerabilites
-
-
 try to animate the cards to say "scribo"....
+
+
+remove replace bower (its depreacated) (with npm only?)
+
+replace grun twith webpack
+
+write tests!
