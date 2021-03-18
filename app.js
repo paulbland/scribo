@@ -48,6 +48,14 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+app.get('/privacy', function(req, res) {
+    res.render('privacy');
+});
+
+app.get('/terms', function(req, res) {
+    res.render('terms');
+});
+
 // set the home page route (with basic auth)
 app.get('/app', function(req, res) {
     res.render('app');
