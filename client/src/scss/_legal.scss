@@ -1,0 +1,33 @@
+body.legal {
+
+    margin: 1em;
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0 0 1em;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 0 1em;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 1em;
+    }
+
+    p, li {
+        font-size: 14px;
+        margin: 0 0 1em;
+    }
+
+    ul {
+        list-style-type: circle;
+        margin-left: 1em;
+    }
+
+}

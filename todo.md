@@ -281,3 +281,5 @@ remove replace bower (its depreacated) (with npm only?)
 replace grun twith webpack
 
 write tests!
+
+try jest/jasmine/selmium/micoha?
