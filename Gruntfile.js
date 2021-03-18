@@ -120,7 +120,7 @@ module.exports = function(grunt) {
       },
       js: {
         src: [
-          'bower_components/jquery/dist/jquery.js',
+          'node_modules/jquery/dist/jquery.js', /* was 'bower_components/jquery/dist/jquery.js' */
           'bower_components/sortablejs/Sortable.js', 
           'bower_components/underscore/underscore.js',
           'bower_components/backbone/backbone.js',
