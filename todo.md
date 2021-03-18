@@ -284,3 +284,4 @@ try jest/jasmine/selmium/micoha?
 
 get paid versio of proivacy and terms from https://app.termsfeed.com/
 
+repolace jshint with eslint
