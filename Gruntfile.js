@@ -134,7 +134,7 @@ module.exports = function(grunt) {
           separator: ''
         },
         src: [
-          'bower_components/normalize-css/normalize.css',
+          'node_modules/normalize.css/normalize.css',
           'client/dist/css/scribo.css'],
         dest: 'client/dist/css/scribo.concat.css',
       }

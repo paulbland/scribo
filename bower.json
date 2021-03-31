@@ -17,7 +17,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "normalize-css": "^8.0.1",
     "handlebars": "^4.0.10",
     "sortablejs": "^1.13.0"
   }
