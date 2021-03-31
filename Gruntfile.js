@@ -63,7 +63,7 @@ module.exports = function(grunt) {
       options: {
         shorthandCompacting: false,
         roundingPrecision: -1,
-        sourceMap: true
+        sourceMap: false
       },
       target: {
         files: {
