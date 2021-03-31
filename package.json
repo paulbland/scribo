@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postinstall": "bower install && grunt build"
+    "postinstall": "grunt build"
   },
   "engines": {
     "node": "14.16.0"
@@ -15,8 +15,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "backbone": "^1.4.0",
     "basic-auth": "^1.1.0",
-    "bower": "^1.8.0",
     "compression": "^1.7.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -30,10 +30,14 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-sass": "^3.1.0",
+    "handlebars": "^4.7.7",
     "heroku-ssl-redirect": "0.0.4",
+    "jquery": "3.6.0",
     "mongoose": "^5.12.0",
+    "normalize.css": "^8.0.1",
     "serve-favicon": "^2.4.3",
-    "jquery": "3.6.0"
+    "sortablejs": "^1.13.0",
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "grunt-concurrent": "^2.2.1",

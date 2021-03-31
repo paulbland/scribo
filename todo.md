@@ -274,8 +274,6 @@ https://cloud.mongodb.com/v2/604979ee8375d37d6e93bcd0#security/network/accessLis
 
 try to animate the cards to say "scribo"....
 
-remove replace bower (its depreacated) (with npm only?)
-
 replace grun twith webpack
 
 write tests!
