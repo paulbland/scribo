@@ -121,10 +121,10 @@ module.exports = function(grunt) {
       js: {
         src: [
           'node_modules/jquery/dist/jquery.js', /* was 'bower_components/jquery/dist/jquery.js' */
-          'bower_components/sortablejs/Sortable.js', 
+          'node_modules/sortablejs/Sortable.js', 
           'node_modules/underscore/underscore.js',
           'node_modules/backbone/backbone.js',
-          'bower_components/handlebars/handlebars.js',
+          'node_modules/handlebars/dist/handlebars.js',
           'client/dist/js/templates.js',
           'client/src/js/**/*.js'],
         dest: 'client/dist/js/scribo.js',
