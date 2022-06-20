@@ -15,7 +15,7 @@
             e.preventDefault();
             lock.show(function(err, profile, token) {
               if (err) {
-                console.log("There was an error");
+                console.log("There was an error", err);
               } else {
                 localStorage.setItem('userToken', token);
                 localStorage.setItem('userProfile', JSON.stringify(profile));
