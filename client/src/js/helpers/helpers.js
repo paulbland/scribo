@@ -1,3 +1,7 @@
+
+var Handlebars = require('handlebars');
+
+
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if(a == b) // Or === depending on your needs
         return opts.fn(this);
@@ -19,3 +23,5 @@ Handlebars.registerHelper('check_prop', function(a, b, c, opts) {
 Handlebars.registerHelper('first_to_upper', function(a, options) {
     return a.charAt(0).toUpperCase() + a.slice(1);
 });
+
+

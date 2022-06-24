@@ -1,7 +1,14 @@
 var scribo = scribo || {};
 scribo.userProfile = scribo.userProfile || {};
 
-scribo.AppView = Backbone.View.extend({
+import Sortable from 'sortablejs';
+
+scribo.CardCollection = require('../models/cards.js');
+scribo.UserPrefsModel = require('../models/userprefs.js');
+scribo.CardView = require('./card.js');
+scribo.NavView = require('./nav.js');
+
+module.exports = Backbone.View.extend({
 
     el: $('main'),
 

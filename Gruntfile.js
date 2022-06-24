@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['Gruntfile.js', 'client/src/js/**/*.js', 'api/**/*.js', 'client/src/templates/*.hbs'],
-        tasks: ['jshint', 'handlebars', 'concat:js', 'uglify']
+        tasks: ['concat:js', 'uglify']
       } 
     },
 
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'client/dist/css/scribo.min.css': ['client/dist/css/scribo.concat.css']
+          'client/dist2/css/scribo.min.css': ['client/dist/css/scribo.concat.css']
         }
       }
     },
@@ -79,26 +79,6 @@ module.exports = function(grunt) {
     /** 
      * JS TASKS
      */
-    jshint: {
-      all: ['Gruntfile.js', 'client/src/js/**/*.js', 'api/**/*.js']
-    },
-
-    handlebars: {
-      compile: {
-        options: {
-          namespace: 'scribo.templates',
-          // convert file path into a function name 
-          processName: function(filePath) {
-            var pieces = filePath.split('/');
-            return pieces[pieces.length - 1].split('.')[0];
-          }
-        },
-        files: {
-          'client/dist/js/templates.js': 'client/src/templates/*.hbs'
-        }
-      }
-    },
-
     uglify: {
       dist: { 
         files: {
@@ -124,7 +104,6 @@ module.exports = function(grunt) {
           'node_modules/sortablejs/Sortable.js', 
           'node_modules/underscore/underscore.js',
           'node_modules/backbone/backbone.js',
-          'node_modules/handlebars/dist/handlebars.js',
           'client/dist/js/templates.js',
           'client/src/js/**/*.js'],
         dest: 'client/dist/js/scribo.js',
@@ -145,8 +124,8 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, src: ['client/src/img/*'], dest: 'client/dist/img', filter: 'isFile', flatten: true},
-          {expand: true, src: ['client/src/manifest.json'], dest: 'client/dist/', filter: 'isFile', flatten: true},
+          {expand: true, src: ['client/src/img/*'], dest: 'client/dist2/img', filter: 'isFile', flatten: true},
+          {expand: true, src: ['client/src/manifest.json'], dest: 'client/dist2/', filter: 'isFile', flatten: true},
         ],
       },
     },
@@ -159,14 +138,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin', 'jshint', 'handlebars', 'concat:js', 'uglify']);
+  grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin', 'concat:js', 'uglify']);
   grunt.registerTask('default', ['build', 'concurrent']);
 
 };

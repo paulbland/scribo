@@ -2,8 +2,10 @@ var scribo = scribo || {};
 scribo.config = scribo.config || {};
 scribo.templates = scribo.templates || {};
 
+import myCard from 'handlebars-loader!../../templates/card.hbs';
+scribo.templates.card = myCard;
 
-scribo.CardView = Backbone.View.extend({
+module.exports = Backbone.View.extend({
 
 	tagName 	: 'li',
 	className 	: 'card',

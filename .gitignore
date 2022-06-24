@@ -3,4 +3,5 @@ npm-debug.log
 .sass-cache/
 .env
 client/dist/
+client/dist2/
 .DS_Store

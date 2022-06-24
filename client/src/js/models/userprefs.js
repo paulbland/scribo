@@ -1,6 +1,6 @@
 var scribo = scribo || {};
 
-scribo.UserPrefsModel = Backbone.Model.extend({
+module.exports = Backbone.Model.extend({
 
 	defaults : {
 		theme       : 'classic',
