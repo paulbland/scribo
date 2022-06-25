@@ -5,9 +5,9 @@ scribo.userProfile = scribo.userProfile || {};
 import navTemplate from '../../templates/nav.hbs';
 scribo.templates.nav = navTemplate;
 
-scribo.ModalView = require('./modal.js');
+import ModalView from './modal.js';
 
-module.exports = Backbone.View.extend({
+export default Backbone.View.extend({
 
 	tagName: 'nav',
 
@@ -54,7 +54,7 @@ module.exports = Backbone.View.extend({
 
 	showModal: function(e) {
 		e.preventDefault();
-		var modal = new scribo.ModalView();
+		var modal = new ModalView();
 		$('main').append(modal.render().el);
 	},
 

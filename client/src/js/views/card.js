@@ -5,7 +5,7 @@ scribo.templates = scribo.templates || {};
 import cardTemplate from '../../templates/card.hbs';
 scribo.templates.card = cardTemplate;
 
-module.exports = Backbone.View.extend({
+export default Backbone.View.extend({
 
 	tagName 	: 'li',
 	className 	: 'card',

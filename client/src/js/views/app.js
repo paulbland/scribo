@@ -1,15 +1,16 @@
 var scribo = scribo || {};
 scribo.userProfile = scribo.userProfile || {};
 
+import Backbone from 'backbone';
 import Sortable from 'sortablejs';
 
-scribo.CardCollection = require('../models/cards.js');
-scribo.UserPrefsModel = require('../models/userprefs.js');
-scribo.CardView = require('./card.js');
-scribo.NavView = require('./nav.js');
-scribo.ModalView = require('./modal.js');
+import CardCollection from '../models/cards.js';
+import UserPrefsModel from '../models/userprefs.js';
+import CardView from './card.js';
+import NavView from './nav.js';
+import ModalView from './modal.js';
 
-module.exports = Backbone.View.extend({
+export default Backbone.View.extend({
 
     el: $('main'),
 
@@ -19,7 +20,7 @@ module.exports = Backbone.View.extend({
         this.doAuth();
 
         // Create new collection
-        scribo.cards = new scribo.CardCollection();
+        scribo.cards = new CardCollection();
         
         this.listenTo(scribo.cards, 'add', this.addOne);
         this.listenTo(scribo.cards, 'reset', this.addAll);
@@ -82,7 +83,7 @@ module.exports = Backbone.View.extend({
     },
 
 	addOne: function (card) {
-		var view = new scribo.CardView({ model: card });
+		var view = new CardView({ model: card });
 		this.$cards.append(view.render().el);
 	},
 
@@ -95,7 +96,7 @@ module.exports = Backbone.View.extend({
         var self = this;
         
         // new user prefs
-        var userPrefs = new scribo.UserPrefsModel({userID: scribo.userProfile.user_id});
+        var userPrefs = new UserPrefsModel({userID: scribo.userProfile.user_id});
 
         userPrefs.fetch().then(function() {
 
@@ -103,10 +104,10 @@ module.exports = Backbone.View.extend({
 
             if (typeof userPrefs.attributes[0] !== 'undefined') {
                 // existing user
-                var userPrefs2 = new scribo.UserPrefsModel({_id: userPrefs.attributes[0]._id});
+                var userPrefs2 = new UserPrefsModel({_id: userPrefs.attributes[0]._id});
                 userPrefs2.fetch().then(function() {
                     //console.log('userPrefs2', userPrefs2);
-                    var nav = new scribo.NavView({model: userPrefs2});
+                    var nav = new NavView({model: userPrefs2});
                     self.$el.append(nav.render().el);
                 });
             } else {
@@ -123,7 +124,7 @@ module.exports = Backbone.View.extend({
     },
 
 	addModal: function() {
-		var modal = new scribo.ModalView();
+		var modal = new ModalView();
 		this.$el.append(modal.render().el);
     },
     

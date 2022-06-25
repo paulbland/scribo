@@ -1,8 +1,7 @@
 var scribo = scribo || {};
 
-var Backbone = require('backbone');
-scribo.AppView = require('./views/app.js');
+import AppView from './views/app.js'
 
 $(function() { 
-	new scribo.AppView();
+	new AppView();
 });

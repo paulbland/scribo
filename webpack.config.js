@@ -14,8 +14,8 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
-                    plugins: ['transform-runtime'],
-                    presets: ['es2015']
+                    plugins: ['@babel/transform-runtime'],
+                    presets: ["@babel/preset-env"]
                 }
             },
             { 
