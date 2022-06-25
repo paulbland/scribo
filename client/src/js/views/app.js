@@ -7,6 +7,7 @@ scribo.CardCollection = require('../models/cards.js');
 scribo.UserPrefsModel = require('../models/userprefs.js');
 scribo.CardView = require('./card.js');
 scribo.NavView = require('./nav.js');
+scribo.ModalView = require('./modal.js');
 
 module.exports = Backbone.View.extend({
 

@@ -2,8 +2,10 @@ var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
 scribo.userProfile = scribo.userProfile || {};
 
-import myNav from '../../templates/nav.hbs';
-scribo.templates.nav = myNav;
+import navTemplate from '../../templates/nav.hbs';
+scribo.templates.nav = navTemplate;
+
+scribo.ModalView = require('./modal.js');
 
 module.exports = Backbone.View.extend({
 

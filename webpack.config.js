@@ -21,10 +21,7 @@ module.exports = {
                 test: /\.hbs$/, 
                 loader: 'handlebars-loader',
                 options: {
-                    runtime: __dirname + "/client/src/js/helpers/helpers.js",
-                    precompileOptions: {
-                        knownHelpersOnly: false,
-                      }
+                    runtime: __dirname + "/client/src/js/helpers/helpers.js"
                 }
             }
         ]

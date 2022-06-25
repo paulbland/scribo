@@ -2,8 +2,8 @@ var scribo = scribo || {};
 scribo.config = scribo.config || {};
 scribo.templates = scribo.templates || {};
 
-import myCard from '../../templates/card.hbs';
-scribo.templates.card = myCard;
+import cardTemplate from '../../templates/card.hbs';
+scribo.templates.card = cardTemplate;
 
 module.exports = Backbone.View.extend({
 
