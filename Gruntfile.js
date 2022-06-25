@@ -35,11 +35,7 @@ module.exports = function(grunt) {
       css: {
         files: ['client/src/scss/*.scss'],
         tasks: ['sass', 'concat:css', 'cssmin']
-      },
-      js: {
-        files: ['Gruntfile.js', 'client/src/js/**/*.js', 'api/**/*.js', 'client/src/templates/*.hbs'],
-        tasks: ['concat:js', 'uglify']
-      } 
+      }
     },
 
 
@@ -77,36 +73,11 @@ module.exports = function(grunt) {
 
 
     /** 
-     * JS TASKS
-     */
-    uglify: {
-      dist: { 
-        files: {
-          'client/dist/js/scribo.min.js': ['client/dist/js/scribo.js']
-        },
-        options: {
-          sourceMap : true 
-        }
-      }
-    },
-
-
-    /** 
      * COMMON JS AND CSS TASKS
      */
     concat: {
       options: { 
         separator: ';',
-      },
-      js: {
-        src: [
-          'node_modules/jquery/dist/jquery.js', 
-          'node_modules/sortablejs/Sortable.js', 
-          'node_modules/underscore/underscore.js',
-          'node_modules/backbone/backbone.js',
-          'client/dist/js/templates.js',
-          'client/src/js/**/*.js'],
-        dest: 'client/dist/js/scribo.js',
       },
       css: {
          options: {
@@ -138,12 +109,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin', 'concat:js', 'uglify']);
+  grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin']);
   grunt.registerTask('default', ['build', 'concurrent']);
 
 };
