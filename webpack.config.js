@@ -37,6 +37,5 @@ module.exports = {
     watch: true
 }
 
-
 // do this i think
 //path.resolve(__dirname, "..."),
