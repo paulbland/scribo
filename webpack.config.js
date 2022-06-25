@@ -17,14 +17,16 @@ module.exports = {
                     presets: ['es2015']
                 }
             },
-            // { 
-            //     test: /\.hbs$/, 
-            //     loader: 'handlebars-loader',
-            //     options: {
-            //          runtime: __dirname + '/client/src/js/helpers/helpers.js',
-            //          helperDirs: __dirname + "/client/src/js/helpers/helpers.js",
-            //     }
-            // }
+            { 
+                test: /\.hbs$/, 
+                loader: 'handlebars-loader',
+                options: {
+                    runtime: __dirname + "/client/src/js/helpers/helpers.js",
+                    precompileOptions: {
+                        knownHelpersOnly: false,
+                      }
+                }
+            }
         ]
     },
     plugins: [

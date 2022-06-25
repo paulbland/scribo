@@ -2,7 +2,7 @@ var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
 scribo.userProfile = scribo.userProfile || {};
 
-import myNav from 'handlebars-loader!../../templates/nav.hbs';
+import myNav from '../../templates/nav.hbs';
 scribo.templates.nav = myNav;
 
 module.exports = Backbone.View.extend({

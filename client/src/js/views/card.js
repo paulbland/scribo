@@ -2,7 +2,7 @@ var scribo = scribo || {};
 scribo.config = scribo.config || {};
 scribo.templates = scribo.templates || {};
 
-import myCard from 'handlebars-loader!../../templates/card.hbs';
+import myCard from '../../templates/card.hbs';
 scribo.templates.card = myCard;
 
 module.exports = Backbone.View.extend({

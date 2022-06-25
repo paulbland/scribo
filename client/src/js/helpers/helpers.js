@@ -1,5 +1,5 @@
 
-var Handlebars = require('handlebars');
+var Handlebars = require('handlebars/runtime');
 
 
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
@@ -24,4 +24,4 @@ Handlebars.registerHelper('first_to_upper', function(a, options) {
     return a.charAt(0).toUpperCase() + a.slice(1);
 });
 
-
+module.exports = Handlebars;
