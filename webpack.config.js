@@ -33,11 +33,6 @@ module.exports = {
           _: 'underscore'
         })
     ],
-    // resolve: {
-    //     alias: {
-    //        handlebars: '/node_modules/handlebars/dist/handlebars.min.js'
-    //     }
-    // },
     watch: true
 }
 
