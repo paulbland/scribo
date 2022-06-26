@@ -6,8 +6,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-
-
     /** 
      * TOP LEVEL TASK 
      */
@@ -19,8 +17,6 @@ module.exports = function(grunt) {
         }
       } 
     },
-
-
 
     /** 
      * SECOND-LEVEL TASK 
@@ -37,8 +33,6 @@ module.exports = function(grunt) {
         tasks: ['sass', 'concat:css', 'cssmin']
       }
     },
-
-
 
     /** 
      * CSS TASKS
@@ -68,10 +62,6 @@ module.exports = function(grunt) {
       }
     },
 
-   
-
-
-
     /** 
      * COMMON JS AND CSS TASKS
      */
@@ -90,8 +80,6 @@ module.exports = function(grunt) {
       }
     },
 
-
-
     copy: {
       main: {
         files: [
@@ -100,11 +88,8 @@ module.exports = function(grunt) {
         ],
       },
     },
-
-
   });
 
-  
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-concurrent');
@@ -115,5 +100,4 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin']);
   grunt.registerTask('default', ['build', 'concurrent']);
-
 };
