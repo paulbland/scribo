@@ -7,32 +7,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     /** 
-     * TOP LEVEL TASK 
-     */
-    concurrent: {
-      dev: {
-        tasks: ['nodemon', 'watch'],
-        options: {
-            logConcurrentOutput: true
-        }
-      } 
-    },
-
-    /** 
      * SECOND-LEVEL TASK 
      */
     nodemon: {
       dev: {
         script: 'app.js'
       }
-    },
-
-    watch: {
-      css: {
-        files: ['client/src/scss/*.scss'],
-        tasks: ['sass', 'concat:css', 'cssmin']
-      }
-    },
+    },  
 
     /** 
      * CSS TASKS
@@ -92,12 +73,10 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-concurrent');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('build', ['copy', 'sass', 'concat:css', 'cssmin']);
-  grunt.registerTask('default', ['build', 'concurrent']);
+  grunt.registerTask('default', ['build', 'nodemon']);
 };
