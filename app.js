@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 app.set('views',__dirname + '/api/views');
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/client/dist2'));
+app.use(express.static(__dirname + '/client/dist'));
 
 // HOMEPAGE
 //app.get('/', basicAuth, function(req, res) {

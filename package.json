@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node app.js",
     "postinstall": "grunt build",
-    "prebuild": "del-cli client/dist2 -f",
+    "prebuild": "del-cli client/dist -f",
     "build": "webpack"
   },
   "engines": {
@@ -25,10 +25,7 @@
     "express-jwt": "^6.0.0",
     "grunt": "^1.5.3",
     "grunt-cli": "^1.4.2",
-    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^4.0.0",
-    "grunt-sass": "^3.1.0",
     "handlebars": "^4.7.7",
     "heroku-ssl-redirect": "0.0.4",
     "jquery": "3.6.0",
@@ -45,10 +42,13 @@
     "@babel/preset-env": "^7.18.2",
     "babel-loader": "^8.2.5",
     "babel-polyfill": "^6.26.0",
+    "css-loader": "^6.7.1",
     "del-cli": "^4.0.1",
     "grunt-nodemon": "^0.4.2",
     "handlebars-loader": "^1.7.2",
     "sass": "^1.53.0",
+    "sass-loader": "^13.0.1",
+    "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0"
   }

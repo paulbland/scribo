@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: __dirname + '/client/src/js/app.js',
     output: {
-        path: __dirname + '/client/dist2',
+        path: __dirname + '/client/dist',
         filename: 'bundle.js'
     },
     module: {
@@ -24,6 +24,10 @@ module.exports = {
                 options: {
                     runtime: __dirname + "/client/src/js/helpers/helpers.js"
                 }
+            },
+            {
+                test: /\.(scss|css)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             }
         ]
     },
