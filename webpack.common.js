@@ -41,7 +41,8 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: __dirname + "/client/src/img/*", to: __dirname + "/client/dist/img/[name][ext]" },
-                { from: __dirname + "/client/src/manifest.json", to: __dirname + "/client/dist/[name][ext]" }
+                { from: __dirname + "/client/src/manifest.json", to: __dirname + "/client/dist/[name][ext]" },
+                { from: __dirname + "/client/src/css/index.css", to: __dirname + "/client/dist/css/[name][ext]" }
             ],
         }),
         new ESLintPlugin()
