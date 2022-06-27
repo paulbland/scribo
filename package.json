@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
+    "dev" : "nodemon app.js",
     "postinstall": "grunt build",
     "prebuild": "del-cli client/dist -f",
     "build": "webpack"
@@ -44,8 +45,8 @@
     "babel-polyfill": "^6.26.0",
     "css-loader": "^6.7.1",
     "del-cli": "^4.0.1",
-    "grunt-nodemon": "^0.4.2",
     "handlebars-loader": "^1.7.2",
+    "nodemon": "^2.0.18",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.1",
     "style-loader": "^3.3.1",

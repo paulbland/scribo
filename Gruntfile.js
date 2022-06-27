@@ -3,13 +3,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-
-    nodemon: {
-      dev: {
-        script: 'app.js'
-      }
-    },  
+    pkg: grunt.file.readJSON('package.json'), 
 
     copy: {
       main: {
@@ -21,9 +15,8 @@ module.exports = function(grunt) {
     },
   });
 
-  grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('build', ['copy']);
-  grunt.registerTask('default', ['build', 'nodemon']);
+  grunt.registerTask('default', ['build']);
 };
