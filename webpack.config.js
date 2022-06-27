@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'development',
@@ -36,6 +37,12 @@ module.exports = {
           $: 'jquery',
           jQuery: 'jquery',
           _: 'underscore'
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: __dirname + "/client/src/img/*", to: __dirname + "/client/dist/img/[name][ext]" },
+                { from: __dirname + "/client/src/manifest.json", to: __dirname + "/client/dist/[name][ext]" }
+            ],
         })
     ],
     watch: true
