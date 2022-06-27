@@ -6,7 +6,7 @@ module.exports = {
     entry: __dirname + '/client/src/js/app.js',
     output: {
         path: __dirname + '/client/dist',
-        filename: 'bundle.js'
+        filename: 'scribo.bundle.js'
     },
     module: {
         rules: [
