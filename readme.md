@@ -2,13 +2,13 @@
 # USES
 ---
 
-- grunt (for build)
+- webpack (for build)
 - node/express (for api)
 - mongo (mlab) and mongoose
 - backbone for front end app
 - auth0 for user auth
 - heroku - domain hosting
-- bitbucket - code repo
+- github - code repo
 - free ssl from somehwere??
 
 
@@ -23,15 +23,9 @@
 # PROCESS
 ---
 
-checked out locally into source tree
-run grunt (default) to tart server
-develop locally at localhost:3000
-
-push to origin (bitbucket) for code repo
-ppush to heroku/master for deployment
-
-
-# new new
-local
+how to run local
 `npm run start` (builds webpack with --watch)
 `heroku local web -f Procfile.dev` (runs nodemon on app.js)
+
+# deploy 
+push to heroku/master for auto deployment
