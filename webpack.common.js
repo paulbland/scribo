@@ -1,9 +1,8 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: __dirname + '/client/src/js/app.js',
     output: {
         path: __dirname + '/client/dist',

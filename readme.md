@@ -30,8 +30,8 @@ develop locally at localhost:3000
 push to origin (bitbucket) for code repo
 ppush to heroku/master for deployment
 
-*now on github
 
-# NEW:
-run with `heroku local web -f Procfile.dev`
-
+# new new
+local
+`npm run start` (builds webpack with --watch)
+`heroku local web -f Procfile.dev` (runs nodemon on app.js)
