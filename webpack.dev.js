@@ -6,3 +6,4 @@ const { merge } = require('webpack-merge');
    devtool: 'inline-source-map',
    watch: true
  });
+ 
