@@ -46,8 +46,7 @@ module.exports = {
             ],
         }),
         new ESLintPlugin()
-    ],
-    watch: true
+    ]
 }
 
 // do this i think
