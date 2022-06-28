@@ -5,9 +5,9 @@
   "main": "app.js",
   "private": true,
   "scripts": {
+    "prestart": "del-cli client/dist -f",
     "start": "webpack --config webpack.dev.js",
     "dev": "nodemon app.js",
-    "prebuild": "del-cli client/dist -f",
     "build": "webpack --config webpack.prod.js"
   },
   "engines": {
