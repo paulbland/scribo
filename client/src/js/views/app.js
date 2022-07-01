@@ -112,7 +112,7 @@ export default Backbone.View.extend({
                 });
             } else {
                 // new user
-                var nav = new scribo.NavView({model: userPrefs});
+                var nav = new NavView({model: userPrefs});
                 self.$el.append(nav.render().el);
             }
 
