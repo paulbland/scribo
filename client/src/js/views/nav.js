@@ -17,7 +17,7 @@ export default Backbone.View.extend({
 
 	render: function() { 
  		this.$el.html(scribo.templates.nav({
-			userProfile : scribo.userProfile,	// remember you can pass model here!
+			userProfile : JSON.parse(localStorage.getItem('userProfile')),	// remember you can pass model here!
 			userPrefs 	: this.model.toJSON(),		// this is it!
 			userOptions : this.userOptions
 		 }));	
