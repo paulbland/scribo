@@ -1,8 +1,10 @@
 var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
 
+import modalTemplate from '../../templates/modal.hbs';
+scribo.templates.modal = modalTemplate;
 
-scribo.ModalView = Backbone.View.extend({
+export default Backbone.View.extend({
 
     tagName 	: 'div',
     className 	: 'modal modal-1',

@@ -2,7 +2,12 @@ var scribo = scribo || {};
 scribo.templates = scribo.templates || {};
 scribo.userProfile = scribo.userProfile || {};
 
-scribo.NavView = Backbone.View.extend({
+import navTemplate from '../../templates/nav.hbs';
+scribo.templates.nav = navTemplate;
+
+import ModalView from './modal.js';
+
+export default Backbone.View.extend({
 
 	tagName: 'nav',
 
@@ -12,7 +17,7 @@ scribo.NavView = Backbone.View.extend({
 
 	render: function() { 
  		this.$el.html(scribo.templates.nav({
-			userProfile : scribo.userProfile,	// remember you can pass model here!
+			userProfile : JSON.parse(localStorage.getItem('userProfile')),	// remember you can pass model here!
 			userPrefs 	: this.model.toJSON(),		// this is it!
 			userOptions : this.userOptions
 		 }));	
@@ -49,7 +54,7 @@ scribo.NavView = Backbone.View.extend({
 
 	showModal: function(e) {
 		e.preventDefault();
-		var modal = new scribo.ModalView();
+		var modal = new ModalView();
 		$('main').append(modal.render().el);
 	},
 

@@ -11,7 +11,7 @@ scribo.CardModel = Backbone.Model.extend({
 	idAttribute: '_id',
 });
 
-scribo.CardCollection = Backbone.Collection.extend({
+module.exports = Backbone.Collection.extend({
   	model: scribo.CardModel,
   	url: '/api/cards'
 });
