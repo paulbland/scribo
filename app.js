@@ -19,6 +19,7 @@ app.use(favicon(__dirname + '/client/dist/img/favicon.ico'));
 
 // DATASBASE
 //mongoose.connect(process.env.PROD_MONGODB); // connect to our database
+mongoose.set('strictQuery', false);
 var promise = mongoose.connect(process.env.PROD_MONGODB, {
     useNewUrlParser: true,
     useUnifiedTopology: true

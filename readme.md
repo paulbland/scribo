@@ -27,5 +27,8 @@ how to run local
 `npm run start` (builds webpack with --watch)
 `heroku local web -f Procfile.dev` (runs nodemon on app.js)
 
+Note
+- if new installation, remmenber to create .env file and add end varrs from heroku
+
 # deploy 
 push to heroku/master for auto deployment
