@@ -1,12 +1,12 @@
 var express     = require('express');
-var expressJwt  = require('express-jwt');
+var { expressjwt: jwt } = require("express-jwt");
 var Card        = require('./models/card');
 var UserPrefs   = require('./models/userprefs');
 var router      = express.Router(); 
 
 
 // Set up JST on all router
-router.use(expressJwt({
+router.use(jwt({
     secret: Buffer.from(process.env.AUTH_CLIENT_SECRET, 'base64'),
     audience: process.env.AUTH_CLIENT_ID,
     algorithms: ['HS256']
@@ -34,7 +34,7 @@ router.route('/cards')
         var card = new Card();      
 
         // set the cards info (comes from the request)
-        card.userID  = req.user.sub; 
+        card.userID  = req.auth.sub; 
         card.color  = req.body.color; 
         card.text   = req.body.text; 
         card.order  = req.body.order;
@@ -59,15 +59,15 @@ router.route('/cards')
 
         // i am working here
         // need some data taht i can use as user id to pass to the find function
-        // i have req.user.stuff
+        // i have req.auth.stuff
         //id is not unqire for an email address
         // also - how do i get user email here??
         // its in the token.... 
-        //console.log('userID: ' + req.user.sub);
+        //console.log('userID: ' + req.auth.sub);
 
 
         Card.find({
-            userID: req.user.sub
+            userID: req.auth.sub
         }).sort({'order' : 1}).exec(function(err, cards) {
             if (err) {
                 res.send(err);
@@ -132,7 +132,7 @@ router.route('/userprefs')
         
         var userPrefs = new UserPrefs();      
 
-        userPrefs.userID        = req.user.sub; 
+        userPrefs.userID        = req.auth.sub; 
         userPrefs.theme         = req.body.theme; 
         userPrefs.background    = req.body.background; 
         userPrefs.zoom          = req.body.zoom;  
@@ -150,7 +150,7 @@ router.route('/userprefs')
     .get(function(req, res) {
 
         UserPrefs.find({
-            userID: req.user.sub
+            userID: req.auth.sub
         }).
         limit(1).
         exec(function(err, cards) {
