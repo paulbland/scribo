@@ -46,7 +46,8 @@ export default Backbone.View.extend({
     },
         
     events: {
-        'click a.add-card' : 'addCard'
+        'click a.add-card' : 'addCard',
+        'click a.suggest-card' : 'suggestCard'
     },
 
     makeSortable: function() {   	
@@ -69,10 +70,10 @@ export default Backbone.View.extend({
         }); 
     },
 
-    addCard: function(e) {
+    addCard: function(e, text = '') {
         if (e) e.preventDefault(); 
         var self = this;
-        scribo.cards.create({}, {
+        scribo.cards.create({text}, {
             wait: true,
             success: function(model, response) {
                 self.$cards.find('li.card').last().data('id', response._id); // find last element and set id to value returned from api 
@@ -80,6 +81,18 @@ export default Backbone.View.extend({
                 model.save('order', scribo.cards.length); // udpate order just for this card (with the total length of collection)
             }
         });
+    },
+
+    suggestCard: function(e) {
+        if (e) e.preventDefault(); 
+        var self = this;
+        var cardText = scribo.cards.map(function(model) {
+            return `${(scribo.cards.indexOf(model) + 1)}. ${model.get('text')}`; 
+        });
+        $.post("/api/ai-suggest", {plotPoints : cardText.join(" ")})
+            .done(function(data) {
+                self.addCard(e, data.suggestedText);
+            });
     },
 
 	addOne: function (card) {

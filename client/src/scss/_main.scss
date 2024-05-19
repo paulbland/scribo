@@ -41,7 +41,8 @@ main {
 
 }
 
-a.add-card {
+a.add-card,
+a.suggest-card {
 	position: fixed; 
 	top: -10px;
 	right: 54px;
@@ -62,6 +63,13 @@ a.add-card {
 		display: block;
 		cursor: pointer;
 		text-align: center;
+	}
+}
+a.suggest-card {
+	top: 50px;
+	&:before {
+		content:'✨'; 
+		font-size: 40px;
 	}
 }
 
