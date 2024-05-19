@@ -2,6 +2,7 @@ var express     = require('express');
 var { expressjwt: jwt } = require("express-jwt");
 var Card        = require('./models/card');
 var UserPrefs   = require('./models/userprefs');
+var OpenAI      = require('openai');
 var router      = express.Router(); 
 
 
@@ -201,6 +202,26 @@ router.route('/userprefs/:userprefs_id')
         }); 
     });
  
+router.route('/ai-suggest')
+
+    .post(function(req, res) {
+        const openai = new OpenAI({
+            apiKey: process.env.OPENAI_SECRET_KEY
+        });
+        async function main() {
+            const chatCompletion = await openai.chat.completions.create({
+                messages: [
+                    {role: 'system', content: 'You are giving screenwriting outline suggestions. Suggest the next single plot point in 15 words or fewer, for a given set of existing plot points' },
+                    {role: 'user', content: req.body.plotPoints }
+                ],
+                model: 'gpt-4-turbo',
+                temperature: 1
+            });
+            res.json({suggestedText : chatCompletion.choices[0].message.content});
+        }
+        main();
+        
+    })
 
 module.exports = router;
 
