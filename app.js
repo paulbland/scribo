@@ -6,9 +6,10 @@ var favicon 	= require('serve-favicon');
 var sslRedirect = require('heroku-ssl-redirect');
 // var basicAuth = require('./api/auth');
 var app 		= express();
+var path 		= require('path');
 
 app.use(sslRedirect()); 
-app.use(favicon(__dirname + '/client/dist/img/favicon.ico'));
+app.use(favicon(path.join(__dirname, '/client/dist/img/favicon.ico')));
 
 mongoose.set('strictQuery', false);
 var promise = mongoose.connect(process.env.PROD_MONGODB, {
@@ -22,9 +23,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.set('view engine', 'ejs');
-app.set('views',__dirname + '/api/views');
+app.set('views', path.join(__dirname, '/api/views'));
 
-app.use(express.static(__dirname + '/client/dist')); // public directory for assets (css/js/img)
+app.use(express.static(path.join(__dirname, '/client/dist'))); // public directory for assets (css/js/img)
 
 app.get('/', /* basicAuth, */ (req, res) => res.render('index'));
 app.get('/app', (req, res) => res.render('app'));
