@@ -68,3 +68,71 @@ body.home a.login:hover {
     color: #feef70;
     border-color: #feef70;
 }
+
+/* --------- */
+
+body.home2 {
+    background: url('https://media.istockphoto.com/id/1357529184/photo/3d-render-of-a-contemporary-living-room-interior.jpg?s=1024x1024&w=is&k=20&c=atdwB822nsg0fZ5KOp5KZr3sbOzCMCdFiwtfvTeGp7g=') no-repeat center center fixed;
+    background-size: cover;
+    }
+
+    .index-background {
+        width: 99%;
+        height: 99%;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+        background: rgba(196, 181, 68, 0.2);
+        outline: 1px dotted red;
+        position: absolute;
+       
+    }
+    .card-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25%;
+        height: 60%;
+        position: absolute;
+        backface-visibility: inherit;
+        top: 200px;
+        perspective-origin: 590px;
+        }
+
+        .card-panel-right {
+            transform: rotateY(-70deg) translateZ(20px);
+            }
+            .card-panel-right-1 {
+                background: rgba(210, 0, 0, .7);
+                left: 80%;
+            }
+            .card-panel-right-2 {
+                background: rgba(0,200, 0, .7);
+                left: 59%;
+            }
+
+        .card-panel-left {
+            transform: rotateY(-110deg) translateZ(20px);
+            }
+            .card-panel-left-1 {
+                background: rgba(0, 0, 200, .7);
+                left: 34%;
+            }
+            .card-panel-left-2 {
+                background: rgba(150, 150, 0, 0.7);
+                left: 20%;
+            }
+
+
+    .index-card {
+        left: 100px;
+        position: absolute;
+        width:220px;
+        height: 150px;
+        background-color: #899;
+        font-size: 60px;
+        color: #fff;
+    }
+    .index-card-1 { top: 100px;}
+    .index-card-2 { top: 300px; }
+    .index-card-3 { top: 500px; }
