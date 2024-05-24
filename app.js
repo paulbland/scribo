@@ -7,9 +7,11 @@ var sslRedirect = require('heroku-ssl-redirect');
 // var basicAuth = require('./api/auth');
 var app 		= express();
 var path 		= require('path');
+var cors        = require('cors');
 
 app.use(sslRedirect()); 
 app.use(favicon(path.join(__dirname, '/client/dist/img/favicon.ico')));
+app.use(cors());
 
 mongoose.set('strictQuery', false);
 var promise = mongoose.connect(process.env.PROD_MONGODB, {
