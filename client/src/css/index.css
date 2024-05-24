@@ -68,3 +68,98 @@ body.home a.login:hover {
     color: #feef70;
     border-color: #feef70;
 }
+
+/* --------- */
+
+body.home2 {
+    background: url('https://media.istockphoto.com/id/1357529184/photo/3d-render-of-a-contemporary-living-room-interior.jpg?s=1024x1024&w=is&k=20&c=atdwB822nsg0fZ5KOp5KZr3sbOzCMCdFiwtfvTeGp7g=') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    }
+
+    .index-background {
+        width: 99%;
+        height: 99%;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+        background: rgba(196, 181, 68, 0.2);
+        outline: 1px dotted red;
+        position: absolute;
+    }
+    .card-panel {
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        width: 25%;
+        height: 90%;
+        position: absolute;
+        backface-visibility: inherit;
+        top: 5%;
+        perspective-origin: 590px;
+        }
+
+        .card-panel-right {
+            transform: rotateY(-60deg) translateZ(20px);
+            }
+            .card-panel-right-1 {
+                background: rgba(210, 0, 0, .7);
+                left: 65%;
+            }
+            .card-panel-right-2 {
+                background: rgba(0, 200, 0, .7);
+                left: 53%;
+            }
+
+        .card-panel-left {
+            transform: rotateY(-120deg) translateZ(20px);
+            }
+            .card-panel-left-1 {
+                background: rgba(0, 0, 200, .7);
+                left: 23%;
+            }
+            .card-panel-left-2 {
+                background: rgba(150, 150, 0, 0.7);
+                left: 11%;
+            }
+
+
+    .index-card {
+        left: 100px;
+        width:40%;
+        height: 12%;
+        display : inline-block;
+        background-color: #899;
+        font-size: 15px;
+        color: #fff;
+        margin: 10px;
+        padding: 10px;
+    }
+    .card-panel-left .index-card {
+        transform: rotateY(180deg);
+    }
+
+
+ 
+
+
+
+    /* ---//---- */
+
+    .index-background {
+        background-color: rgb(0 0 0 / 0%);
+    }
+    .card-panel {
+        background-color: rgb(0 0 0 / 0%);
+    }
+    .index-card {
+        border-radius: 10px;
+        background-color:  rgba(37, 135, 69, 0.73);
+        backdrop-filter: blur(100px);
+    }
+    .index-card-1 {
+        background-color:  rgba(37, 135, 69, 0.73);
+    }
+    .index-card-2 {
+        background-color:  rgba(165, 75, 120, 0.73);
+    }

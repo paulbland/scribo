@@ -10,27 +10,34 @@
     "dev": "nodemon app.js",
     "build": "webpack --config webpack.prod.js",
     "test": "mocha",
-    "coverage": "nyc npm run test"
+    "coverage": "nyc npm run test",
+    "start-react": "webpack serve --mode development --config ./client-react/webpack.config.js",
+    "build-react": "webpack --mode production --config ./client-react/webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-react": "^7.24.1",
     "backbone": "^1.6.0",
     "basic-auth": "^1.1.0",
     "chai": "^4.3.6",
     "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-jwt": "^8.4.1",
     "handlebars": "^4.7.8",
     "heroku-ssl-redirect": "0.0.4",
+    "html-webpack-plugin": "^5.6.0",
     "jquery": "3.7.1",
     "mocha": "^10.0.0",
     "mongoose": "^6.12.8",
     "normalize.css": "^8.0.1",
     "nyc": "^15.1.0",
     "openai": "^4.47.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "serve-favicon": "^2.5.0",
     "sortablejs": "^1.15.2",
     "underscore": "^1.13.4"
@@ -58,8 +65,9 @@
     "sass": "^1.53.0",
     "sass-loader": "^13.0.1",
     "style-loader": "^3.3.1",
-    "webpack": "^5.76.0",
-    "webpack-cli": "^4.10.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.8.0"
   }
 }
