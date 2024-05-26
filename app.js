@@ -13,12 +13,7 @@ app.use(sslRedirect());
 app.use(favicon(path.join(__dirname, '/client/dist/img/favicon.ico')));
 app.use(cors());
 
-mongoose.set('strictQuery', false);
-var promise = mongoose.connect(process.env.PROD_MONGODB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-mongoose.Promise = global.Promise;
+mongoose.connect(process.env.PROD_MONGODB);
 
 app.use(compression()); // GZIP
 app.use(express.urlencoded({ extended: true }));
@@ -30,7 +25,6 @@ app.set('views', path.join(__dirname, '/api/views'));
 app.use(express.static(path.join(__dirname, '/client/dist'))); // public directory for assets (css/js/img)
 
 app.get('/', /* basicAuth, */ (req, res) => res.render('index'));
-app.get('/index-new', (req, res) => res.render('index-new'));
 app.get('/app', (req, res) => res.render('app'));
 app.get('/privacy', (req, res) => res.render('privacy'));
 app.get('/terms', (req, res) => res.render('terms'));
@@ -39,6 +33,4 @@ app.get('/terms', (req, res) => res.render('terms'));
 app.use('/api', router);
 
 var port = process.env.PORT || 8080; // Port set by Heroku
-app.listen(port, function() {
-    console.log('Scribo is running on http://localhost:' + port);
-});
+app.listen(port, () => console.log('Scrībō is running on http://localhost:' + port));
