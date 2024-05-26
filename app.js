@@ -8,10 +8,15 @@ var sslRedirect = require('heroku-ssl-redirect');
 var app 		= express();
 var path 		= require('path');
 var cors        = require('cors');
+var helmet      = require('helmet');
 
 app.use(sslRedirect()); 
+app.use(helmet());
 app.use(favicon(path.join(__dirname, '/client/dist/img/favicon.ico')));
-app.use(cors());
+
+if (process.env.NODE_ENV !== 'production') {
+    app.use(cors());
+}
 
 mongoose.connect(process.env.PROD_MONGODB);
 
