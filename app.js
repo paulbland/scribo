@@ -11,7 +11,7 @@ var cors        = require('cors');
 var helmet      = require('helmet');
 
 app.use(sslRedirect()); 
-app.use(helmet());
+app.use(helmet({contentSecurityPolicy: false}));
 app.use(favicon(path.join(__dirname, '/client/dist/img/favicon.ico')));
 
 if (process.env.NODE_ENV !== 'production') {
