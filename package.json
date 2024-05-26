@@ -4,6 +4,9 @@
   "description": "The index card app for screenwriters",
   "main": "app.js",
   "private": true,
+  "engines": {
+    "node": "^20"
+  },
   "scripts": {
     "prestart": "del-cli client/dist -f",
     "start": "webpack --config webpack.dev.js",
