@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Cards from './Cards';
-import Nav from './Nav';
+import Cards from './components/Cards/Cards';
+import Nav from './components/Nav/Nav';
 
 const App = () => {
 
