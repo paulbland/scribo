@@ -5,26 +5,16 @@ var UserPrefs   = require('./models/userprefs');
 var OpenAI      = require('openai');
 var router      = express.Router(); 
 
-
-// Set up JST on all router
+// Set up JST on all routes
 router.use(jwt({
     secret: Buffer.from(process.env.AUTH_CLIENT_SECRET, 'base64'),
     audience: process.env.AUTH_CLIENT_ID,
     algorithms: ['HS256']
 }));
 
-
-// middleware to use for all requests
-router.use(function(req, res, next) {
-   // console.log('Something is happening.');
-    next(); // make sure we go to the next routes and don't stop here
-});
-
-
 router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
-
 
 router.route('/cards')
 
