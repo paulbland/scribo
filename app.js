@@ -4,7 +4,6 @@ var compression = require('compression');
 var router 		= require('./api/router');
 var favicon 	= require('serve-favicon');
 var sslRedirect = require('heroku-ssl-redirect');
-// var basicAuth = require('./api/auth');
 var app 		= express();
 var path 		= require('path');
 var cors        = require('cors');
@@ -29,7 +28,7 @@ app.set('views', path.join(__dirname, '/api/views'));
 
 app.use(express.static(path.join(__dirname, '/client/dist'))); // public directory for assets (css/js/img)
 
-app.get('/', /* basicAuth, */ (req, res) => res.render('index'));
+app.get('/', (req, res) => res.render('index'));
 app.get('/app', (req, res) => res.render('app'));
 app.get('/privacy', (req, res) => res.render('privacy'));
 app.get('/terms', (req, res) => res.render('terms'));
