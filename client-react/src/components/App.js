@@ -16,8 +16,8 @@ const App = () => {
           })
           const data = await response.json();
           setCards(data);
-        } catch (error) {
-          console.error(error);
+        } catch (err) {
+          // console.error(err);
         }
       };
       getCards();

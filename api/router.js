@@ -45,7 +45,7 @@ router.route('/cards')
             await card.save();
             res.json(card);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
 
         // paul did this. this sused to return a message. now returns 
@@ -74,7 +74,7 @@ router.route('/cards')
                 });
             res.json(cards);
         } catch (err) {
-            res.send(err)
+            // res.send(err)
         }
     });
 
@@ -86,7 +86,7 @@ router.route('/cards/:card_id')
             const card = await Card.findById(req.params.card_id);
             res.json(card);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     })
 
@@ -105,10 +105,10 @@ router.route('/cards/:card_id')
                 await card.save(); // save the card
                 res.json({ message: 'Card updated!' });
             } catch (err) {
-                res.send(err);
+                // res.send(err);
             }
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     })
     .delete(async(req, res) => {
@@ -118,7 +118,7 @@ router.route('/cards/:card_id')
             });
             res.json({ message: 'Successfully deleted' });
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     });
 
@@ -137,7 +137,7 @@ router.route('/userprefs')
             await userPrefs.save();
             res.json(userPrefs);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     })
     .get(async (req, res) => {
@@ -148,7 +148,7 @@ router.route('/userprefs')
                 .limit(1);
             res.json(cards);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     });
 
@@ -160,7 +160,7 @@ router.route('/userprefs/:userprefs_id')
             const userprefs = await UserPrefs.findById(req.params.userprefs_id);
             res.json(userprefs);
         } catch (err) {
-             res.send(err);
+            // res.send(err);
         }
     })
     .put(async(req, res) => {
@@ -180,10 +180,10 @@ router.route('/userprefs/:userprefs_id')
                 await userprefs.save();
                 res.json({ message: 'userprefs updated!' });
             } catch (err) {
-                res.send(err);
+                // res.send(err);
             }
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     });
  
