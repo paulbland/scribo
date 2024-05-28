@@ -1,0 +1,110 @@
+nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	transition: width 150ms linear;
+	width: 40px;
+	height: 100%; 
+	background: #292929;
+	color: white;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
+	font-size: 17px;
+
+	body.nav-open & {
+		width: 300px;
+	}
+	
+	/* just log out for now */
+	a {
+		color: white;
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&.feedback {
+			text-decoration: underline;
+		}
+	}
+
+	a.toggle {
+		display: block;
+		text-decoration: none;
+
+		&:before {
+			content:'\2630'; 
+			font-size: 26px;
+			color: white;
+			margin: 15px 0;
+			display: block;
+			cursor: pointer;
+			text-align: center;
+
+			body.nav-open & {
+				content: '\2192';
+				margin: 10px 0 0 10px;
+				text-align: left;
+			}
+		}
+	}
+
+	.nav-content {
+		display: none;
+		padding: 10px;
+
+		strong {
+			font-weight: 700;
+		}
+
+		body.nav-open & {
+			display: block;
+		}
+
+		.profile-pic {
+			width: 50px;
+		}
+	}
+
+	form {
+		fieldset {
+			legend {
+				font-weight: 700;
+				margin: 0 0 3px;
+			}
+			label {
+				display: block;
+				margin: 0 0 3px;
+				cursor: pointer;
+				input {
+					margin: 0 5px 0 0;
+				}
+			}
+		}
+	}	
+	
+	em {
+		font-style: italic;
+		font-size: 14px;
+	}
+    
+    .nav-logo {
+        @extend %font-3;
+        position: fixed;
+        bottom: -5px;
+        right: 7px;
+        font-size: 50px;
+        color: $classic-color-1; 
+        opacity: 0.3;
+        z-index: -1;
+        letter-spacing: 0;
+
+        span {
+            display: none;
+
+            body.nav-open & {
+                display: inline;
+            }
+        }
+    }	
+} 

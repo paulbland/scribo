@@ -1,0 +1,65 @@
+/* copied to index.css for index page */
+html, body.home {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body.home {
+    font-family: 'Urbana', sans-serif;
+    background-color: #2a262b;
+    background-image: url('http://localhost:5006/img/scribo-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 12% 8%;
+    box-sizing: border-box;
+
+    h1 {
+        background-image: url('http://localhost:5006/img/scribo-logo.svg');
+        /* width: 335px; - CALCUALTED */
+        height: 85px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+        margin: 0 0 0.6em;
+    }
+
+    p {
+       font-size: 28px;
+        margin: 0 0 2em;
+    }
+
+    small {
+        position: absolute; 
+        bottom: 12%;
+        left: 8%;
+        font-size: 15px;
+        span {
+           @extend %font-3;
+           font-size: 16px;
+           color: #dad292;
+        }
+        a {
+            text-decoration: none;
+            color: #55c1e0; /*#00aee0;*/
+        }
+        a[href^="mailto"] {
+            text-decoration: underline;
+        }
+    }
+
+    a.login {
+        display: inline-block;
+        border: 1px solid white;
+        padding: 3px 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+
+        &:hover {
+            color: #feef70;
+            border-color: #feef70;
+        }
+    }
+    
+}

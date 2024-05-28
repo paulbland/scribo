@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cards from './components/Cards/Cards';
 import Nav from './components/Nav/Nav';
+import './App.scss';
 
 const App = () => {
 

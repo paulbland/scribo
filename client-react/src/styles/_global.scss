@@ -1,0 +1,30 @@
+$classic-color-1: #feef70; 
+$classic-color-2: #a6c9dd; 
+$classic-color-3: #b1dab8; 
+$classic-color-4: #f6cdd5; 
+$classic-color-5: #f17e61; 
+
+$modern-color-1: #fac123;
+$modern-color-2: #448ccb;
+$modern-color-3: #3cb878;
+$modern-color-4: #eb4c4c;
+$modern-color-5: #f68e56;
+
+$bright-color-1-from:  #F8a613;
+$bright-color-1-to:    #e0d82c; /* orig: #fff631; */ 
+$bright-color-2-from:  #1558a0;
+$bright-color-2-to:    #51daff;
+$bright-color-3-from:  #1b8b3f;
+$bright-color-3-to:    #1cf363;
+$bright-color-4-from:  #c12a0b;
+$bright-color-4-to:    #ff5040;
+$bright-color-5-from:  #f06110;
+$bright-color-5-to:    #ff9922;
+
+$bright-color-1: linear-gradient(25deg, $bright-color-1-from 0%, $bright-color-1-to 100%);
+$bright-color-2: linear-gradient(25deg, $bright-color-2-from 0%, $bright-color-2-to 100%);
+$bright-color-3: linear-gradient(25deg, $bright-color-3-from 0%, $bright-color-3-to 100%);
+$bright-color-4: linear-gradient(25deg, $bright-color-4-from 0%, $bright-color-4-to 100%);
+$bright-color-5: linear-gradient(25deg, $bright-color-5-from 0%, $bright-color-5-to 100%);
+
+$accent-color: $classic-color-1;
