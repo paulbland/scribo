@@ -27,7 +27,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/api/views'));
 
 app.use(express.static(path.join(__dirname, '/client/dist'))); // public directory for assets (css/js/img)
-app.use(express.static(path.join(__dirname, '/client-react/public'))); 
 
 app.get('/', (req, res) => res.render('index'));
 app.get('/app', (req, res) => res.render('app'));
