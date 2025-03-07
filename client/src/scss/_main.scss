@@ -1,3 +1,6 @@
+@use 'global' as *;
+@use 'fonts' as *;
+
 html { 
 	height: 100%;
 }
@@ -72,8 +75,6 @@ a.suggest-card {
 		font-size: 40px;
 	}
 }
-
-
 
 .status {
 	position: fixed;

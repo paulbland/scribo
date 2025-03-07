@@ -28,7 +28,17 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                          implementation: require('sass'), // Ensures Dart Sass is used
+                          sassOptions: {
+                            quietDeps: true, // Suppresses deprecation warnings from dependencies
+                          },
+                        },
+                      }
+                ],
             }
         ]
     },
