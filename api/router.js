@@ -5,26 +5,16 @@ var UserPrefs   = require('./models/userprefs');
 var OpenAI      = require('openai');
 var router      = express.Router(); 
 
-
-// Set up JST on all router
+// Set up JST on all routes
 router.use(jwt({
     secret: Buffer.from(process.env.AUTH_CLIENT_SECRET, 'base64'),
     audience: process.env.AUTH_CLIENT_ID,
     algorithms: ['HS256']
 }));
 
-
-// middleware to use for all requests
-router.use(function(req, res, next) {
-   // console.log('Something is happening.');
-    next(); // make sure we go to the next routes and don't stop here
-});
-
-
 router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
-
 
 router.route('/cards')
 
@@ -45,7 +35,7 @@ router.route('/cards')
             await card.save();
             res.json(card);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
 
         // paul did this. this sused to return a message. now returns 
@@ -74,7 +64,7 @@ router.route('/cards')
                 });
             res.json(cards);
         } catch (err) {
-            res.send(err)
+            // res.send(err)
         }
     });
 
@@ -86,7 +76,7 @@ router.route('/cards/:card_id')
             const card = await Card.findById(req.params.card_id);
             res.json(card);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     })
 
@@ -105,10 +95,10 @@ router.route('/cards/:card_id')
                 await card.save(); // save the card
                 res.json({ message: 'Card updated!' });
             } catch (err) {
-                res.send(err);
+                // res.send(err);
             }
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     })
     .delete(async(req, res) => {
@@ -118,7 +108,7 @@ router.route('/cards/:card_id')
             });
             res.json({ message: 'Successfully deleted' });
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     });
 
@@ -137,7 +127,7 @@ router.route('/userprefs')
             await userPrefs.save();
             res.json(userPrefs);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     })
     .get(async (req, res) => {
@@ -148,7 +138,7 @@ router.route('/userprefs')
                 .limit(1);
             res.json(cards);
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     });
 
@@ -160,7 +150,7 @@ router.route('/userprefs/:userprefs_id')
             const userprefs = await UserPrefs.findById(req.params.userprefs_id);
             res.json(userprefs);
         } catch (err) {
-             res.send(err);
+            // res.send(err);
         }
     })
     .put(async(req, res) => {
@@ -180,10 +170,10 @@ router.route('/userprefs/:userprefs_id')
                 await userprefs.save();
                 res.json({ message: 'userprefs updated!' });
             } catch (err) {
-                res.send(err);
+                // res.send(err);
             }
         } catch (err) {
-            res.send(err);
+            // res.send(err);
         }
     });
  
